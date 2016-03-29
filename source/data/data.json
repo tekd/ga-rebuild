@@ -1,0 +1,9 @@
+{
+  "data": [
+    {
+        "id" : "__0",
+        "title" : "Test datum",
+        "example" : "value"
+    }
+  ]
+}
