@@ -1,5 +1,5 @@
-{% extends "_base.html" %}
-{% block content %}
+{% extends '_base.html' %}
+{% block main %}
 
 <div id="about-page" class="b-content-page">
   <div class="b-page-title">
@@ -26,7 +26,7 @@
         <h2>The GovLab</h2>
       </div>
       <div class="large-6 column">
-        <div class="govlab-logo"><a href="http://thegovlab.org/" target="_blank"><img src="./static/img/govlab-logo.png" alt="The GovLab"></a></div>
+        <div class="govlab-logo"><a href="http://thegovlab.org/" target="_blank"><img src="../img/govlab-logo.png" alt="The GovLab"></a></div>
       </div>
       <div class="large-6 column">
         <p>The GovLab is an action-research center with a mission to improve people’s lives by changing the way we govern. We aim to accomplish this by leveraging advances in technology to enable more open, collaborative, effective, and legitimate ways to make better decisions and solve public problems.</p>
@@ -45,17 +45,18 @@
         <p><a href="http://www.macfound.org/programs/digital-badges/" target="_blank">More about digital badges and micro-credentials.</a></p>
       </div>
       <div class="column large-5">
-        <img src="./static/img/standard-badge.png" alt="The GovLab Academy Badge System">
+        <img src="../img/standard-badge.png" alt="The GovLab Academy Badge System">
       </div>
     </div>
   </section>
-  
+
   <section id="team-cards" class="b-team-dashboard">
     <div class="row b-content-section">
       <h2 class="column large-12">Faculty Members</h2>
       <h4 class="b-twitter-list-link"><a class="e-button" href="https://twitter.com/TheGovLab/lists/govlab-academy-faculty" target="_blank">Follow Our Faculty on Twitter <i class="fa fa-twitter"></i></a></h4>
       <div class="b-card-isotopes column large-12">
-        <div class="b-card-wrapper">
+        <h3>[INSERT FACULTY CARDS]</h3>
+        {# <div class="b-card-wrapper">
           {% for person in people %}              
             {% if people|selectattr("fullName", "equalto", person.fullName)|first|isEmpty %}
               {{name|debug}}
@@ -64,11 +65,15 @@
               {{ showPerson(people|selectattr("fullName", "equalto", person.fullName)|first, "arnaud-class") }}
             {% endif %}
           {% endfor %}
-        </div>
+        </div> #}
       </div>
     </div>
-  </section>
-</div> 
-</div>
-{% endblock %}
+    </section>
 
+
+
+</div>
+
+
+
+{% endblock %}
