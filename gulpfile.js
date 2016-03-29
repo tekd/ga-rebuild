@@ -125,6 +125,27 @@ gulp.task('nunjucks', ['generateTemplates'], function() {
     // if no id is found, return a default dataset
     return defaultData;
   }))
+  .pipe(data(function() {
+    return require('./source/data/cards.json');
+  }))
+  .pipe(data(function() {
+    return require('./source/data/clinics.json');
+  }))
+  .pipe(data(function() {
+    return require('./source/data/coaching.json');
+  }))
+  .pipe(data(function() {
+    return require('./source/data/library.json');
+  }))
+  .pipe(data(function() {
+    return require('./source/data/people.json');
+  }))
+  .pipe(data(function() {
+    return require('./source/data/project-gallery.json');
+  }))
+  .pipe(data(function() {
+    return require('./source/data/workshops.json');
+  }))
   .pipe(nunjucksRender(options))
   .pipe(gulp.dest('public'));
 });
