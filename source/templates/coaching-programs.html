@@ -1,24 +1,11 @@
-{% extends "_base.html" %}
-{% block content %}
+{% extends '_base.html' %}
+{% block main %}
 
 <div id="project-coaching-page" class="b-content-page">
-	<div class="b-page-title m-project-coaching">
+    <div class="b-page-title m-project-coaching">
     <div class="row">
       <div class="column large-12">
-        <h2>Coaching Programs!!!!!!!!</h2>
-    
-<!-- TESTING DATA -->
-<div class="testing-data">
-DEENNNNNNEYYYYYY
-{{data[0]}}
-
-{% for course in coaching %}
-<p>{{course.name}}</p>
-{% endfor %}
-</div>
-<!-- END TESTING DATA -->
-
-
+        <h2>Coaching Programs</h2>
         <p>Geared to the purpose-driven participant inside and outside of government  (both individuals and teams) passionate about a public problem and already undertaking a project, these programs are designed to help participants develop a project from idea to implementation.</p>
       </div>
     </div>
@@ -39,9 +26,9 @@ DEENNNNNNEYYYYYY
     <section class="b-course-info column large-6">
       <h2>Program Info</h2>
       <ul>
-        <li><strong>WHO</strong>Civic entrepreneurs with an identified project on a specific civic tech theme. Maximum of 10 individuals and/or teams per program. By application only</li>
+        <li><strong>WHO</strong>Public entrepreneurs with an identified project on a specific civic tech theme. Maximum of 12 individuals and/or teams per program. By application only</li>
         <li><strong>WHAT</strong>A blend of group sessions, peer to peer coaching, expert mentoring and private "office hours" with Academy faculty</li>
-        <li><strong>WHEN</strong>Every week (for 4 weeks) or every other week (for 8 weeks)</li>
+        <li><strong>WHEN</strong>Every week (for 4-5 weeks) or every other week (for 8-10 weeks)</li>
         <li><strong>WHERE</strong>Online</li>
       </ul>
       <a href="./coaching-programs.html#faqs" class="e-button">FAQs</a>
@@ -50,147 +37,88 @@ DEENNNNNNEYYYYYY
   <section class="b-course-graph row b-content-section">
     <div class="column large-12">
       <h2>Coaching Program Timeline</h2>
-      <h1>DENNY</h1>
     </div>
     <div class="column large-12">
       <img src="../img/coaching-diagram2.png" alt="Coaching program Lifecycle">
     </div>
   </section>
 
-
-
-  <section class="b-course-list b-upcoming-courses row b-content-section">
-    <ul class="column large-12">
-      {% for course in coaching|sort(attribute='start_date',reverse=False) %}
-        {% if course.is_active and not course.outdated %}
-          <li class="b-course-list-item m-coaching">
-            {% if course.date %}
-              <h4 class="e-course-date" data-date="{{course.start_date}}"><span>Starts the week of: </span>{{course.date.week_start}}</h4>
-            {% endif %}
-
-            <h3 class="e-course-name">{{course.name}}</h3>
-
-            <div class="e-certifications">
-              {% if course.certificates.blended %}
-                <img src="./static/img/icons/icons-blended.png" title="Blended Course" class="e-course-icons m-blended">
-              {% endif %}
-
-              {% if course.certificates.online %}
-                <img src="./static/img/icons/icons-online.png" title="Online Course" class="e-course-icons m-online">
-              {% endif %}
-
-              {% if course.certificates.in_person %}
-                <img src="./static/img/icons/icons-in-person.png" title="In Person Course" class="e-course-icons m-in-person">
-              {% endif %}
-
-              {% if course.certificates.for_certificate %}
-                <a href="./about.html#badges"><img src="./static/img/icons/icons-certification.png" title="For Certification Course" class="e-course-icons m-certification"></a>
-              {% endif %}
-
-              {% if course.certificates.for_credit %}
-                <img src="./static/img/icons/icons-credit.png" title="For Credit Course" class="e-course-icons m-credit">
-              {% endif %}
-            </div>
-
-            <div class="e-course-description">
-              <p>{{course.description_short}}</p>
-            </div>
-
-            <h4 class="e-course-application"><span>Application due: </span> {{course.date.application}}</h4>
-
-            {% if course.faculty_members %}
-              <div class="e-course-faculty">
-                {% for name in course.faculty_members %}
-                  {% if people|selectattr("fullName", "equalto", name)|first|isEmpty %}
-                    {{("!!!! ERROR !!!!!: person cannot be found: " + name) |debug}}
-                  {% else %}
-                    {{ showPerson(people|selectattr("fullName", "equalto", name)|first, "m-mini-card") }}
-                  {% endif %}
-                {% endfor %}
-              </div>
-            {% endif %}
-
-            {% if course.actions %}
-              <div class="e-course-controls">
-                {% for button in course.actions %}
-                  <a class="e-button" href="{{button.link}}">{{button.label}}</a>
-                {% endfor %}
-              </div>
-            {% endif %}
-          </li>
+<!-- NEED TO SORT COACHING PROGRAMS BY DATE -->
+<!-- NEED TO DEFINE START 'DATE' AND 'OUTDATED' -->
+    {% for course in coaching %}
+      {% if course.is_active and not course.outdated %}
+        {% if course.date %}
+        <h4><span>Starts the week of </span>{{course.date.start}}</h4> 
         {% endif %}
-      {% endfor %}
-    </ul>
-  </section>
-
-  <section class="b-course-list b-past-courses row b-content-section">
-    <div class="column large-12">
-      <h3>Past Courses</h3>
-    </div>
-
-    <ul class="column large-12">
-      {% for course in coaching|sort(attribute='start_date',reverse=True) %}
-        {% if course.is_active and course.outdated %}
-          <li class="b-course-list-item m-coaching">
-            {% if course.date %}
-              <h4 class="e-course-date" data-date="{{course.start_date}}"><span>Started the week of: </span>{{course.date.week_start}}</h4>
-            {% endif %}
-
-            <h3 class="e-course-name">{{course.name}}</h3>
-
-            <div class="e-certifications">
-              {% if course.certificates.blended %}
-                <img src="./static/img/icons/icons-blended.png" title="Blended Course" class="e-course-icons m-blended">
-              {% endif %}
-
-              {% if course.certificates.online %}
-                <img src="./static/img/icons/icons-online.png" title="Online Course" class="e-course-icons m-online">
-              {% endif %}
-
-              {% if course.certificates.in_person %}
-                <img src="./static/img/icons/icons-in-person.png" title="In Person Course" class="e-course-icons m-in-person">
-              {% endif %}
-
-              {% if course.certificates.for_certificate %}
-                <a href="./about.html#badges"><img src="./static/img/icons/icons-certification.png" title="For Certification Course" class="e-course-icons m-certification"></a>
-              {% endif %}
-
-              {% if course.certificates.for_credit %}
-                <img src="./static/img/icons/icons-credit.png" title="For Credit Course" class="e-course-icons m-credit">
-              {% endif %}
-            </div>
-
-            <div class="e-course-description">
-              <p>{{course.description_short}}</p>
-            </div>
-
-            {% if course.faculty_members %}
-              <div class="e-course-faculty">
-                {% for name in course.faculty_members %}
-                  {% if people|selectattr("fullName", "equalto", name)|first|isEmpty %}
-                    {{("!!!! ERROR !!!!!: person cannot be found: " + name) |debug}}
-                  {% else %}
-                    {{ showPerson(people|selectattr("fullName", "equalto", name)|first, "m-mini-card") }}
-                  {% endif %}
-                {% endfor %}
-              </div>
-            {% endif %}
-
-            {% if course.actions %}
-              <div class="e-course-controls">
-                {% for button in course.actions %}
-                  <a class="e-button" href="{{button.link}}">{{button.label}}</a>
-                {% endfor %}
-              </div>
-            {% endif %}
-          </li>
-        {% endif %}
-      {% endfor %}
-    </ul>
-  </section>
 
 
-	<section id="faqs" class="b-faqs m-active ">
+        <h3 class="e-course-name">{{course.name}}</h3>
+
+<!-- BEGIN CERTIFICATIONS -->
+        <div class="e-certifications">
+          {% if course.certificates.blended %}
+            <img src="../img/icons/icons-blended.png" title="Blended Course" class="e-course-icons m-blended">
+          {% endif %}
+
+          {% if course.certificates.online %}
+            <img src="../img/icons/icons-online.png" title="Online Course" class="e-course-icons m-online">
+          {% endif %}
+
+          {% if course.certificates.in_person %}
+            <img src="../img/icons/icons-in-person.png" title="In Person Course" class="e-course-icons m-in-person">
+          {% endif %}
+
+          {% if course.certificates.for_certificate %}
+            <a href="./about.html#badges"><img src="../img/icons/icons-certification.png" title="For Certification Course" class="e-course-icons m-certification"></a>
+          {% endif %}
+
+          {% if course.certificates.for_credit %}
+            <img src="../img/icons/icons-credit.png" title="For Credit Course" class="e-course-icons m-credit">
+          {% endif %}
+        </div>
+<!-- END CERTIFICATIONS -->
+      
+      <div class="e-course-description">
+        <p>{{course.description_short}}</p>
+      </div>
+
+      <h4 class="e-course-application"><span>Application due: </span> {{course.date.application}}</h4>
+
+
+<!-- BEGIN FACULTY : CONVERT MACRO INTO SOMETHING WE CAN USE HERE-->
+     {% if course.faculty_members %}
+      <div class="e-course-faculty">
+        {% for name in course.faculty_members %}
+          <p>{{name}}</p>
+        {% endfor %}
+      </div>
+     {% endif %}
+<!-- END FACULTY -->
+
+DENNY!!
+
+<!-- BEGIN COURSE ACTIONS and GET RID OF DEPENDENCY ON THE ACTION.LINK TO GET THE APPROPRIATE PAGE STYLE BUTTON AND MAKE SURE PAGES BEING RENDERED HAVE THE PROPER URL-->
+  {% if course.actions %}
+    {% for button in course.actions %}
+      <a class="e-button" href="{{button.link}}">{{button.label}}</a>
+    {% endfor %}
+  {% endif %}
+<!-- END COURSE ACTIONS -->
+
+
+<!-- BEGIN PAST COURSES: SAME AS ABOVE BUT FOR DIFFERENT DATE FILTER-->
+<!-- END PAST COURSES -->
+
+      {% endif %}
+    {% endfor %}
+
+
+
+
+
+
+
+<section id="faqs" class="b-faqs m-active ">
     <div class="row b-content-section">
       <div class="column large-12">
         <h2 class="e-faq-trigger">FAQs</h2>
@@ -261,7 +189,8 @@ DEENNNNNNEYYYYYY
                 <th class="e-start-col">Starts the week of</th>
               </thead>
               <tbody>
-                {% for course in coaching|sort(attribute='start_date',reverse=False) %}
+              <!-- ADD FILTER TO  SORT COURSES BY DATE - DEFINE START DATE -->
+                {% for course in coaching %}
                 <tr>
                   <td class="e-name-col">{{course.name}}</td>
                   <td class="e-application-col">{{course.date.application}}</td>
@@ -314,12 +243,15 @@ DEENNNNNNEYYYYYY
     </div>
   </section>
 
-	<section id="contact-message" class="row b-content-section">
+    <section id="contact-message" class="row b-content-section">
     <div class="column large-12">
       <h4>Still hungry for more information?</h4>
       <p>Send us an email at <a href="mailto:info-academy@thegovlab.org">info-academy@thegovlab.org</a></p>
     </div>
   </section>
-	</div>
+    </div>
 
 {% endblock %}
+
+
+

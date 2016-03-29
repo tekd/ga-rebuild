@@ -1,13 +1,36 @@
 {% extends '_base.html' %}
 {% block main %}
-<h1>Content from index file</h1>
-
 <div class="testing-data">
 DEENNNNNNEYYYYYY
 
+
+<p>dates in order</p>
+
+{% for course in coaching|sort(attribute='date',reverse=True) %}
+    <p>{{course.date.start}}</p>
+{% endfor %}
+<hr>
+
 <h2>COACHING.JSON</h2>
-{% for course in coaching %}
-<p>{{course.name}}</p>
+{% for course in coaching|sort(attribute='start_date',reverse=False) %}
+
+<h3>Course Name: {{course.name}}</h3>
+<p>Duration: {{course.duration}}</p>
+<p>Start Date: {{course.date.start}} Week Start: {{course.date.week_start}} End : {{course.date.end}} Application: {{course.date.application}}</p>
+<p>Passion: {{course.passion}}</p>
+<p>Bullets: {{course.passion.bullets}}</p> <!-- Loop through -->
+<p>Desc Short: {{course.description_short}}</p>
+<p>Desc Long: {{course.description_long}}</p> 
+<p>Prereqs: {{course.prerequisities}}</p> <!-- Loop through -->
+<p>Faculty Members: {{course.faculty_members}}</p><!--  Loop through -->
+<p>Action label: {{course.actions.label}} Action link: {{course.actions.link}}</p>
+<p>When: {{course.when}}</p>
+<p>Format: {{course.format}}</p>
+
+
+
+
+
 {% endfor %}
 </div>
 
