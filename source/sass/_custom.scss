@@ -1,0 +1,21 @@
+// Workshops styles
+.e-partner:before {
+    content: "In partnership with ";
+}
+
+// ICONS for course page
+.e-course-icons {
+    width: 40px;
+    overflow: hidden;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.e-wrap {
+    @include wrap;
+    color: $white-70;
+    font-size: 14px;
+}
+
+
+
