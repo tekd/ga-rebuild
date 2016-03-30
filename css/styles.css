@@ -6916,6 +6916,19 @@ code.m-negative {
   .sandbox {
     background-color: blue; } }
 
+.e-partner:before {
+  content: "In partnership with "; }
+
+.e-course-icons {
+  width: 40px;
+  overflow: hidden;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.2); }
+
+.e-wrap {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px; }
+
 #team .b-top-nav {
   background-color: #523080; }
 
