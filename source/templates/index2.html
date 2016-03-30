@@ -1,6 +1,17 @@
 {% extends '_base.html' %}
 {% block main %}
 <div class="testing-data">
+
+<h1>WORKSHOPS</h1>
+    {% for course in workshops %}
+
+        <p>{{ course.name }}</p>
+        <p>{{not course.is_crosslisted}}</p>
+    {% endfor  %}
+
+<hr>    
+
+
 DEENNNNNNEYYYYYY
 
 
