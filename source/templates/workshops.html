@@ -1,9 +1,7 @@
 {% extends "_base.html" %}
 {% block main %}
 
-{# STYLE HEADER #}
 <h2>Workshops</h2>
-
 
     <div class="row b-content-section">
         <section class="column large-6">
@@ -22,7 +20,7 @@
         </section>
     </div>  
 
-{# BEGIN WORKSHOPS LIST #}
+<!-- {# BEGIN WORKSHOPS LIST #} -->
 <section class="b-course-list row b-content-section">
     <ul class="column large-12">
     {% for course in workshops %}
@@ -35,7 +33,7 @@
         {% endif %}
                 <h3 class="e-course-name">{{course.name}}</h3>
 
-                {# BEGIN CERTIFICATIONS - NEED TO FORMAT IMAGES#}
+                <!-- {# BEGIN CERTIFICATIONS - NEED TO FORMAT IMAGES#} -->
                 <div class="e-certifications">
                   {% if course.certificates.blended %}
                     <img src="../img/icons/icons-blended.png" title="Blended Course" class="e-course-icons m-blended">
@@ -58,15 +56,15 @@
                   {% endif %}
 
                 </div>
-                {# END CERTIFICATIONS #}
+                <!-- {# END CERTIFICATIONS #} -->
 
-                {# BEGIN COURSE DESCRIPTIONS #}
+                <!-- {# BEGIN COURSE DESCRIPTIONS #} -->
                 <div class="e-course-description">
                   <p>{{course.description_short}}</p>
                 </div>
-                {# END COURSE DESCRIPTIONS #}
+                <!-- {# END COURSE DESCRIPTIONS #} -->
 
-                {# BEGIN FACULTY MEMBERS - INSERT image if faculty member exists, if exists link to page #}
+                <!-- {# BEGIN FACULTY MEMBERS - INSERT image if faculty member exists, if exists link to page #} -->
                 {% if course.faculty_members %}
                     <div class="e-course-faculty">
                     {% for name in course.faculty_members %}              <p>Faculty Member: {{name}}</p>
@@ -78,9 +76,9 @@
                     {% endfor %}
                     </div>
                 {% endif %}
-                {# END FACULTY MEMBERS #}
+                <!-- {# END FACULTY MEMBERS #} -->
 
-                {# BEGIN COURSE ACTIONS #}
+                <!-- {# BEGIN COURSE ACTIONS #} -->
                 {% if course.actions %}
                     <p>COURSE ACTIONS</p>
                     <div class="e-course-controls">
@@ -89,7 +87,7 @@
                     {% endfor %}
                     </div>
                 {% endif %}
-                {# END COURSE ACTIONS #}
+                <!-- {# END COURSE ACTIONS #} -->
 
                 {% if course.partner %}
                     <h5 class="e-partner">{{course.partner}}</h5>
@@ -99,9 +97,5 @@
         {% endfor %}
     </ul>
 </section>
-{# END WORKSHOPS LIST #}
-
-
-
 
 {% endblock %}
