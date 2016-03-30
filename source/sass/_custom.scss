@@ -18,4 +18,47 @@
 }
 
 
+// Nav bar styling
+
+.b-main-menu a {
+    text-align: center;
+}
+
+.b-main-menu ul {
+    list-style: none;
+    text-align: center;
+}
+
+.b-main-nav .e-submenu ul {
+    z-index: -10; 
+    list-style: none;
+}
+
+.e-submenu {
+    position: relative; 
+    text-align: center;
+    li {
+        list-style: none;
+    }
+}
+
+
+  .e-submenu ul .e-sub-item {
+    list-style: none;
+    display: block;
+    border: 0;
+    font-size: 14px;
+    // text-transform: none;
+    text-align: right;
+    color: #6f5d8b;
+    padding: 3px 18px; 
+    // color: rgba(255, 255, 255, 0.7);
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    letter-spacing: 1px; 
+    .a:hover {
+        background-color: rgba(0, 0, 0, 0.1);
+        color: white; 
+  }
+}
 
