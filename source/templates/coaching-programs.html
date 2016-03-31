@@ -95,12 +95,10 @@
      {% endif %}
 <!-- END FACULTY -->
 
-DENNY!!
-
 <!-- BEGIN COURSE ACTIONS and GET RID OF DEPENDENCY ON THE ACTION.LINK TO GET THE APPROPRIATE PAGE STYLE BUTTON AND MAKE SURE PAGES BEING RENDERED HAVE THE PROPER URL-->
   {% if course.actions %}
     {% for button in course.actions %}
-      <a class="e-button" href="{{button.link}}">{{button.label}}</a>
+      <a class="e-button" href="{{course.name | slug + "-detail.html"}}">More Info</a>
     {% endfor %}
   {% endif %}
 <!-- END COURSE ACTIONS -->

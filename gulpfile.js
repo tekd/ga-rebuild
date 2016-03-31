@@ -41,7 +41,7 @@ var options = {
   path: './source/templates/', // base path to templates
   ext: '.html', // extension to use for templates
   generatedPath: '', // relative path to use for generated templates within base path
-  generatedTemplate: './source/templates/_template.html', // source template to use for generated templates
+  generatedTemplate: './source/templates/_coaching-detail-page-template.html', // source template to use for generated templates
   manageEnv: nunjucksEnv // function to manage nunjucks environment
 };
 
@@ -61,7 +61,7 @@ function generateVinyl(_data, basePath, templatePath, filePrefix, fileSuffix) {
     var f = new File({
       cwd: '.',
       base: basePath,
-      path: basePath + filePrefix + _data[d].id + '-' + slugify(_data[d].title) + fileSuffix,
+      path: basePath + filePrefix + _data[d].id + '-' + slugify(_data[d].name) + fileSuffix,
       contents: templatefile
     });
     files.push(f);
@@ -103,6 +103,7 @@ gulp.task('js', function() {
 });
 
 gulp.task('generateTemplates', function() {
+  console.log(generatedData[0]);
   return generateVinyl(generatedData, options.path + options.generatedPath, options.generatedTemplate)
   .pipe(gulp.dest(options.path + options.generatedPath))
 });
