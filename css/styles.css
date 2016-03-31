@@ -6961,8 +6961,132 @@ code.m-negative {
     background-color: rgba(0, 0, 0, 0.1);
     color: white; }
 
+.b-footer {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: rgba(255, 255, 255, 0.8);
+  padding-top: 1px;
+  padding-bottom: 10px;
+  font-size: 16px; }
+  @media screen and (min-width: 64.0625em) {
+    .b-footer {
+      padding: 45px 0; }
+      .b-footer .e-wrap {
+        display: -webkit-flex;
+        display: flex; } }
+  .b-footer .e-content {
+    -webkit-flex: 1;
+    flex: 1;
+    text-align: center; }
+    .b-footer .e-content:nth-child(3n) {
+      margin-right: 0; }
+    @media screen and (min-width: 64.0625em) {
+      .b-footer .e-content {
+        margin-right: 60px; } }
+    .b-footer .e-content h4 {
+      margin: 40px 0 0;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: white; }
+    .b-footer .e-content .e-partner-logo {
+      display: block; }
+      .b-footer .e-content .e-partner-logo > img {
+        max-width: 90%;
+        padding: 10px 0;
+        max-height: 60px;
+        opacity: .5;
+        transition: all .4s ease; }
+        .b-footer .e-content .e-partner-logo > img:hover {
+          opacity: 1;
+          transition: all .4s ease; }
+      .b-footer .e-content .e-partner-logo.m-google img {
+        max-height: 50px;
+        max-width: 70%; }
+      .b-footer .e-content .e-partner-logo.m-mit img {
+        max-height: 70px; }
+  .b-footer .e-content.m-sections a {
+    display: block;
+    box-sizing: border-box;
+    color: rgba(255, 255, 255, 0.7);
+    padding: 5px 10px;
+    text-decoration: none;
+    margin-left: -10px;
+    margin-right: 10px;
+    transition: all .4s ease; }
+    @media screen and (min-width: 64.0625em) {
+      .b-footer .e-content.m-sections a {
+        display: inline-block;
+        width: 49%; } }
+    .b-footer .e-content.m-sections a:hover {
+      color: white;
+      background-color: rgba(255, 255, 255, 0.1);
+      transition: all .4s ease; }
+
+.b-copyright {
+  background-color: rgba(0, 0, 0, 0.9);
+  text-align: center;
+  padding: 20px; }
+  @media screen and (min-width: 64.0625em) {
+    .b-copyright {
+      padding: 20px;
+      text-align: left; } }
+  .b-copyright .e-wrap {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px; }
+    .b-copyright .e-wrap .e-cc-badge {
+      margin-right: 25px;
+      margin-top: 5px;
+      display: block; }
+      @media screen and (min-width: 64.0625em) {
+        .b-copyright .e-wrap .e-cc-badge {
+          float: left; } }
+    .b-copyright .e-wrap a {
+      margin: 0;
+      line-height: 1.2;
+      color: rgba(255, 255, 255, 0.7); }
+      .b-copyright .e-wrap a:hover {
+        color: white; }
+
+.m-project-coaching {
+  background-color: #008895 !important; }
+
+.m-workshops {
+  background-color: #008ab3 !important; }
+
+.m-master-courses {
+  background-color: #ab204a !important; }
+
+.m-normal-courses {
+  background-color: #e3cc26 !important; }
+
+.b-signup {
+  text-align: center;
+  padding: 40px 0;
+  margin-top: -20px;
+  background-color: rgba(0, 0, 0, 0.8); }
+  .b-signup h3 {
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 0; }
+  .b-signup .e-tagline {
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 40px; }
+
+.b-signup.m-digest {
+  background-color: #472b74; }
+
+#digest {
+  padding-top: 40px; }
+
+#demos-for-democracy {
+  background-image: url("../img/demos-democracy-banner.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  margin-bottom: -20px; }
+  #demos-for-democracy div {
+    height: 150px; }
+
 #team .b-top-nav {
-  background-color: #523080; }
+  background-color: #472b74; }
 
 .b-team {
   padding-top: 50px; }
@@ -7041,7 +7165,7 @@ code.m-negative {
       .b-team .e-team-member .e-bio.m-active p {
         display: block; }
       .b-team .e-team-member .e-bio .b-button, .b-team .e-team-member .e-bio .b-form input[type="submit"], .b-form .b-team .e-team-member .e-bio input[type="submit"] {
-        color: #523080; }
+        color: #472b74; }
   .b-team .e-team-picture {
     z-index: 0;
     background-size: cover;
@@ -7063,7 +7187,7 @@ code.m-negative {
 
 .b-project-team {
   padding: 20px 0;
-  background-color: #523080; }
+  background-color: #472b74; }
   .b-project-team h2 {
     color: rgba(255, 255, 255, 0.8);
     font-size: 24px;
