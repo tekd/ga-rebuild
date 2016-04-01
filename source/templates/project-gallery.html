@@ -1,7 +1,7 @@
-{% extends "_base.html" %}
-{% block content %}
-<div class="b-project-gallery-page">
+{% extends '_base.html' %}
+{% block main %}
 
+<div class="b-project-gallery-page">
   <div class="e-landing-section">
    <div class="b-wrap row">
     <div class="b-title">
@@ -11,15 +11,17 @@
     <h3 class="e-tagline">Showcasing Innovative Civic and Governance Projects and their Evolution from Idea to Implementation. Get Inspired. Connect. Collaborate.</h3>
 
     <p class="e-sponsor">
-      With support from <img id="knight-logo" src="./static/img/knight-logo-white.png" alt="Knight Foundation">
+      With support from <img id="knight-logo" src="../img/knight-logo-white.png" alt="Knight Foundation">
     </p>
   </div>
 </div>
+
 <div class="b-project-list">
   <div class="b-wrap row">
     <div class="b-filter-ui">
       <!-- single select -->
       <form action="#" class="b-form">
+
         <div class="e-select medium-6 medium-offset-3">
           <select>
             <option value="*">Select a project category...</option>
@@ -42,50 +44,18 @@
             <option value=".service-design">Service Design</option>
           </select>
         </div>
-      </form>
+    </form>
 
-      <!-- multiple select -->
-<!--       <button class="m-clear-filters" data-filter="*">All</button>
-      <button data-filter=".open-data">Open Data</button>
-      <button data-filter=".open-contracting">Open Contracting</button>
-      <button data-filter=".data-analytics">Data Analytics</button>
-      <button data-filter=".crowdsourcing">Crowdsourcing</button>
-      <button data-filter=".collective-intelligence">Collective Intelligence</button>
-      <button data-filter=".tech-procurement">Tech Procurement</button>
-      <button data-filter=".citizen-engagement">Citizen Engagement</button>
-      <button data-filter=".big-data">Big Data</button>
-      <button data-filter=".agile-research">Agile Research</button>
-      <button data-filter=".citizen-science">Citizen Science</button>
-      <button data-filter=".humanitarian-innovation">Humanitarian Innovation</button>
-      <button data-filter=".nudges">Nudges</button>
-      <button data-filter=".communications">Communications</button>
-      <button data-filter=".legal-innovation">Legal Innovation</button>
-      <button data-filter=".open-source">Open Source</button>
-      <button data-filter=".data-science">Data Science</button>
-      <button data-filter=".service-design">Service Design</button> -->
-    </div>
-    <div class="b-filter">
-    {% for card in projects|sort(attribute='title') %}
-    <div class="column large-4 medium-6 b-filter-item {% for tag in card.tags %}{{tag | replace(' ', '-') | lower}} {% endfor %}">
-      <a href="./project/{{card.title|slug}}.html" class="b-card m-project">
-        <article class="e-card-inner {% if not card.logo %}m-no-logo{% endif %}">
+{# BEGIN PROJECT TILES #}
 
-          <section class="e-card-front" {% if card.logo %}style="background-image: url('./static/img/projects/{{card.logo}}')"{% endif %}>
-            <p class="e-front-title">{% if card.short_title %}{{card.short_title | max(20)}}{% else %}{{card.title | max(20)}}{% endif %}</p>
-          </section>
+{% for project in projects %}
+    <p>{{project.title}}</p>
+{% endfor %}
 
-          <section class="e-card-back">
-            <p class="e-project-title">{{card.title}}</p>
-            <p class="e-tagline">{{card.tagline}}</p>
-          </section>
-
-        </article>
-      </a>
-    </div>
-    {% endfor %}
-    </div>
-  </div>
-</div>
+{# END PROJEC TILES #}
 
 </div>
+
+
+
 {% endblock %}

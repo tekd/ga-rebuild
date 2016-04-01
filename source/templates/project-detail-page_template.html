@@ -1,0 +1,126 @@
+
+{% extends "_base.html" %}
+
+{% block main %}
+
+{% set project = projects[0] %}
+    <section class="b-main-content">
+    
+    <section class="b-single-landing">
+    <div>
+        <h2 class="e-project-name">{{project.title}}</h2>
+        <h3 class="e-question">{{project.tagline}}</h3>
+    </div>
+    <div class="e-wrap row">
+        <div class="e-half">
+        </div>
+        <div class="e-half">
+        </div>
+        <div class="e-progress m-{{project.status}}">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</section>
+<section class="b-single-description">
+    <div class="row">
+        <div class="column large-6">
+        {% if project.background %}
+          <h4>Background</h4>
+          {{project.background}}
+            <br>
+        {% endif %}
+        {% if project.description %}
+            <h4>Description</h4>
+            {{project.description}}
+            <br>
+        {% endif %}
+        {% if project.impact %}
+              <h4>Impact</h4>
+            {{project.impact}}
+            <br>
+        {% endif %}
+        </div>
+
+        <div class="large-6 column">
+            {% if project.location %}
+            <p class="e-place"><strong>Location:</strong> {{project.location}}</p>
+            {% endif %}
+            {% if project.www %}
+            <p><strong>Project Website:</strong> <a href="{{project.www}}" target="_blank" class="e-project-link">{{project.www}}</a></p>
+            {% endif %}
+            <div class="e-social-media">
+                {% if project.twitter %}
+                <a href="http://twitter.com/{{project.twitter | replace('@', '')}}" target="_blank" class=""><i class="fa fa-twitter"></i></a>
+                {% endif %}
+                {% if project.facebook %}
+                <a href="{{project.facebook}}" target="_blank" class=""><i class="fa fa-facebook"></i></a>
+                {% endif %}
+                {% if project.email %}
+                <a href="mailto:{{project.email}}" target="_blank" class=""><i class="fa fa-envelope"></i></a>
+                {% endif %}
+            </div>
+            <div class="e-tags">
+                <h5>Tags:</h5>
+                {% for tag in project.tags %}
+                <a href="../project-gallery.html#{{tag | slug | lower}}" class="e-tag">{{tag}}</a>
+                {% endfor %}
+            </div>
+            {% if project.team %}
+            <div class="e-team">
+                <h4>Team</h4>
+                {% for person in project.team %}
+                    {% if person.url %}
+                        <p><a href="{{person.url}}" target="_blank">{{person.first_name}} {{person.last_name}}</a></p>
+                    {% else %}
+                        <p>{{person.first_name}} {{person.last_name}}</p>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            {% endif %}
+
+            {% if project.partners %}
+            <div class="e-team">
+                <h4>Partners</h4>
+                {% for partner in project.partners %}
+                        <p>{{partner}}</p>
+                {% endfor %}
+            </div>
+            {% endif %}
+
+        </div>
+    </div>
+</section>
+<section class="b-single-description {% if project.images %}m-slider{% endif %}">
+    {% if project.images %}
+    <div class="b-project-slider slick">
+        {% for image in project.images %}
+        <span><img class="e-project-image" src="../img/projects/{{image}}" alt=""></span>
+        {% endfor %}
+    </div>
+    {% endif %}
+</section>
+
+</section>
+  
+
+
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
