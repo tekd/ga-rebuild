@@ -2,45 +2,47 @@
 
 {% block main %}
 
+{% set placeholder_course = data[0]%}
+
 <div id="" class="b-content-page b-detail-page m-coaching">
 	<div class="b-page-title m-project-coaching">
     <div class="row">
       <div class="column large-9">
-        <h2>{{coaching_class.name}} </h2>
+        <h2>{{placeholder_course.name}} </h2>
       </div>
       <ul class="e-certifications column large-3">
-        {% if coaching_class.certificates.blended %}          
+        {% if placeholder_course.certificates.blended %}          
           <li>
           	<span>Blended</span>
-	          <img src="./static/img/icons/icons-blended.png" title="Blended Course" class="e-course-icons m-blended">
+	          <img src="../img/icons/icons-blended.png" title="Blended Course" class="e-course-icons m-blended">
           </li>
         {% endif %}
 
-        {% if coaching_class.certificates.online %}
+        {% if placeholder_course.certificates.online %}
         	<li>
         		<span>Online</span>
-	          <img src="./static/img/icons/icons-online.png" title="Online Course" class="e-course-icons m-online">
+	          <img src="../img/icons/icons-online.png" title="Online Course" class="e-course-icons m-online">
 	        </li>
         {% endif %}
 
-        {% if coaching_class.certificates.in_person %}
+        {% if placeholder_course.certificates.in_person %}
         	<li>
 	        	<span>In Person</span>
-	          <img src="./static/img/icons/icons-in-person.png" title="In Person Course" class="e-course-icons m-in-person">
+	          <img src="../img/icons/icons-in-person.png" title="In Person Course" class="e-course-icons m-in-person">
           </li>
         {% endif %}
 
-        {% if coaching_class.certificates.for_certificate %}
+        {% if placeholder_course.certificates.for_certificate %}
 	        <li>
 		        <span>For Certification</span>
-		        <a href="./about.html#badges"><img src="./static/img/icons/icons-certification.png" title="For Certification Course" class="e-course-icons m-certification"></a>
+		        <a href="./about.html#badges"><img src="../img/icons/icons-certification.png" title="For Certification Course" class="e-course-icons m-certification"></a>
 	        </li>
         {% endif %}
 
-        {% if coaching_class.certificates.for_credit %}
+        {% if placeholder_course.certificates.for_credit %}
         <li>
 	        <span>For Credit</span>
-	        <img src="./static/img/icons/icons-credit.png" title="For Credit Course" class="e-course-icons m-credit">
+	        <img src="../img/icons/icons-credit.png" title="For Credit Course" class="e-course-icons m-credit">
         </li>
         {% endif %}
         
@@ -53,17 +55,17 @@
     	<div class="column large-4">
     		<span><i class="fa fa-calendar fa-lg"></i></span>
       	<h5>Starts the week of </h5>
-      	<h4>{{coaching_class.date.week_start}}</h4>
+      	<h4>{{placeholder_course.date.week_start}}</h4>
       </div>
       <div class="column large-4">
     		<span><i class="fa fa-calendar fa-lg"></i></span>
       	<h5>Course ends on</h5>
-      	<h4>{{coaching_class.date.end}}</h4>
+      	<h4>{{placeholder_course.date.end}}</h4>
       </div>
       <div class="column large-4">
     		<span><i class="fa fa-calendar fa-lg"></i></span>
       	<h5>Application Deadline</h5>
-      	<h4>{{coaching_class.date.application}}</h4>
+      	<h4>{{placeholder_course.date.application}}</h4>
       </div>
     </div>
   </div>
@@ -76,9 +78,9 @@
   </section>
   <div class="row b-content-section">
 		<div class="column large-12">
-			<h3>{{coaching_class.passion.title}}</h3>
+			<h3>{{placeholder_course.passion.title}}</h3>
 			<ul class="b-list">
-				{% for item in coaching_class.passion.bullets %}
+				{% for item in placeholder_course.passion.bullets %}
 					<li>{{item}}</li>
 				{% endfor %}
 			</ul>
@@ -87,27 +89,27 @@
 	<div class="row b-content-section">
 		<div class="column large-12">
 		<h2>Course Description</h2>
-			<p>{{coaching_class.description_long}}</p>
+			<p>{{placeholder_course.description_long}}</p>
 		</div>
 	</div>
   
   <div class="row b-content-section">
     <div class="column large-6">
       <h3>Course Format</h3>
-      <p>{{coaching_class.format}}</p>
+      <p>{{placeholder_course.format}}</p>
       <div class="b-format">
-      {% if coaching_class.when %}
-        <h4>Online sessions will be held <strong>{{coaching_class.when}}</strong></h4>
-        {% if coaching_class.when_plus %}<p><em>{{coaching_class.when_plus}}</em></p>{% endif %}
+      {% if placeholder_course.when %}
+        <h4>Online sessions will be held <strong>{{placeholder_course.when}}</strong></h4>
+        {% if placeholder_course.when_plus %}<p><em>{{placeholder_course.when_plus}}</em></p>{% endif %}
       {% endif %}
-      <h4>Course Duration: {{coaching_class.duration}}</h4>
+      <h4>Course Duration: {{placeholder_course.duration}}</h4>
       </div>
     </div>
 
 		<div class="column large-6">
-      {% if coaching_class.more_info %}
+      {% if placeholder_course.more_info %}
 			<h3>More Information</h3>
-      {% for item in coaching_class.more_info %}
+      {% for item in placeholder_course.more_info %}
 				<p>{{item}}</p>
       {% endfor %}
       <a href="./coaching-programs.html#faqs" class="e-button">FAQs</a>
@@ -119,12 +121,12 @@
 		</div>
 	</div>
 
-  {% if coaching_class.resources %}
+  {% if placeholder_course.resources %}
   <div class="row b-content-section">
     <div class="column large-12">
       <h2>Resources</h2>
     </div>
-    {% for resource in coaching_class.resources %}
+    {% for resource in placeholder_course.resources %}
     <div class="column large-6">
       <h3>{{resource.title}}</h3>
       <ul class="b-list">
@@ -142,13 +144,10 @@
       <h2>Faculty Members</h2>
     </div>
     <div class="column large-12">
-      {% for name in coaching_class.faculty_members %}              
-        {% if people|selectattr("fullName", "equalto", name)|first|isEmpty %}
-          {{("!!!! ERROR !!!!!: person cannot be found: " + name) |debug}}
-        {% else %}
-          {{ showPerson(people|selectattr("fullName", "equalto", name)|first, "") }}
-        {% endif %}
+      {% for name in placeholder_course.faculty_members %}
+        <p>{{name}}<p>
       {% endfor %}
+
     </div>
   </div>
 

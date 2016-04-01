@@ -2,7 +2,9 @@
 {% block main %}
 
 {%for datum in data %}
-  {{datum.id}}
+{% if datum.id == "0"%}
+  {{datum.faculty_members}}
+{% endif %}
 {% endfor %}
 
 
