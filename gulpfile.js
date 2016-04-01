@@ -147,6 +147,9 @@ gulp.task('nunjucks', ['generateTemplates'], function() {
   .pipe(data(function() {
     return require('./source/data/workshops.json');
   }))
+  .pipe(data(function() {
+    return require('./source/data/data.json');
+  }))
   .pipe(nunjucksRender(options))
   .pipe(gulp.dest('public'));
 });
