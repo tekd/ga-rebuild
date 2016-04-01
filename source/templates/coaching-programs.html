@@ -1,6 +1,11 @@
 {% extends '_base.html' %}
 {% block main %}
 
+{%for datum in data %}
+  {{datum.id}}
+{% endfor %}
+
+
 <div id="project-coaching-page" class="b-content-page">
     <div class="b-page-title m-project-coaching">
     <div class="row">
@@ -45,50 +50,50 @@
 
 <!-- NEED TO SORT COACHING PROGRAMS BY DATE -->
 <!-- NEED TO DEFINE START 'DATE' AND 'OUTDATED' -->
-    {% for course in coaching %}
-      {% if course.is_active and not course.outdated %}
-        {% if course.date %}
-        <h4><span>Starts the week of </span>{{course.date.start}}</h4> 
+    {% for datum in data %}
+      {% if datum.is_active and not datum.outdated %}
+        {% if datum.date %}
+        <h4><span>Starts the week of </span>{{datum.date.start}}</h4> 
         {% endif %}
 
 
-        <h3 class="e-course-name">{{course.name}}</h3>
+        <h3 class="e-course-name">{{datum.name}}</h3>
 
 <!-- BEGIN CERTIFICATIONS -->
         <div class="e-certifications">
-          {% if course.certificates.blended %}
+          {% if datum.certificates.blended %}
             <img src="../img/icons/icons-blended.png" title="Blended Course" class="e-course-icons m-blended">
           {% endif %}
 
-          {% if course.certificates.online %}
+          {% if datum.certificates.online %}
             <img src="../img/icons/icons-online.png" title="Online Course" class="e-course-icons m-online">
           {% endif %}
 
-          {% if course.certificates.in_person %}
+          {% if datum.certificates.in_person %}
             <img src="../img/icons/icons-in-person.png" title="In Person Course" class="e-course-icons m-in-person">
           {% endif %}
 
-          {% if course.certificates.for_certificate %}
+          {% if datum.certificates.for_certificate %}
             <a href="./about.html#badges"><img src="../img/icons/icons-certification.png" title="For Certification Course" class="e-course-icons m-certification"></a>
           {% endif %}
 
-          {% if course.certificates.for_credit %}
+          {% if datum.certificates.for_credit %}
             <img src="../img/icons/icons-credit.png" title="For Credit Course" class="e-course-icons m-credit">
           {% endif %}
         </div>
 <!-- END CERTIFICATIONS -->
       
       <div class="e-course-description">
-        <p>{{course.description_short}}</p>
+        <p>{{datum.description_short}}</p>
       </div>
 
-      <h4 class="e-course-application"><span>Application due: </span> {{course.date.application}}</h4>
+      <h4 class="e-course-application"><span>Application due: </span> {{datum.date.application}}</h4>
 
 
 <!-- BEGIN FACULTY : CONVERT MACRO INTO SOMETHING WE CAN USE HERE-->
-     {% if course.faculty_members %}
+     {% if datum.faculty_members %}
       <div class="e-course-faculty">
-        {% for name in course.faculty_members %}
+        {% for name in datum.faculty_members %}
           <p>{{name}}</p>
         {% endfor %}
       </div>
@@ -96,9 +101,9 @@
 <!-- END FACULTY -->
 
 <!-- BEGIN COURSE ACTIONS and GET RID OF DEPENDENCY ON THE ACTION.LINK TO GET THE APPROPRIATE PAGE STYLE BUTTON AND MAKE SURE PAGES BEING RENDERED HAVE THE PROPER URL-->
-  {% if course.actions %}
-    {% for button in course.actions %}
-      <a class="e-button" href="{{course.name | slug + "-detail.html"}}">More Info</a>
+  {% if datum.actions %}
+    {% for button in datum.actions %}
+      <a class="e-button" href="{{datum.id + "-" + datum.name | slug + ".html"}}">More Info</a>
     {% endfor %}
   {% endif %}
 <!-- END COURSE ACTIONS -->
@@ -154,7 +159,7 @@
             <ul class="b-list">
               <li>A problem about which you are passionate.</li>
               <li>An open mind to developing innovative approaches that take advantage of technology to bring the broader palette of human expertise to bear on your problem.</li>
-              <li>Intellectual curiosity and a willingness to experiment are essential for this course. No formal technology training is assumed or required, but a willingness to play with new tools will be.</li>
+              <li>Intellectual curiosity and a willingness to experiment are essential for this datum. No formal technology training is assumed or required, but a willingness to play with new tools will be.</li>
               <li>Time and energy to commit to the program activities.</li>
               <li>The drive to do what it takes to develop a project from idea to implementation with the potential of real-world impact for people and communities. Keep in mind that the way to have the greatest impact might not involve building an app or creating a new non-profit but collaborating with others.</li>
             </ul>
@@ -190,9 +195,9 @@
               <!-- ADD FILTER TO  SORT COURSES BY DATE - DEFINE START DATE -->
                 {% for course in coaching %}
                 <tr>
-                  <td class="e-name-col">{{course.name}}</td>
-                  <td class="e-application-col">{{course.date.application}}</td>
-                  <td class="e-start-col">{{course.date.week_start}}</td>
+                  <td class="e-name-col">{{datum.name}}</td>
+                  <td class="e-application-col">{{datum.date.application}}</td>
+                  <td class="e-start-col">{{datum.date.week_start}}</td>
                 </tr>
                 {% endfor %}
               </tbody>
