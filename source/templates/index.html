@@ -1,129 +1,266 @@
 {% extends '_base.html' %}
+
+
+
 {% block main %}
-<div id="homepage" class="b-content-page">
-  <div id="intro">
+<div class="b-top-section m-purple">
+    <h1 class="e-title">The Gov Lab Academy</h1>
+</div>
+
+
+
+<section id="about-academy">
+  <div class="b-divider m-purple  m-centered">
     <div class="row">
-      <div class="column large-12">
-        <h2>How We Work</h2>
-        <a class="e-canvas-link" href="http://canvas.govlabacademy.org/" target="_blank"><img src="../img/intro-canvas.png" alt=""></a>
-      </div>
-      <div class="column large-12 b-share">
-        <div class="share-button"></div>
-      </div>
+      <div class="column small-12">
+          <p>GovLab Academy offers passionate teams and individuals, inside and outside of government:</p>
+          <ul class="b-list">
+            <li>Access to high-quality, curated content aimed at busy practitioners</li>
+            <li>Mentoring designed to help take public interest projects from idea to implementation</li>
+            <li>Connections to subject matter experts, who know what’s been tried and what does and does not work</li>
+            <li>Tools for peer-to-peer learning and skill sharing</li>
+          </ul>
+        </div>
     </div>
   </div>
+</section>
 
-  <section id="explanation">
-    <div class="row">
-      <div class="column large-12">
-        <p>GovLab Academy offers passionate teams and individuals, inside and outside of government:</p>
-        <ul class="b-list">
-          <li>Access to high-quality, curated content aimed at busy practitioners</li>
-          <li>Mentoring designed to help take public interest projects from idea to implementation</li>
-          <li>Connections to subject matter experts, who know what’s been tried and what does and does not work</li>
-          <li>Tools for peer-to-peer learning and skill sharing</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section class="b-courses-overview">
-    <div class="row">
-      <div class="column-large-12">
-        <h2>The Programs We Offer</h2>
-      </div>
-      <div class="column large-6">
-        <div id="project-coaching" class="b-course-summary m-project-coaching">
-          <h3>Coaching Programs</h3>
-          <p style="letter-spacing: -.2px;">Online coaching sessions for those involved with a civic tech project. Sessions meet every week for 4 weeks or every other week for 8 weeks. Limited to 10 teams or individuals</p>
-          <p class="e-more-info"><a href="./coaching-programs.html">More Information</a></p>
-        </div>
-      </div>
-      <div class="column large-6">
-        <div id="workshops" class="b-course-summary m-workshops">
-          <h3>Workshops</h3>
-          <p>Intensive, online 3 week-long substantive introductions to support teams about to start or already engaged at a specific stage of a civic innovation project.</p>
-          <p class="e-more-info"><a href="./workshops.html">More Information</a></p>
-        </div>
-      </div>
-      <div class="column large-6">
-        <div id="master-courses" class="b-course-summary m-master-courses">
-          <h3>Master Classes</h3>
-          <p>Coming Soon</p>
-        </div>
-      </div>
-      <div class="column large-6">
-        <div id="normal-courses" class="b-course-summary m-normal-courses">
-          <h3>Courses and Project Clinics</h3>
-          <p>Masters - and professional-level project-based courses and clinics focused on the innovative application of civic technology to public problems. Online or blended delivery.</p>
-          <p class="e-more-info"><a href="./regular-courses.html">More Information</a></p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="b-signup">
-    <div class="row">
-    <!-- Begin MailChimp Signup Form -->
-      <div id="mc_embed_signup">
-        <div class="column large-12">
-          <h3>Subscribe to our Mailing List</h3>
-        </div>
-        <div class="column large-12">
-          <form action="//openinggovernment.us6.list-manage.com/subscribe/post?u=1a990feb5c&amp;id=6fa8847675" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-            <div id="mc_embed_signup_scroll">
-              <label for="mce-EMAIL"></label>
-              <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Email Address" required>
-              <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-              <div style="position: absolute; left: -5000px;"><input type="text" name="b_1a990feb5c_6fa8847675" tabindex="-1" value=""></div>
-                <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="e-button m-large">
+  <section id="govlab-canvas">
+            <div class="b-divider m-blue m-centered">
+              <h2>How We Work</h2>
             </div>
-          </form>
-        </div>
-      </div>
-    </div>
-    <!--End mc_embed_signup-->
-  </div>
+    <div class="b-page-section">
+      <div class="row">
+          <div class="column small-12">
+            <a class="e-canvas-link" href="http://canvas.govlabacademy.org/" target="_blank"><img src="../img/intro-canvas.png" alt=""></a>
 
-  <section id="digest">
-    <div class="row">
-      <div class="column large-12">
-        <h2>The GovLab Digest</h2>
-      </div>
-      <div id="digest-container" class="column large-12">
-
-      </div>
-    </div>
-  </section>
-
-  <section class="b-signup m-digest">
-    <div class="row">
-      <div class="column large-12">
-        <h3>Subscribe to the GovLab Digest</h3>
-        <p class="e-tagline">A weekly curation of new findings and developments on innovation in governance.</p>
-      </div>
-      <div class="column large-12">
-        <!-- Begin MailChimp Signup Form -->
-        <div id="mc_embed_signup">
-          <form action="//thegovlab.us6.list-manage.com/subscribe/post?u=1a990feb5c&amp;id=d90a01c7ff" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-            <div id="mc_embed_signup_scroll">
-              <label for="mce-EMAIL"></label>
-              <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
-              <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-              <div style="position: absolute; left: -5000px;"><input type="text" name="b_1a990feb5c_d90a01c7ff" tabindex="-1" value=""></div>
-              <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="e-button m-large">
+            <div class="column large-12 b-share">
+              <div class="share-button"></div>
             </div>
-          </form>
           </div>
-        <!--End mc_embed_signup-->
       </div>
     </div>
   </section>
+
+  <section class="content-info">
+    <div class="b-divider m-no-padding">
+      <div class="row">
+        <div class="e-content-box large-3 columns m-project-coaching">
+          <a class="b-button m-naked m-block js-mobile-anchor" href="./coaching-programs.html">
+              <h2>Coaching Programs</h2>
+              <p class="e-explanation">Online coaching sessions for those involved with a civic tech project. Sessions meet every week for 4 weeks or every other week for 8 weeks. Limited to 10 teams or individuals</p>
+          </a>
+        </div>
+        <div class="e-content-box large-3 columns m-workshops">
+          <a class="b-button m-naked m-block js-mobile-anchor" href="./workshops.html" target="_blank">
+              <h2>Workshops</h2>
+              <p class="e-explanation">Intensive, online 3 week-long substantive introductions to support teams about to start or already engaged at a specific stage of a civic innovation project.</p>
+          </a>
+        </div>
+        <div class="e-content-box large-3 columns m-master-courses">
+          <a class="b-button m-naked m-block js-mobile-anchor" href="./master-classes.html" target="_blank">
+              <h2>Master Classes</h2>
+              <p class="e-explanation">Coming Soon. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas luctus sit amet eros facilisis ornare. Vestibulum ante. </p>
+          </a>
+        </div>
+        <div class="e-content-box large-3 columns m-normal-courses">
+          <a class="b-button m-naked m-block js-mobile-anchor" href="./courses.html">
+              <h2>Courses and Project Clinics</h2>
+              <p class="e-explanation">Masters - and professional-level project-based courses and clinics focused on the innovative application of civic technology to public problems. Online or blended delivery.</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="subscribe-mailing-list">  
+    <div class="b-subscribe m-mailing-list">
+            <div class="e-wrap">
+                <div>
+                    <h4><strong>Subscribe</strong>
+                    Mailing List</h4>
+                </div>
+
+                <form method="post" action="//openinggovernment.us6.list-manage.com/subscribe/post?u=1a990feb5c&amp;id=6fa8847675" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                    <div style="position: absolute; left: -5000px;"><input type="text" name="b_1a990feb5c_d90a01c7ff" tabindex="-1" value=""></div>
+
+                     <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Email Address" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+  </section>
+
+
+<section id="govlab-digest">
+  <div class="b-slider slick b-divider m-no-padding">
+
+    <section id="slide-id" class="b-slide m-purple">
+        <header>
+            <h4>The Govlab Digest</h4>
+        </header>
+        <div class="row e-content">
+            <div class="column medium-6">
+                <h2 class="e-project-name">Article </h2>
+            </div>
+            <div class="column medium-6">
+                <p>Project description Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint recusandae nostrum eos saepe officia vero illum fuga quae at, corporis unde quas sit adipisci neque doloremque fugiat possimus nisi minima.</p>
+            </div>
+        </div>
+        <div class="row e-content">
+            <div class="column medium-6">
+                <div class="e-action">
+                    <a class="b-button m-naked" href="./projects.html">All Projects<i class="material-icons">arrow_forward</i></a>
+                </div>
+            </div>
+            <div class="column medium-6">
+                <div class="e-action">
+                    <a class="b-button m-naked" href="#">Find out more<i class="material-icons">arrow_forward</i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="slide-id" class="b-slide">
+        <header>
+            <h4>The Govlab Digest</h4>
+        </header>
+        <div class="row e-content">
+            <div class="column medium-6">
+                <h2 class="e-project-name">Article </h2>
+            </div>
+            <div class="column medium-6">
+                <p>Project description Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint recusandae nostrum eos saepe officia vero illum fuga quae at, corporis unde quas sit adipisci neque doloremque fugiat possimus nisi minima.</p>
+            </div>
+        </div>
+        <div class="row e-content">
+            <div class="column medium-6">
+                <div class="e-action">
+                    <a class="b-button m-naked" href="./projects.html">All Projects<i class="material-icons">arrow_forward</i></a>
+                </div>
+            </div>
+            <div class="column medium-6">
+                <div class="e-action">
+                    <a class="b-button m-naked" href="#">Find out more<i class="material-icons">arrow_forward</i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="slide-id" class="b-slide m-teal">
+        <header>
+            <h4>From Our Blog</h4>
+        </header>
+        <div class="row e-content">
+            <div class="column medium-6">
+                <h2>Bloc title Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h2>
+                <h3><strong>By: </strong>Claudio Mendonca</h3>
+            </div>
+            <div class="column medium-6">
+                <p>Project description Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint recusandae nostrum eos saepe officia vero illum fuga quae at, corporis unde quas sit adipisci neque doloremque fugiat possimus nisi minima.</p>
+            </div>
+        </div>
+        <div class="row e-content">
+            <div class="column medium-6">
+                <div class="e-action">
+                    <a class="b-button m-naked" href="./projects.html">All Projects<i class="material-icons">arrow_forward</i></a>
+                </div>
+            </div>
+            <div class="column medium-6">
+                <div class="e-action">
+                    <a class="b-button m-naked" href="#">Find out more<i class="material-icons">arrow_forward</i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="slide-id" class="b-slide m-orange">
+        <header>
+            <h4>The Govlab Digest</h4>
+        </header>
+        <div class="row e-content">
+            <div class="column medium-6">
+                <h2 class="e-project-name">Article </h2>
+            </div>
+            <div class="column medium-6">
+                <p>Project description Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint recusandae nostrum eos saepe officia vero illum fuga quae at, corporis unde quas sit adipisci neque doloremque fugiat possimus nisi minima.</p>
+            </div>
+        </div>
+        <div class="row e-content">
+            <div class="column medium-6">
+                <div class="e-action">
+                    <a class="b-button m-naked" href="./projects.html">All Projects<i class="material-icons">arrow_forward</i></a>
+                </div>
+            </div>
+            <div class="column medium-6">
+                <div class="e-action">
+                    <a class="b-button m-naked" href="#">Find out more<i class="material-icons">arrow_forward</i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="slide-id" class="b-slide m-blue">
+        <header>
+            <h4>The Govlab Digest</h4>
+        </header>
+        <div class="row e-content">
+            <div class="column medium-6">
+                <h2 class="e-project-name">Article </h2>
+            </div>
+            <div class="column medium-6">
+                <p>Project description Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint recusandae nostrum eos saepe officia vero illum fuga quae at, corporis unde quas sit adipisci neque doloremque fugiat possimus nisi minima.</p>
+            </div>
+        </div>
+        <div class="row e-content">
+            <div class="column medium-6">
+                <div class="e-action">
+                    <a class="b-button m-naked" href="./projects.html">All Projects<i class="material-icons">arrow_forward</i></a>
+                </div>
+            </div>
+            <div class="column medium-6">
+                <div class="e-action">
+                    <a class="b-button m-naked" href="#">Find out more<i class="material-icons">arrow_forward</i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+  </div>
+</section>
+
+
+
+  <section class="govlab-digest-signup">  
+    <div class="b-subscribe m-digest">
+            <div class="e-wrap">
+                <div>
+                    <h4><strong>Subscribe</strong>
+                    The GovLab Digest</h4>
+                    <p>A weekly curation of new findings and developments on innovation in governance</p>
+                </div>
+
+                <form method="post" action="//thegovlab.us6.list-manage.com/subscribe/post?u=1a990feb5c&amp;id=d90a01c7ff" target="_blank" >
+                    <div style="position: absolute; left: -5000px;"><input type="text" name="b_1a990feb5c_d90a01c7ff" tabindex="-1" value=""></div>
+
+                    <input type="email" name="EMAIL" placeholder="Email">
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+            <div class="e-wrap">
+                <p><a href="http://thegovlab.org/category/govlab-digest/" target="_blank" class="b-button m-naked">Go to Digest<i class="material-icons">arrow_forward</i></a></p>
+            </div>
+        </div>
+  </section>
+
 
   <section id="demos-for-democracy">
-    <a href="http://thegovlab.org/category/democracy-demos/" target="_blank"><div></div></a>
+    <div class="b-page-section">
+      <a href="http://thegovlab.org/category/democracy-demos/" target="_blank"><div></div></a>
+    </div>
   </section>
-</div>
+
+
 
 {% endblock %}
 
