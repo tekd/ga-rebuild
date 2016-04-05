@@ -7235,6 +7235,9 @@ code.m-negative {
 .e-card-image {
   background-size: 10px; }
 
+.js-open-modal {
+  padding: 0; }
+
 #team .b-top-nav {
   background-color: #472b74; }
 
