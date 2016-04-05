@@ -7229,6 +7229,12 @@ code.m-negative {
 #badge-system-img {
   height: 200px; }
 
+.e-card.m-purple .e-card-inner {
+  background-color: #472b74; }
+
+.e-card-image {
+  background-size: 10px; }
+
 #team .b-top-nav {
   background-color: #472b74; }
 

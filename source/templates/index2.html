@@ -2,6 +2,12 @@
 {% block main %}
 <div class="testing-data">
 
+<h2>PEOPLE.JSON</h2>
+{% for person in people %}
+<p>{{person.name.first}} {{ person.name.last }}</p>
+{% endfor %}
+
+
 <h1>WORKSHOPS</h1>
     {% for course in workshops %}
 
@@ -45,10 +51,6 @@ DEENNNNNNEYYYYYY
 {% endfor %}
 </div>
 
-<h2>PEOPLE.JSON</h2>
-{% for person in people %}
-<p>{{person.name.first}} {{ person.name.last }}</p>
-{% endfor %}
 
 <h2>CLINICS</h2>
 {% for clinic in clinics %}

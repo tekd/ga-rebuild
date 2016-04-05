@@ -64,27 +64,32 @@
     <div class="b-divider m-centered">
         <h3>Faculty Members</h3>
     </div>    
-    <div class="b-page-section">
-      <div class="row">
-        <div class="large-10 large-offset-1 columns">
 
-        <h4 class="b-twitter-list-link"><a class="e-button" href="https://twitter.com/TheGovLab/lists/govlab-academy-faculty" target="_blank">Follow Our Faculty on Twitter <i class="fa fa-twitter"></i></a></h4>
-        <div class="b-card-isotopes column large-12">
-          <h3>[INSERT FACULTY CARDS]</h3>
-          {# <div class="b-card-wrapper">
-            {% for person in people %}              
-              {% if people|selectattr("fullName", "equalto", person.fullName)|first|isEmpty %}
-                {{name|debug}}
-                {{("!!!! ERROR !!!!!: person cannot be found: " + person.fullName) |debug}}
-              {% else %}
-                {{ showPerson(people|selectattr("fullName", "equalto", person.fullName)|first, "arnaud-class") }}
-              {% endif %}
-            {% endfor %}
-          </div> #}
+    <div class="b-page-section">
+
+      <div class="row">
+        <div class="large-12 large-offset-1 columns end">
+          {% for person in people %}
+            {% if person.is_govlab %}
+            <div class="e-card m-purple">
+            {% endif %}
+            {% if not person.is_govlab %}
+            <div class="e-card m-orange">
+            {% endif %}
+              <a href="#">
+              <div class="e-card-inner">
+              <!-- uncomment to add a background image to the card -->
+                <div class="e-card-image" style="background-image: url('./img/faculty/{{person.name.slug}}.jpg')"></div>
+                <p class="e-card-name">{{person.name.first}} {{person.name.last}}</p>
+                <p class="e-card-description">{{person.job}}</p>
+              </div>
+              </a>
+            </div>
+          {% endfor %}
         </div>
-      </div>
+        </div>
     </div>
-    </section>
+  </section>
 
 
 
