@@ -7222,6 +7222,12 @@ code.m-negative {
 .b-slider {
   color: red !important; }
 
+#govlab-about-img {
+  height: 50px; }
+
+#badge-system-img {
+  height: 200px; }
+
 #team .b-top-nav {
   background-color: #472b74; }
 
