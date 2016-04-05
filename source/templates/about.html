@@ -60,41 +60,68 @@
     </div>
   </section>
 
-  <section id="team-cards">
-    <div class="b-divider m-centered">
-        <h3>Faculty Members</h3>
-    </div>    
-
-    <div class="b-page-section">
-
-      <div class="row">
-        <div class="large-12 large-offset-1 columns end">
-          {% for person in people %}
-            {% if person.is_govlab %}
-            <div class="e-card m-purple">
-            {% endif %}
-            {% if not person.is_govlab %}
-            <div class="e-card m-orange">
-            {% endif %}
-              <a href="#">
-              <div class="e-card-inner">
-              <!-- uncomment to add a background image to the card -->
-                <div class="e-card-image" style="background-image: url('./img/faculty/{{person.name.slug}}.jpg')"></div>
-                <p class="e-card-name">{{person.name.first}} {{person.name.last}}</p>
-                <p class="e-card-description">{{person.job}}</p>
-              </div>
-              </a>
-            </div>
-          {% endfor %}
+<section id="team-cards">
+  <div class="b-divider m-centered">
+    <h3>Faculty Members</h3>
+  </div>  
+  <div class="b-page-section">
+    <div class="row">
+      <div class="large-11 large-offset-1 columns end">
+      {% for person in people %}
+        {% if person.is_govlab %}
+          <div class="e-card m-purple js-open-modal" data-open="#modal-{{person.name.slug}}">
+        {% endif %}
+        {% if not person.is_govlab %}
+          <div class="e-card m-orange js-open-modal" data-open="#modal-{{person.name.slug}}">
+        {% endif %}
+          <div class="e-card-inner">
+          <!-- uncomment to add a background image to the card -->
+          <div class="e-card-image" style="background-image: url('./img/faculty/{{person.name.slug}}.jpg')"></div>
+            <p class="e-card-name">{{person.name.first}} {{person.name.last}}</p>
+            <p class="e-card-description">{{person.job}}</p>
+          </div>
         </div>
-        </div>
+      {% endfor %}
+      </div>
     </div>
-  </section>
+  </div>
+</section>
 
+<section>
+<!-- MODALS CONTENT -->
+      {% for person in people %}
+          <div class="b-modal" id="modal-{{person.name.slug}}">
+              <div class="e-content">
+                  <h2>{{person.name.first}} {{person.name.last}}</h2>
+                  <h3>{{person.job}}</h3>
+                  <h4>Connect</h4>
+                  <p>{{person.description}}</p>
+                  {% if person.link.url %}
+                    <p>URL{{person.link.url}}</p>
+                  {% endif %}   
+                  {% if person.link.twitter %}
+                    <a href="{{person.link.twitter}}">tweet</a>
+                  {% endif %}   
+                  {% if person.link.linkedin %}
+                    <a href="{{person.link.linkedin}}">linkedin</a>
+                  {% endif %}  
+                  {% if person.link.github%}
+                    <a href="{{person.link.github}}">github</a>
+                  {% endif %}    
+                  {% if person.link.email %}
+                    <a href="{{person.link.email}}">email</a>
+                  {% endif %}   
+                  <p class="e-buttons">
+                    <a class="b-button js-close-modal m-dark m-icon-only" href="#">Close</a>
+                    <a class="b-button js-close-modal m-naked m-icon-only" href="#"><i class="material-icons">close</i></a>
+                  </p>
+            </div>
+        </div>
 
+      {% endfor %}
+  <!-- Modals END -->
+</section>
 
-</div>
-
-
+  
 
 {% endblock %}
