@@ -20,12 +20,13 @@
 // Nav bar styling
 
 .b-main-menu a {
-    text-align: center;
+    text-align: left;
+    padding: 10px;
 }
 
 .b-main-menu ul {
     list-style: none;
-    text-align: center;
+    text-align: left;
 }
 
 .b-main-nav .e-submenu ul {
@@ -35,7 +36,7 @@
 
 .e-submenu {
     position: relative; 
-    text-align: center;
+    text-align: left;
     li {
         list-style: none;
     }
@@ -47,16 +48,16 @@
     display: block;
     border: 0;
     font-size: 14px;
-    // text-transform: none;
-    text-align: right;
+    // text-transform: uppercase;
+    text-align: left;
     color: #6f5d8b;
-    padding: 3px 18px; 
+    padding: 3px 18px 0px 35px;
     // color: rgba(255, 255, 255, 0.7);
-    text-align: center;
+    // text-align: center;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     letter-spacing: 1px; 
     .a:hover {
-        background-color: rgba(0, 0, 0, 0.1);
+        // background-color: rgba(0, 0, 0, 0.1);
         color: white; 
   }
 }
