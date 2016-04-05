@@ -216,6 +216,7 @@
     }
     h2 {
     }
+    font-size: 14px;
 }
 
 // COACHING
@@ -227,6 +228,7 @@
 }
 
 
+
 // WORKSHOPS
 // also uses blue, blue_2, blue_4
 
@@ -234,15 +236,16 @@
     background-color: $blue !important;
 }
 
+
 // MASTER CLASSES
 // also uses $red, $red_2
 
-.m-master-courses {
+.m-master-classes {
     background-color: $red !important;
 }
 
 // COURSES and CLINICS
-.m-normal-courses {
+.m-regular-courses {
     background-color: $yellow !important;
 }
 

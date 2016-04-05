@@ -7046,7 +7046,8 @@ code.m-negative {
         color: white; }
 
 .e-content-box a {
-  display: block; }
+  display: block;
+  font-size: 14px; }
   @media screen and (min-width: 64.0625em) {
     .e-content-box a {
       height: 22em; } }
@@ -7057,10 +7058,10 @@ code.m-negative {
 .m-workshops {
   background-color: #008ab3 !important; }
 
-.m-master-courses {
+.m-master-classes {
   background-color: #ab204a !important; }
 
-.m-normal-courses {
+.m-regular-courses {
   background-color: #e3cc26 !important; }
 
 .b-signup {
