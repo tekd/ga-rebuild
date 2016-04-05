@@ -27,51 +27,61 @@
   </section>
 
   <section id="about-govlab">
-    <div class="row b-content-section">
-      <div class="large-12 column">
-        <h2>The GovLab</h2>
-      </div>
-      <div class="large-6 column">
-        <div class="govlab-logo"><a href="http://thegovlab.org/" target="_blank"><img src="../img/govlab-logo.png" alt="The GovLab"></a></div>
-      </div>
-      <div class="large-6 column">
-        <p>The GovLab is an action-research center with a mission to improve people’s lives by changing the way we govern. We aim to accomplish this by leveraging advances in technology to enable more open, collaborative, effective, and legitimate ways to make better decisions and solve public problems.</p>
+    <div class="b-divider m-centered">
+      <h3>The GovLab</h3>
+    </div>
+    <div class="b-page-section">
+      <div class="row">
+        <div class="large-3 large-offset-1 columns">
+          <div class="govlab-logo"><a href="http://thegovlab.org/" target="_blank"><img id="govlab-about-img" src="../img/govlab-logo.png" alt="The GovLab"></a></div>
+        </div>
+        <div class="large-7 column end">
+          <p>The GovLab is an action-research center with a mission to improve people’s lives by changing the way we govern. We aim to accomplish this by leveraging advances in technology to enable more open, collaborative, effective, and legitimate ways to make better decisions and solve public problems.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <section id="badges">
-    <div class="row b-content-section">
-      <div class="column large-12">
-        <h2>Certificates and Badges</h2>
-      </div>
-      <div class="column large-7">
-        <p>Non-credit online participants who complete the program receive an authenticated Certificate and Badge. Badges are open, portable and "stackable" with other badges. </p>
-        <p>Badges can be displayed as a credential by incorporating into a resume or website. GovLab Academy will maintain a registry of all badge recipients. For successful participants the program could serve as a gateway to opportunities to compete for a range of Fellowship and funding opportunities, including from the Knight Foundation, the D-Prize, GovLab and more.</p>
-        <p><a href="http://www.macfound.org/programs/digital-badges/" target="_blank">More about digital badges and micro-credentials.</a></p>
-      </div>
-      <div class="column large-5">
-        <img src="../img/standard-badge.png" alt="The GovLab Academy Badge System">
+  <section id="certificates-and-badges">
+    <div class="b-divider m-centered">
+      <h3>Certificates and Badges</h3>
+    </div>
+    <div class="b-page-section">
+      <div class="row">
+        <div class="large-7 large-offset-1 columns">
+          <p>Non-credit online participants who complete the program receive an authenticated Certificate and Badge. Badges are open, portable and "stackable" with other badges. </p>
+          <p>Badges can be displayed as a credential by incorporating into a resume or website. GovLab Academy will maintain a registry of all badge recipients. For successful participants the program could serve as a gateway to opportunities to compete for a range of Fellowship and funding opportunities, including from the Knight Foundation, the D-Prize, GovLab and more.</p>
+          <p><a href="http://www.macfound.org/programs/digital-badges/" target="_blank">More about digital badges and micro-credentials.</a></p>
+        </div>
+        <div class="column large-3 end">
+          <img id="badge-system-img" src="../img/standard-badge.png" alt="The GovLab Academy Badge System">
+        </div>
       </div>
     </div>
   </section>
 
-  <section id="team-cards" class="b-team-dashboard">
-    <div class="row b-content-section">
-      <h2 class="column large-12">Faculty Members</h2>
-      <h4 class="b-twitter-list-link"><a class="e-button" href="https://twitter.com/TheGovLab/lists/govlab-academy-faculty" target="_blank">Follow Our Faculty on Twitter <i class="fa fa-twitter"></i></a></h4>
-      <div class="b-card-isotopes column large-12">
-        <h3>[INSERT FACULTY CARDS]</h3>
-        {# <div class="b-card-wrapper">
-          {% for person in people %}              
-            {% if people|selectattr("fullName", "equalto", person.fullName)|first|isEmpty %}
-              {{name|debug}}
-              {{("!!!! ERROR !!!!!: person cannot be found: " + person.fullName) |debug}}
-            {% else %}
-              {{ showPerson(people|selectattr("fullName", "equalto", person.fullName)|first, "arnaud-class") }}
-            {% endif %}
-          {% endfor %}
-        </div> #}
+  <section id="team-cards">
+    <div class="b-divider m-centered">
+        <h3>Faculty Members</h3>
+    </div>    
+    <div class="b-page-section">
+      <div class="row">
+        <div class="large-10 large-offset-1 columns">
+
+        <h4 class="b-twitter-list-link"><a class="e-button" href="https://twitter.com/TheGovLab/lists/govlab-academy-faculty" target="_blank">Follow Our Faculty on Twitter <i class="fa fa-twitter"></i></a></h4>
+        <div class="b-card-isotopes column large-12">
+          <h3>[INSERT FACULTY CARDS]</h3>
+          {# <div class="b-card-wrapper">
+            {% for person in people %}              
+              {% if people|selectattr("fullName", "equalto", person.fullName)|first|isEmpty %}
+                {{name|debug}}
+                {{("!!!! ERROR !!!!!: person cannot be found: " + person.fullName) |debug}}
+              {% else %}
+                {{ showPerson(people|selectattr("fullName", "equalto", person.fullName)|first, "arnaud-class") }}
+              {% endif %}
+            {% endfor %}
+          </div> #}
+        </div>
       </div>
     </div>
     </section>
