@@ -7238,6 +7238,43 @@ code.m-negative {
 .js-open-modal {
   padding: 0; }
 
+.e-pop-button {
+  background-color: rgba(255, 255, 255, 0.15);
+  width: 30px;
+  height: 30px;
+  padding: 5px 0;
+  margin: 8px 0;
+  text-align: center;
+  cursor: pointer;
+  display: inline-block;
+  border-radius: 50%; }
+  .e-pop-button i {
+    font-size: 1.3rem;
+    color: white; }
+  .e-pop-button i.fa-file {
+    vertical-align: 3px;
+    text-indent: 2px; }
+  .e-pop-button i.fa-link {
+    vertical-align: 2px;
+    text-indent: 0; }
+  .e-pop-button i.fa-cubes {
+    vertical-align: 3px;
+    text-indent: 1px; }
+  .e-pop-button i.fa-play {
+    text-indent: 3px; }
+  .e-pop-button:hover {
+    background-color: rgba(0, 0, 0, 0.2); }
+
+.social-media-buttons.m-orange {
+  background-color: #ee5b43; }
+
+.social-media-buttons.m-purple {
+  background-color: #472b74; }
+
+.inner-card-image {
+  width: 100%;
+  text-align: center; }
+
 #team .b-top-nav {
   background-color: #472b74; }
 
