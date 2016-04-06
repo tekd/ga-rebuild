@@ -2,7 +2,7 @@
 
 {% block main %}
 
-{% set placeholder_course = data[3]%}
+<!-- {% set placeholder_course = data[3]%} -->
 
 <div class="b-divider m-project-coaching">
 </div>
@@ -12,39 +12,39 @@
     <div class="row">
       <div class="large-10 large-offset-1 columns end">
         <div class="column large-9">
-          <h2>{{placeholder_course.name}} </h2>
+          <h2>{{name}} </h2>
         </div>
         <div class="column large-3 end">
           <ul class="e-certifications-ul">
-            {% if placeholder_course.certificates.blended %}          
+            {% if certificates.blended %}          
               <li>
                 <span>Blended</span>
                 <img src="../img/icons/icons-blended.png" title="Blended Course" class="e-course-icons m-blended">
               </li>
             {% endif %}
 
-            {% if placeholder_course.certificates.online %}
+            {% if certificates.online %}
               <li>
                 <span>Online</span>
                 <img src="../img/icons/icons-online.png" title="Online Course" class="e-course-icons m-online">
               </li>
             {% endif %}
 
-            {% if placeholder_course.certificates.in_person %}
+            {% if certificates.in_person %}
               <li>
                 <span>In Person</span>
                 <img src="../img/icons/icons-in-person.png" title="In Person Course" class="e-course-icons m-in-person">
               </li>
             {% endif %}
 
-            {% if placeholder_course.certificates.for_certificate %}
+            {% if certificates.for_certificate %}
               <li>
                 <span>For Certification</span>
                 <a href="./about.html#badges"><img src="../img/icons/icons-certification.png" title="For Certification Course" class="e-course-icons m-certification"></a>
               </li>
             {% endif %}
 
-            {% if placeholder_course.certificates.for_credit %}
+            {% if certificates.for_credit %}
             <li>
               <span>For Credit</span>
               <img src="../img/icons/icons-credit.png" title="For Credit Course" class="e-course-icons m-credit">
@@ -68,17 +68,17 @@
         <div class="column large-4">
           <span><i class="fa fa-calendar fa-lg"></i></span>
           <h5>Starts the week of </h5>
-          <h4>{{placeholder_course.date.week_start}}</h4>
+          <h4>{{date.week_start}}</h4>
         </div>
         <div class="column large-4">
           <span><i class="fa fa-calendar fa-lg"></i></span>
           <h5>Course ends on</h5>
-          <h4>{{placeholder_course.date.end}}</h4>
+          <h4>{{date.end}}</h4>
         </div>
         <div class="column large-4">
           <span><i class="fa fa-calendar fa-lg"></i></span>
           <h5>Application Deadline</h5>
-          <h4>{{placeholder_course.date.application}}</h4>
+          <h4>{{date.application}}</h4>
         </div>
       </div>
       <div class="row">
@@ -98,9 +98,9 @@
 <div class="b-page-section">
   <div class="row">
 		<div class="large-10 large-offset-1 columns end">
-			<h3>{{placeholder_course.passion.title}}</h3>
+			<h3>{{passion.title}}</h3>
 			<ul class="b-list">
-				{% for item in placeholder_course.passion.bullets %}
+				{% for item in passion.bullets %}
 					<li>{{item}}</li>
 				{% endfor %}
 			</ul>
@@ -115,7 +115,7 @@
 <div class="b-page-section">
   <div class="row">
     <div class="large-10 large-offset-1 columns end">
-			<p>{{placeholder_course.description_long}}</p>
+			<p>{{description_long}}</p>
 		</div>
 	</div>
 </div>
@@ -127,20 +127,20 @@
 <div class="b-page-section">
   <div class="row">
     <div class="column large-5 large-offset-1 columns end">
-      <p>{{placeholder_course.format}}</p>
+      <p>{{format}}</p>
       <div class="b-format">
-      {% if placeholder_course.when %}
-        <p>Online sessions will be held <strong>{{placeholder_course.when}}</strong></p>
-        {% if placeholder_course.when_plus %}<p><em>{{placeholder_course.when_plus}}</em></p>{% endif %}
+      {% if when %}
+        <p>Online sessions will be held <strong>{{when}}</strong></p>
+        {% if when_plus %}<p><em>{{when_plus}}</em></p>{% endif %}
       {% endif %}
-      <p><strong>Course Duration:</strong> {{placeholder_course.duration}}</p>
+      <p><strong>Course Duration:</strong> {{duration}}</p>
       </div>
     </div>
 
     <div class="column large-5">
-      {% if placeholder_course.more_info %}
+      {% if more_info %}
       <h3>More Information</h3>
-      {% for item in placeholder_course.more_info %}
+      {% for item in more_info %}
         <p>{{item}}</p>
       {% endfor %}
       <a href="./coaching-programs.html#faqs" class="e-button">FAQs</a>
@@ -152,7 +152,7 @@
   </div>
 </div>
 
-  {% if placeholder_course.resources %}
+  {% if resources %}
 <div class="b-divider m-centered">
   <h3>Resources</h3>
 </div>
@@ -163,7 +163,7 @@
   <div class="row b-content-section">
     <div class="column large-5 large-offset-1 columns end">
     </div>
-    {% for resource in placeholder_course.resources %}
+    {% for resource in resources %}
     <div class="column large-5">
       <h3>{{resource.title}}</h3>
       <ul class="b-list">
@@ -186,10 +186,7 @@
 
   <div class="row b-content-section">
     <div class="large-10 large-offset-1 columns end">
-      <!-- {% for name in placeholder_course.faculty_members %} -->
-        <p>{{placeholder_course.faculty_members}}<p>
-      <!-- {% endfor %} -->
-
+        <p>{{faculty_members}}<p>
     </div>
   </div>
 
