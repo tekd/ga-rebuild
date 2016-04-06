@@ -459,12 +459,62 @@ color: red !important;
 
 
 
+// pop buttons
+.e-pop-button {
+    background-color: $white-15;
+    width: 30px;
+    height: 30px;
+    padding: 5px 0;
+    margin: 8px 0;
+    text-align: center;
+    cursor: pointer;
+    display: inline-block;
+    border-radius: 50%;
 
 
+    i {
+        font-size: 1.3rem;
+        color: $white;
+    }
 
+    i.fa-file {
+        vertical-align: 3px;
+        text-indent: 2px;
+    }
 
+    i.fa-link {
+        vertical-align: 2px;
+        text-indent: 0;
+    }
 
+    i.fa-cubes {
+        vertical-align: 3px;
+        text-indent: 1px;
+    }
 
+    i.fa-play {
+        text-indent: 3px;
+    }
+
+    i.fa-linkedin,
+    i.fa-facebook,
+    i.fa-github,
+    i.fa-twitter { 
+        // vertical-align: 3px; 
+    }
+
+    &:hover { background-color: $gray-20; }
+}
+
+.social-media-buttons.m-orange { background-color: $orange; }
+.social-media-buttons.m-purple { background-color: $purple; }
+
+// IMAGE IN MODAL
+
+.inner-card-image {
+    width: 100%;
+    text-align: center;
+}
 
 
 
