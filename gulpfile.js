@@ -33,8 +33,21 @@ function slugify(t) {
   : false ;
 }
 
+function returnPerson(p) {
+  var peopleJSON = require('./source/data/people.json');
+  for (var i = 0; i < peopleJSON.people.length; i++) {
+    var fullName = peopleJSON.people[i].name.first + " " + peopleJSON.people[i].name.last;
+    if (fullName === p) {
+      return "Yes" + p;
+    } else {
+      return "No" + p;
+    }
+  }
+}
+
 function nunjucksEnv(env) {
   env.addFilter('slug', slugify);
+  env.addFilter('returnPerson', returnPerson);
 }
 
 var options = {
