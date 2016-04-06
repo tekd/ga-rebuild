@@ -52,6 +52,8 @@ $(document).ready(function($) {
     });
 
 
+
+
     // Logic for Sticky
     $('.js-close-sticky').click(function() {
         $('.b-sticky').fadeOut('fast');
@@ -82,15 +84,41 @@ $(document).ready(function($) {
 
 
     // Modal Logic
-    $(".js-open-modal").click(function() {
-        $(".b-modal").addClass("m-active");
+    // $(".js-open-modal").click(function() {
+    //     $(".b-modal").addClass("m-active");
+    //     $overlay.addClass('m-active');
+    // });
+
+    // $(".js-close-modal").click(function() {
+    //     $(".b-modal").removeClass("m-active");
+    //     $overlay.removeClass('m-active');
+    // });
+
+
+
+        // Tooltip Logic
+    $('.js-tooltip-trigger').click(function(e) {
+        e.preventDefault();
+        $($(this).attr('data-open')).addClass('m-active');
         $overlay.addClass('m-active');
     });
 
-    $(".js-close-modal").click(function() {
-        $(".b-modal").removeClass("m-active");
+    $overlay.click(function() {
+        // $('.e-project-item').removeClass('m-active');
+        $('.b-modal').removeClass('m-active');
         $overlay.removeClass('m-active');
     });
+
+    $('.js-close-modal').click (function (e) {
+        e.preventDefault();
+        $('.b-modal').removeClass('m-active');
+        $overlay.removeClass('m-active');
+    });
+
+    $('.js-bio-toggle').click(function() {
+        $(this).parent().toggleClass('m-active');
+    })
+
 
 
     // Slider Config (Sticky)
