@@ -2,82 +2,102 @@
 
 {% block main %}
 
-{% set placeholder_course = data[2]%}
+{% set placeholder_course = data[3]%}
 
-<div id="" class="b-content-page b-detail-page m-coaching">
-	<div class="b-page-title m-project-coaching">
+<div class="b-divider m-project-coaching">
+</div>
+
+<section id="course-detail-title">
+  <div class="b-page-section m-teal">
     <div class="row">
-      <div class="column large-9">
-        <h2>{{placeholder_course.name}} </h2>
-      </div>
-      <ul class="e-certifications column large-3">
-        {% if placeholder_course.certificates.blended %}          
-          <li>
-          	<span>Blended</span>
-	          <img src="../img/icons/icons-blended.png" title="Blended Course" class="e-course-icons m-blended">
-          </li>
-        {% endif %}
+      <div class="large-10 large-offset-1 columns end">
+        <div class="column large-9">
+          <h2>{{placeholder_course.name}} </h2>
+        </div>
+        <div class="column large-3 end">
+          <ul class="e-certifications-ul">
+            {% if placeholder_course.certificates.blended %}          
+              <li>
+                <span>Blended</span>
+                <img src="../img/icons/icons-blended.png" title="Blended Course" class="e-course-icons m-blended">
+              </li>
+            {% endif %}
 
-        {% if placeholder_course.certificates.online %}
-        	<li>
-        		<span>Online</span>
-	          <img src="../img/icons/icons-online.png" title="Online Course" class="e-course-icons m-online">
-	        </li>
-        {% endif %}
+            {% if placeholder_course.certificates.online %}
+              <li>
+                <span>Online</span>
+                <img src="../img/icons/icons-online.png" title="Online Course" class="e-course-icons m-online">
+              </li>
+            {% endif %}
 
-        {% if placeholder_course.certificates.in_person %}
-        	<li>
-	        	<span>In Person</span>
-	          <img src="../img/icons/icons-in-person.png" title="In Person Course" class="e-course-icons m-in-person">
-          </li>
-        {% endif %}
+            {% if placeholder_course.certificates.in_person %}
+              <li>
+                <span>In Person</span>
+                <img src="../img/icons/icons-in-person.png" title="In Person Course" class="e-course-icons m-in-person">
+              </li>
+            {% endif %}
 
-        {% if placeholder_course.certificates.for_certificate %}
-	        <li>
-		        <span>For Certification</span>
-		        <a href="./about.html#badges"><img src="../img/icons/icons-certification.png" title="For Certification Course" class="e-course-icons m-certification"></a>
-	        </li>
-        {% endif %}
+            {% if placeholder_course.certificates.for_certificate %}
+              <li>
+                <span>For Certification</span>
+                <a href="./about.html#badges"><img src="../img/icons/icons-certification.png" title="For Certification Course" class="e-course-icons m-certification"></a>
+              </li>
+            {% endif %}
 
-        {% if placeholder_course.certificates.for_credit %}
-        <li>
-	        <span>For Credit</span>
-	        <img src="../img/icons/icons-credit.png" title="For Credit Course" class="e-course-icons m-credit">
-        </li>
-        {% endif %}
-        
-    	</ul>
-    </div>
-    <div class="row">
-  		<div class="share-button"></div>
-    </div>
+            {% if placeholder_course.certificates.for_credit %}
+            <li>
+              <span>For Credit</span>
+              <img src="../img/icons/icons-credit.png" title="For Credit Course" class="e-course-icons m-credit">
+            </li>
+            {% endif %}
+            
+          </ul>
+        </div>
+      </div> <!-- END PAGE TOP SECTION row -->
+    </div> <!-- END PAGE TOP SECTION -->
+  </div>
+</section>
+
+
+<!-- ADD SHARE BUTTON -->
+
+<section id="course-detail-calendar">
+  <div class="b-page-section m-teal">
     <div class="b-dates row">
-    	<div class="column large-4">
-    		<span><i class="fa fa-calendar fa-lg"></i></span>
-      	<h5>Starts the week of </h5>
-      	<h4>{{placeholder_course.date.week_start}}</h4>
+      <div class="large-10 large-offset-1 columns end">
+        <div class="column large-4">
+          <span><i class="fa fa-calendar fa-lg"></i></span>
+          <h5>Starts the week of </h5>
+          <h4>{{placeholder_course.date.week_start}}</h4>
+        </div>
+        <div class="column large-4">
+          <span><i class="fa fa-calendar fa-lg"></i></span>
+          <h5>Course ends on</h5>
+          <h4>{{placeholder_course.date.end}}</h4>
+        </div>
+        <div class="column large-4">
+          <span><i class="fa fa-calendar fa-lg"></i></span>
+          <h5>Application Deadline</h5>
+          <h4>{{placeholder_course.date.application}}</h4>
+        </div>
       </div>
-      <div class="column large-4">
-    		<span><i class="fa fa-calendar fa-lg"></i></span>
-      	<h5>Course ends on</h5>
-      	<h4>{{placeholder_course.date.end}}</h4>
-      </div>
-      <div class="column large-4">
-    		<span><i class="fa fa-calendar fa-lg"></i></span>
-      	<h5>Application Deadline</h5>
-      	<h4>{{placeholder_course.date.application}}</h4>
+      <div class="row">
+        <a href="./application.html" target="_blank">
+          <div class="large-3 large-offset-1 columns end columns b-button">
+            <h3>Apply</h3>
+          </div>
+        </a>
       </div>
     </div>
   </div>
-  <section class="b-apply">
-    <div class="row ">
-      <div class="column large-12">
-        <a href="./application.html" target="_blank" class="e-button m-large">Apply</a>
-      </div>
-    </div>
-  </section>
-  <div class="row b-content-section">
-		<div class="column large-12">
+</section>
+
+
+<section id="course-details">
+
+<div class="b-page-section">
+  <div class="row">
+		<div class="large-10 large-offset-1 columns end">
 			<h3>{{placeholder_course.passion.title}}</h3>
 			<ul class="b-list">
 				{% for item in placeholder_course.passion.bullets %}
@@ -86,48 +106,65 @@
 			</ul>
 		</div>
 	</div>
-	<div class="row b-content-section">
-		<div class="column large-12">
-		<h2>Course Description</h2>
+</div>
+
+<div class="b-divider m-centered">
+	<h3>Course Description</h3>
+</div>
+
+<div class="b-page-section">
+  <div class="row">
+    <div class="large-10 large-offset-1 columns end">
 			<p>{{placeholder_course.description_long}}</p>
 		</div>
 	</div>
-  
-  <div class="row b-content-section">
-    <div class="column large-6">
-      <h3>Course Format</h3>
+</div>
+
+<div class="b-divider m-centered">
+  <h3>Course Format</h3>
+</div>
+
+<div class="b-page-section">
+  <div class="row">
+    <div class="column large-5 large-offset-1 columns end">
       <p>{{placeholder_course.format}}</p>
       <div class="b-format">
       {% if placeholder_course.when %}
-        <h4>Online sessions will be held <strong>{{placeholder_course.when}}</strong></h4>
+        <p>Online sessions will be held <strong>{{placeholder_course.when}}</strong></p>
         {% if placeholder_course.when_plus %}<p><em>{{placeholder_course.when_plus}}</em></p>{% endif %}
       {% endif %}
-      <h4>Course Duration: {{placeholder_course.duration}}</h4>
+      <p><strong>Course Duration:</strong> {{placeholder_course.duration}}</p>
       </div>
     </div>
 
-		<div class="column large-6">
+    <div class="column large-5">
       {% if placeholder_course.more_info %}
-			<h3>More Information</h3>
+      <h3>More Information</h3>
       {% for item in placeholder_course.more_info %}
-				<p>{{item}}</p>
+        <p>{{item}}</p>
       {% endfor %}
       <a href="./coaching-programs.html#faqs" class="e-button">FAQs</a>
-
       {% else %}
         <h3>For more information</h3>
         <a href="./coaching-programs.html#faqs" class="e-button">FAQs</a>
       {% endif %}
-		</div>
-	</div>
+    </div>
+  </div>
+</div>
 
   {% if placeholder_course.resources %}
+<div class="b-divider m-centered">
+  <h3>Resources</h3>
+</div>
+
+<div class="b-page-section">
+  <div class="row">
+
   <div class="row b-content-section">
-    <div class="column large-12">
-      <h2>Resources</h2>
+    <div class="column large-5 large-offset-1 columns end">
     </div>
     {% for resource in placeholder_course.resources %}
-    <div class="column large-6">
+    <div class="column large-5">
       <h3>{{resource.title}}</h3>
       <ul class="b-list">
       {% for item in resource.resource_item %}
@@ -139,22 +176,32 @@
   </div>
   {% endif %}
 
+  </div>
+</div>
+
+
+<div class="b-divider m-centered">
+  <h3>Faculty Members</h3>
+</div>
+
   <div class="row b-content-section">
-    <div class="column large-12">
-      <h2>Faculty Members</h2>
-    </div>
-    <div class="column large-12">
-      {% for name in placeholder_course.faculty_members %}
-        <p>{{name}}<p>
-      {% endfor %}
+    <div class="large-10 large-offset-1 columns end">
+      <!-- {% for name in placeholder_course.faculty_members %} -->
+        <p>{{placeholder_course.faculty_members}}<p>
+      <!-- {% endfor %} -->
 
     </div>
   </div>
 
-  <section id="contact-message" class="row b-content-section">
-    <div class="column large-12">
-      <h4>Still hungry for more information?</h4>
-      <p>Send us an email at <a href="mailto:info-academy@thegovlab.org">info-academy@thegovlab.org</a></p>
+</section> <!-- END COURSE DETAILS SECTION -->
+
+  <section id="contact-message">
+  <div class="b-page-section">
+      <div class="b-dates row">
+        <div class="large-10 large-offset-1 columns end">
+        <h4>Still hungry for more information?</h4>
+        <p>Send us an email at <a href="mailto:info-academy@thegovlab.org">info-academy@thegovlab.org</a></p>
+      </div>
     </div>
   </section>
 
