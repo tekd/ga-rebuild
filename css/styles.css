@@ -7275,6 +7275,10 @@ code.m-negative {
   width: 100%;
   text-align: center; }
 
+.e-certifications-ul {
+  list-style: none;
+  text-align: right; }
+
 #team .b-top-nav {
   background-color: #472b74; }
 
