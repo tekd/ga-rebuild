@@ -1,8 +1,6 @@
 {% extends '_base.html' %}
 {% block main %}
 
-
-
 <header class="b-top-section m-blue">
     <div class="row">
         <div class="column small-12">
@@ -15,47 +13,56 @@
     </div>
 </header>
 
-
-<div class="b-project-list">
-  <div class="b-wrap row">
-    <div class="b-filter-ui">
+<!-- NOT FUNCTIONAL YET-->
+<div class="b-page-section">
       <!-- single select -->
-      <form action="#" class="b-form">
-
-        <div class="e-select medium-6 medium-offset-3">
-          <select>
-            <option value="*">Select a project category...</option>
-            <option value=".open-data">Open Data</option>
-            <option value=".open-contracting">Open Contracting</option>
-            <option value=".data-analytics">Data Analytics</option>
-            <option value=".crowdsourcing">Crowdsourcing</option>
-            <option value=".collective-intelligence">Collective Intelligence</option>
-            <option value=".tech-procurement">Tech Procurement</option>
-            <option value=".citizen-engagement">Citizen Engagement</option>
-            <option value=".big-data">Big Data</option>
-            <option value=".agile-research">Agile Research</option>
-            <option value=".citizen-science">Citizen Science</option>
-            <option value=".humanitarian-innovation">Humanitarian Innovation</option>
-            <option value=".nudges">Nudges</option>
-            <option value=".communications">Communications</option>
-            <option value=".legal-innovation">Legal Innovation</option>
-            <option value=".open-source">Open Source</option>
-            <option value=".data-science">Data Science</option>
-            <option value=".service-design">Service Design</option>
-          </select>
-        </div>
-    </form>
-
-{# BEGIN PROJECT TILES #}
-
-{% for project in projects %}
-    <p>{{project.title}}</p>
-{% endfor %}
-
-{# END PROJEC TILES #}
-
+<!--     <form action="#" class="b-form">
+    <div class="e-select medium-6 medium-offset-3">
+      <select>
+        <option value="*">Select a project category...</option>
+        <option value=".open-data">Open Data</option>
+        <option value=".open-contracting">Open Contracting</option>
+        <option value=".data-analytics">Data Analytics</option>
+        <option value=".crowdsourcing">Crowdsourcing</option>
+        <option value=".collective-intelligence">Collective Intelligence</option>
+        <option value=".tech-procurement">Tech Procurement</option>
+        <option value=".citizen-engagement">Citizen Engagement</option>
+        <option value=".big-data">Big Data</option>
+        <option value=".agile-research">Agile Research</option>
+        <option value=".citizen-science">Citizen Science</option>
+        <option value=".humanitarian-innovation">Humanitarian Innovation</option>
+        <option value=".nudges">Nudges</option>
+        <option value=".communications">Communications</option>
+        <option value=".legal-innovation">Legal Innovation</option>
+        <option value=".open-source">Open Source</option>
+        <option value=".data-science">Data Science</option>
+        <option value=".service-design">Service Design</option>
+      </select>
+    </div>
+    </form> -->
 </div>
 
+
+
+
+<section id="project-tiles">
+    <div class="b-page-section">
+        <div class="row">
+            {% for project in projects %}
+                <div class="e-card m-blue large-3 columns end">
+                    <a href="#">
+                        <div class="e-card-inner">
+                            <!-- uncomment to add a background image to the card -->
+                            <div class="e-card-image" style="background-image: url('./img/projects/{{project.logo}}')"></div>
+                            <p class="e-card-name">{{project.short_title}}</p>
+                            <p class="e-card-description">{{project.tagline}}</p>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
 
 
 {% endblock %}
