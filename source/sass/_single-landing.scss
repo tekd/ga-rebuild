@@ -1,0 +1,108 @@
+.b-single-landing {
+    .e-progress {
+        @include breakpoint($mobile-only) {
+            border: 1px solid $white-40;
+            padding: 3px 0;
+            display: block;
+            width: 100%;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        @include breakpoint($desktop) {
+            width: 100%;
+            // border-bottom: 1px solid $white-20;
+            margin-top: 70px;
+            margin-bottom: 20px;
+            margin-left: 120px;
+            position: relative;
+        }
+
+        &:before {
+            @include breakpoint($mobile-only) {
+                color: $white-60;
+                content: 'Progress: ';
+            }
+
+            @include breakpoint($desktop) {
+                color: $white-30;
+                content: 'Progress';
+                position: absolute;
+                bottom: -13px;
+                left: -120px;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                font-weight: 600;
+            }
+        }
+
+        &:after {
+            @include breakpoint($desktop) {
+                position: absolute;
+                content: "";
+                border-bottom: 1px solid $white-50;
+                left: 0;
+                top: 0;
+            }
+        }
+
+        span:before {
+            color: $white-60;
+            display: none;
+
+            @include breakpoint($desktop) {
+                position: absolute;
+                margin-top: -35px;
+                display: block;
+                color: $white-30;
+            }
+        }
+
+        span:nth-child(1):before {
+            content: "Ideation";
+            @include breakpoint($desktop) { right: 88%; }
+        }
+        span:nth-child(2):before {
+            content: "Prototyping";
+            @include breakpoint($desktop) { right: 70%; }
+        }
+        span:nth-child(3):before {
+            content: "User Testing";
+            @include breakpoint($desktop) { right: 51%; }
+        }
+        span:nth-child(4):before {
+            content: "Private Beta";
+            @include breakpoint($desktop) { right: 32%; }
+        }
+        span:nth-child(5):before {
+            content: "Public Beta";
+            @include breakpoint($desktop) { right: 16%; }
+        }
+        span:nth-child(6):before {
+            content: "Launched";
+            @include breakpoint($desktop) { right: 0; }
+        }
+
+        &.m-idea span:nth-child(1):before,
+        &.m-prototype span:nth-child(2):before,
+        &.m-testing span:nth-child(3):before,
+        &.m-private-beta span:nth-child(4):before,
+        &.m-public-beta span:nth-child(5):before,
+        &.m-launched span:nth-child(6):before {
+            color: $white-90;
+
+            @include breakpoint($mobile-only) {
+                display: inline-block;
+                font-weight: 600;
+            }
+        }
+
+        &.m-idea:after { width: 12%;}
+        &.m-prototype:after { width: 30%; }
+        &.m-testing:after { width: 49%; }
+        &.m-private-beta:after { width: 68%; }
+        &.m-public-beta:after { width: 84%; }
+        &.m-launched:after { width: 100%; }
+    }
+
+}

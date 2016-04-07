@@ -7460,3 +7460,98 @@ code.m-negative {
 
 #beth-simone-noveck .b-button, #beth-simone-noveck .b-form input[type="submit"], .b-form #beth-simone-noveck input[type="submit"] {
   display: inline-block; }
+
+.b-single-landing .e-progress {
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  padding: 3px 0;
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin-top: 20px; }
+  @media screen and (min-width: 64.0625em) {
+    .b-single-landing .e-progress {
+      width: 100%;
+      margin-top: 70px;
+      margin-bottom: 20px;
+      margin-left: 120px;
+      position: relative; } }
+  .b-single-landing .e-progress:before {
+    color: rgba(255, 255, 255, 0.6);
+    content: 'Progress: '; }
+    @media screen and (min-width: 64.0625em) {
+      .b-single-landing .e-progress:before {
+        color: rgba(255, 255, 255, 0.3);
+        content: 'Progress';
+        position: absolute;
+        bottom: -13px;
+        left: -120px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 600; } }
+  @media screen and (min-width: 64.0625em) {
+    .b-single-landing .e-progress:after {
+      position: absolute;
+      content: "";
+      border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+      left: 0;
+      top: 0; } }
+  .b-single-landing .e-progress span:before {
+    color: rgba(255, 255, 255, 0.6);
+    display: none; }
+    @media screen and (min-width: 64.0625em) {
+      .b-single-landing .e-progress span:before {
+        position: absolute;
+        margin-top: -35px;
+        display: block;
+        color: rgba(255, 255, 255, 0.3); } }
+  .b-single-landing .e-progress span:nth-child(1):before {
+    content: "Ideation"; }
+    @media screen and (min-width: 64.0625em) {
+      .b-single-landing .e-progress span:nth-child(1):before {
+        right: 88%; } }
+  .b-single-landing .e-progress span:nth-child(2):before {
+    content: "Prototyping"; }
+    @media screen and (min-width: 64.0625em) {
+      .b-single-landing .e-progress span:nth-child(2):before {
+        right: 70%; } }
+  .b-single-landing .e-progress span:nth-child(3):before {
+    content: "User Testing"; }
+    @media screen and (min-width: 64.0625em) {
+      .b-single-landing .e-progress span:nth-child(3):before {
+        right: 51%; } }
+  .b-single-landing .e-progress span:nth-child(4):before {
+    content: "Private Beta"; }
+    @media screen and (min-width: 64.0625em) {
+      .b-single-landing .e-progress span:nth-child(4):before {
+        right: 32%; } }
+  .b-single-landing .e-progress span:nth-child(5):before {
+    content: "Public Beta"; }
+    @media screen and (min-width: 64.0625em) {
+      .b-single-landing .e-progress span:nth-child(5):before {
+        right: 16%; } }
+  .b-single-landing .e-progress span:nth-child(6):before {
+    content: "Launched"; }
+    @media screen and (min-width: 64.0625em) {
+      .b-single-landing .e-progress span:nth-child(6):before {
+        right: 0; } }
+  .b-single-landing .e-progress.m-idea span:nth-child(1):before,
+  .b-single-landing .e-progress.m-prototype span:nth-child(2):before,
+  .b-single-landing .e-progress.m-testing span:nth-child(3):before,
+  .b-single-landing .e-progress.m-private-beta span:nth-child(4):before,
+  .b-single-landing .e-progress.m-public-beta span:nth-child(5):before,
+  .b-single-landing .e-progress.m-launched span:nth-child(6):before {
+    color: rgba(255, 255, 255, 0.9);
+    display: inline-block;
+    font-weight: 600; }
+  .b-single-landing .e-progress.m-idea:after {
+    width: 12%; }
+  .b-single-landing .e-progress.m-prototype:after {
+    width: 30%; }
+  .b-single-landing .e-progress.m-testing:after {
+    width: 49%; }
+  .b-single-landing .e-progress.m-private-beta:after {
+    width: 68%; }
+  .b-single-landing .e-progress.m-public-beta:after {
+    width: 84%; }
+  .b-single-landing .e-progress.m-launched:after {
+    width: 100%; }
