@@ -572,3 +572,22 @@ color: red !important;
     background-size: contain;
 }
 
+// PROJECT DETAIL PAGE
+.b-slider {
+    border: 1px solid $gray-15;
+    .m-white {
+        background-color: $white;
+    }
+    .slider-img {
+        max-height: 400px;
+        text-align: center;
+        margin: 0 auto;
+    }
+}
+
+.b-slider .slick-arrow:before, .b-slider .slick-arrow:after {
+    color: $gray-15;
+    font-size: 60px;
+    transition: all .4s ease;
+}
+

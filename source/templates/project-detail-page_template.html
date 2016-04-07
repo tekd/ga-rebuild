@@ -4,7 +4,7 @@
 {% block main %}
 
 <!-- PLACEHOLDER PROJECT UNTIL GULP TASK IS WRITTEN-->
-{% set project = projects[0] %}
+{% set project = projects[6] %}
 
 <header class="b-top-section m-blue">
     <div class="row">
@@ -106,18 +106,23 @@
         </div>
     </div>
 </section>
-<section class="b-single-description {% if project.images %}m-slider{% endif %}">
-    {% if project.images %}
-    <div class="b-project-slider slick">
-        {% for image in project.images %}
-        <span><img class="e-project-image" src="../img/projects/{{image}}" alt=""></span>
-        {% endfor %}
-    </div>
-    {% endif %}
-</section>
 
-</section>
-  
+<!-- #fullwidth -->
+    {% if project.images %}
+    <section class="b-slider slick">
+    {% for image in project.images %}
+    <div id="slide-id" class="b-slide m-white">
+    <div class="row e-content">
+        <!-- <div class="column large-6"> -->
+        <img class="slider-img" src="./img/projects/{{image}}">
+        <!-- </div> -->
+    </div>
+
+    </div>
+    </div>
+    {% endfor %}
+    {% endif %}
+    </section>
 
 
 
