@@ -6916,6 +6916,9 @@ code.m-negative {
   .sandbox {
     background-color: blue; } }
 
+.m-centered {
+  text-align: center; }
+
 .e-partner:before {
   content: "In partnership with "; }
 
@@ -6937,18 +6940,13 @@ code.m-negative {
   list-style: none;
   text-align: left; }
 
-.b-main-nav .e-submenu ul {
-  z-index: -10;
-  list-style: none; }
-
-.e-submenu {
+.b-main-menu .e-submenu {
   position: relative;
   text-align: left; }
-  .e-submenu li {
-    list-style: none; }
+  .b-main-menu .e-submenu ul {
+    z-index: -10; }
 
 .e-submenu ul .e-sub-item {
-  list-style: none;
   display: block;
   border: 0;
   font-size: 14px;
@@ -6959,91 +6957,6 @@ code.m-negative {
   letter-spacing: 1px; }
   .e-submenu ul .e-sub-item .a:hover {
     color: white; }
-
-.b-footer {
-  background-color: rgba(0, 0, 0, 0.8);
-  color: rgba(255, 255, 255, 0.8);
-  padding-top: 1px;
-  padding-bottom: 10px;
-  font-size: 16px; }
-  @media screen and (min-width: 64.0625em) {
-    .b-footer {
-      padding: 45px 0; }
-      .b-footer .e-wrap {
-        display: -webkit-flex;
-        display: flex; } }
-  .b-footer .e-content {
-    -webkit-flex: 1;
-    flex: 1;
-    text-align: center; }
-    .b-footer .e-content:nth-child(3n) {
-      margin-right: 0; }
-    @media screen and (min-width: 64.0625em) {
-      .b-footer .e-content {
-        margin-right: 60px; } }
-    .b-footer .e-content h4 {
-      margin: 40px 0 0;
-      font-weight: 600;
-      text-transform: uppercase;
-      color: white; }
-    .b-footer .e-content .e-partner-logo {
-      display: block; }
-      .b-footer .e-content .e-partner-logo > img {
-        max-width: 90%;
-        padding: 10px 0;
-        max-height: 60px;
-        opacity: .5;
-        transition: all .4s ease; }
-        .b-footer .e-content .e-partner-logo > img:hover {
-          opacity: 1;
-          transition: all .4s ease; }
-      .b-footer .e-content .e-partner-logo.m-google img {
-        max-height: 50px;
-        max-width: 70%; }
-      .b-footer .e-content .e-partner-logo.m-mit img {
-        max-height: 70px; }
-  .b-footer .e-content.m-sections a {
-    display: block;
-    box-sizing: border-box;
-    color: rgba(255, 255, 255, 0.7);
-    padding: 5px 10px;
-    text-decoration: none;
-    margin-left: -10px;
-    margin-right: 10px;
-    transition: all .4s ease; }
-    @media screen and (min-width: 64.0625em) {
-      .b-footer .e-content.m-sections a {
-        display: inline-block;
-        width: 49%; } }
-    .b-footer .e-content.m-sections a:hover {
-      color: white;
-      background-color: rgba(255, 255, 255, 0.1);
-      transition: all .4s ease; }
-
-.b-copyright {
-  background-color: rgba(0, 0, 0, 0.9);
-  text-align: center;
-  padding: 20px; }
-  @media screen and (min-width: 64.0625em) {
-    .b-copyright {
-      padding: 20px;
-      text-align: left; } }
-  .b-copyright .e-wrap {
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 14px; }
-    .b-copyright .e-wrap .e-cc-badge {
-      margin-right: 25px;
-      margin-top: 5px;
-      display: block; }
-      @media screen and (min-width: 64.0625em) {
-        .b-copyright .e-wrap .e-cc-badge {
-          float: left; } }
-    .b-copyright .e-wrap a {
-      margin: 0;
-      line-height: 1.2;
-      color: rgba(255, 255, 255, 0.7); }
-      .b-copyright .e-wrap a:hover {
-        color: white; }
 
 .e-content-box a {
   display: block;
@@ -7217,12 +7130,6 @@ code.m-negative {
     width: 100%;
     margin-top: 10px; } }
 
-.m-centered {
-  text-align: center; }
-
-.b-slider {
-  color: red !important; }
-
 #govlab-about-img {
   height: 50px; }
 
@@ -7234,9 +7141,6 @@ code.m-negative {
 
 .e-card-image {
   background-size: 10px; }
-
-.js-open-modal {
-  padding: 0; }
 
 .e-pop-button {
   background-color: rgba(255, 255, 255, 0.15);
@@ -7295,10 +7199,10 @@ code.m-negative {
 .b-top-section h3 {
   padding-top: 40px; }
 
-.e-card {
+#project-tiles .e-card {
   margin: 20px; }
 
-.e-card .e-card-inner .e-card-image {
+#project-tiles .e-card .e-card-inner .e-card-image {
   background-color: white;
   background-position: center center;
   background-size: contain; }
