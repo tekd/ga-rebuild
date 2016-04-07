@@ -50,112 +50,125 @@
 
 
 <section id="coaching-program-timeline">
-
-    <div class="b-divider m-purple m-centered">
-      <h2>Coaching Program Timeline</h2>
-    </div>
-    <div class="column large-12 m-centered">
+  <div class="b-divider m-purple m-centered">
+    <h2>Coaching Program Timeline</h2>
+  </div>
+  <div class="row">
+    <div class="column large-12 m-centered m-orange">
       <img src="../img/coaching-diagram2.png" alt="Coaching program Lifecycle">
     </div>
+  </div>
 </section>
 
 
+<section id="brief-course-descriptions">
+  <div class="row">
+    <div class="large-10 large-offset-1 columns end">
+  <!-- NEED TO SORT COACHING PROGRAMS BY DATE -->
+  <!-- NEED TO DEFINE START 'DATE' AND 'OUTDATED' -->
+      {% for datum in data %}
+      <div class="b-course-card m-blue">
+        <div class="e-course-card">
+              <!-- {% if datum.is_active and not datum.outdated %} -->
+                {% if datum.date %}
+                <h4><span>Starts the week of </span>{{datum.date.start}}</h4> 
+                <!-- {% endif %} -->
+              <div class="row"> <!-- namediv -->
+                <div class="large-7 columns">
+                  <h3 class="e-course-name">{{datum.name}}</h3>
+                </div>
+        <!-- BEGIN CERTIFICATIONS -->
+                <div class="large-3 large-offset-1 columns">
+                    {% if datum.certificates.blended %}
+                      <img src="../img/icons/icons-blended.png" title="Blended Course" class="e-course-icons m-blended">
+                    {% endif %}
 
-<!-- NEED TO SORT COACHING PROGRAMS BY DATE -->
-<!-- NEED TO DEFINE START 'DATE' AND 'OUTDATED' -->
-    {% for datum in data %}
-      {% if datum.is_active and not datum.outdated %}
-        {% if datum.date %}
-        <h4><span>Starts the week of </span>{{datum.date.start}}</h4> 
+                    {% if datum.certificates.online %}
+                      <img src="../img/icons/icons-online.png" title="Online Course" class="e-course-icons m-online">
+                    {% endif %}
+
+                    {% if datum.certificates.in_person %}
+                      <img src="../img/icons/icons-in-person.png" title="In Person Course" class="e-course-icons m-in-person">
+                    {% endif %}
+
+                    {% if datum.certificates.for_certificate %}
+                      <a href="./about.html#badges"><img src="../img/icons/icons-certification.png" title="For Certification Course" class="e-course-icons m-certification"></a>
+                    {% endif %}
+                    {% if datum.certificates.for_credit %}
+                      <img src="../img/icons/icons-credit.png" title="For Credit Course" class="e-course-icons m-credit">
+                    {% endif %}
+                    </div>
+              </div>
+            </div> <!-- end namediv -->
+  
+  <!-- END CERTIFICATIONS -->
+        
+        <div class="e-course-description">
+          <p>{{datum.description_short}}</p>
+        </div>
+
+        <h4 class="e-course-application"><span>Application due: </span> {{datum.date.application}}</h4>
+
+
+  <!-- BEGIN FACULTY : CONVERT MACRO INTO SOMETHING WE CAN USE HERE-->
+       {% if datum.faculty_members %}
+        <div class="e-course-faculty">
+          {% for name in datum.faculty_members %}
+            <p>{{ name }}</p>
+          {% endfor %}
+        </div>
+       {% endif %}
+  <!-- END FACULTY -->
+
+  <!-- BEGIN COURSE ACTIONS and GET RID OF DEPENDENCY ON THE ACTION.LINK TO GET THE APPROPRIATE PAGE STYLE BUTTON AND MAKE SURE PAGES BEING RENDERED HAVE THE PROPER URL-->
+    {% if datum.actions %}
+      {% for button in datum.actions %}
+        <div class="row">
+          <div class="large-10 columns end">
+            <a href="{{datum.id + "-" + datum.name | slug + ".html"}}" class="b-button">More Info <i class="material-icons">arrow_forward</i></a>
+        </div>
+        </div>
+      {% endfor %}
+    {% endif %}
+  <!-- END COURSE ACTIONS -->
+          </div>
+
+
+  <!-- BEGIN PAST COURSES: SAME AS ABOVE BUT FOR DIFFERENT DATE FILTER-->
+  <!-- END PAST COURSES -->
+
         {% endif %}
-
-
-        <h3 class="e-course-name">{{datum.name}}</h3>
-
-<!-- BEGIN CERTIFICATIONS -->
-        <div class="e-certifications">
-          {% if datum.certificates.blended %}
-            <img src="../img/icons/icons-blended.png" title="Blended Course" class="e-course-icons m-blended">
-          {% endif %}
-
-          {% if datum.certificates.online %}
-            <img src="../img/icons/icons-online.png" title="Online Course" class="e-course-icons m-online">
-          {% endif %}
-
-          {% if datum.certificates.in_person %}
-            <img src="../img/icons/icons-in-person.png" title="In Person Course" class="e-course-icons m-in-person">
-          {% endif %}
-
-          {% if datum.certificates.for_certificate %}
-            <a href="./about.html#badges"><img src="../img/icons/icons-certification.png" title="For Certification Course" class="e-course-icons m-certification"></a>
-          {% endif %}
-
-          {% if datum.certificates.for_credit %}
-            <img src="../img/icons/icons-credit.png" title="For Credit Course" class="e-course-icons m-credit">
-          {% endif %}
-        </div>
-<!-- END CERTIFICATIONS -->
-      
-      <div class="e-course-description">
-        <p>{{datum.description_short}}</p>
+      {% endfor %}
       </div>
+    </div>
+  </div>
+</section>  
 
-      <h4 class="e-course-application"><span>Application due: </span> {{datum.date.application}}</h4>
+<div class="b-divider m-centered">
+  <h3>FAQs</h3>
+</div>
 
-
-<!-- BEGIN FACULTY : CONVERT MACRO INTO SOMETHING WE CAN USE HERE-->
-     {% if datum.faculty_members %}
-      <div class="e-course-faculty">
-        {% for name in datum.faculty_members %}
-          <p>{{name}}</p>
-        {% endfor %}
-      </div>
-     {% endif %}
-<!-- END FACULTY -->
-
-<!-- BEGIN COURSE ACTIONS and GET RID OF DEPENDENCY ON THE ACTION.LINK TO GET THE APPROPRIATE PAGE STYLE BUTTON AND MAKE SURE PAGES BEING RENDERED HAVE THE PROPER URL-->
-  {% if datum.actions %}
-    {% for button in datum.actions %}
-      <a class="e-button" href="{{datum.id + "-" + datum.name | slug + ".html"}}">More Info</a>
-    {% endfor %}
-  {% endif %}
-<!-- END COURSE ACTIONS -->
-
-
-<!-- BEGIN PAST COURSES: SAME AS ABOVE BUT FOR DIFFERENT DATE FILTER-->
-<!-- END PAST COURSES -->
-
-      {% endif %}
-    {% endfor %}
-
-
-
-
-
-
-
-<section id="faqs" class="b-faqs m-active ">
-    <div class="row b-content-section">
-      <div class="column large-12">
-        <h2 class="e-faq-trigger">FAQs</h2>
+<section id="faqs">
+    <div class="b-page-section">
+    <div class="row">
+      <div class="large-10 large-offset-1 columns">
         <div class="b-faq-item">
-          <p class="e-question">What is an Academy Coaching Program?</p>
-          <p class="e-answer">It is a hands-on, issue-focused learning and mentoring program designed to help you design and implement solutions to one or another specific type of public interest problem using civic technology. Geared to the purpose-driven participant who is a member of an active team that is passionate about a public problem and already undertaking a project, this program helps you develop a project from idea to implementation. Unlike a traditional accelerator, we focus only on the public interest and only on projects that work with real-world institutions and partners, such as agencies and NGOs, to develop more effective and scalable initiatives.</p>
+          <h3>What is an Academy Coaching Program?</h3>
+          <p>It is a hands-on, issue-focused learning and mentoring program designed to help you design and implement solutions to one or another specific type of public interest problem using civic technology. Geared to the purpose-driven participant who is a member of an active team that is passionate about a public problem and already undertaking a project, this program helps you develop a project from idea to implementation. Unlike a traditional accelerator, we focus only on the public interest and only on projects that work with real-world institutions and partners, such as agencies and NGOs, to develop more effective and scalable initiatives.</p>
+        </div>
+        
+        <div class="b-faq-item">
+          <h3>How Does it Work?</h3>
+          <p>The coaching programs are  limited enrollment (maximum class size of 10 projects), entirely online, highly customized, and meet every week for 4 consecutive weeks or every other week for 8 weeks. To help you and your team become more effective, we offer a combination of coaching and skill-building, connection to a network of subject-matter experts, peer to peer mentoring, customized and original learning materials, and frequent and constructive feedback opportunities from a team of teachers and peers at every stage of your agile design-driven process.</p>
+        </div>
+        
+        <div class="b-faq-item">
+          <h3>Where Do the Sessions Meet?</h3>
+          <p>Entirely online.</p>
         </div>
 
         <div class="b-faq-item">
-          <p class="e-question">How Does it Work?</p>
-          <p class="e-answer">The coaching programs are  limited enrollment (maximum class size of 10 projects), entirely online, highly customized, and meet every week for 4 consecutive weeks or every other week for 8 weeks. To help you and your team become more effective, we offer a combination of coaching and skill-building, connection to a network of subject-matter experts, peer-to-peer mentoring, customized and original learning materials, and frequent and constructive feedback opportunities from a team of teachers and peers at every stage of your agile design-driven process.</p>
-          <p>All GovLab Academy’s coaching programs offer a “flipped” learning experience. There are no experts at the front of the room or the top of the screen delivering packaged content to passive learners. You are at the center of everything we do – a civic entrepreneur working on real projects in real communities. Around you we organize the relevant materials, mentor and coaching networks, training exercises, and practice sessions.</p>
-        </div>
-
-        <div class="b-faq-item">
-          <p class="e-question">Where Do the Sessions Meet?</p>
-          <p class="e-answer">Entirely online.</p>
-        </div>
-
-        <div class="b-faq-item">
-          <p class="e-question">How Much Time Will This Take?</p>
+          <h3>How Much Time Will This Take?</h3>
           <ul class="e-answer">
             <li>Upon admission, faculty and staff will engage with your team to identify opportunities, diagnose problems, and develop a customized reading and research plan.</li>
             <li>Each week, the full group meets online with the faculty for 1-2 hours where one hour is discussion of projects by the group and the second hour is a guest lecture.</li>
@@ -165,107 +178,91 @@
         </div>
 
         <div class="b-faq-item">
-          <p class="e-question">Who May Participate?*</p>
+          <h3>Who May Participate?</h3>
           <div class="e-answer">
             <p>Innovators working inside, outside, or in collaboration with public institutions. We will give strong preference to team, as opposed to individual, applications -- especially teams based in US cities</p>
             <p>And you have:</p>
             <ul class="b-list">
               <li>A problem about which you are passionate.</li>
               <li>An open mind to developing innovative approaches that take advantage of technology to bring the broader palette of human expertise to bear on your problem.</li>
-              <li>Intellectual curiosity and a willingness to experiment are essential for this datum. No formal technology training is assumed or required, but a willingness to play with new tools will be.</li>
+              <li>Intellectual curiosity and a willingness to experiment are essential for this course. No formal technology training is assumed or required, but a willingness to play with new tools will be.</li>
               <li>Time and energy to commit to the program activities.</li>
               <li>The drive to do what it takes to develop a project from idea to implementation with the potential of real-world impact for people and communities. Keep in mind that the way to have the greatest impact might not involve building an app or creating a new non-profit but collaborating with others.</li>
             </ul>
-            <p>* Further pre-requisites may apply on specific courses</p>
           </div>
+        </div>
+        
+        <div class="b-faq-item">
+          <h3>How Do I Apply?</h3>
+          <p>To apply, you must submit a 1-2 page description of the problem you or your team wants to tackle and the metric for success by filling out this application form (should we use the last one?).</p>
         </div>
 
         <div class="b-faq-item">
-          <p class="e-question">How Do I Apply?</p>
-          <div class="e-answer">
-            <p>We want to understand the problem you or your team want to tackle with your project and your metrics for its success.</p>
-            <p>Please <a href="https://screendoor.dobt.co/the-govlab/coaching-programs-application-form" target="_blank">click here to fill out an application for an Academy Coaching program</a>. The same form can be used for all of the Academy Programs. If applying as a team, each team member should fill out a separate application.</p>
-            <p>Admitted applicants will be asked to <a href="./static/files/letter-of-commitment.pdf">sign this letter of commitment.</a></p>
-          </div>
-        </div>
-
-        <div class="b-faq-item">
-          <p class="e-question">There are Three People in My Office Who Want to Do This. Can Teams Apply?</p>
-          <p class="e-answer">Yes, people are encouraged to apply as a team. Each member must complete his or her own skills profile, but teams work on a common project throughout the program. People can choose to become a team and work on a common project during the course of the program.
+          <h3>There are Three People in My Office Who Want to Do This. Can Teams Apply?</h3>
+          <p>Yes, people are encouraged to apply as a team. Each member must complete his or her own skills profile but teams work on a common project throughout the program. People can also choose to become a team and work on a common project during the course of the program.
           </p>
         </div>
 
         <div class="b-faq-item">
-          <p class="e-question">When is the Application Due?</p>
+          <h3>When is the Application Due?</h3>
           <div class="e-answer">
-            <table class="b-faq-table">
+            <table>
               <thead>
-                <th class="e-name-col">Projects Focus</th>
-                <th class="e-application-col">Application due</th>
-                <th class="e-start-col">Starts the week of</th>
+                <th>Projects Focus</th>
+                <th>Application due</th>
+                <th>Course begins</th>
               </thead>
               <tbody>
-              <!-- ADD FILTER TO  SORT COURSES BY DATE - DEFINE START DATE -->
-                {% for course in coaching %}
+
+<!-- REVERSE FILTER BY START DATE OR ONLY INCLUDE IF ACTIVE -->
+              {% for course in coaching %}
                 <tr>
-                  <td class="e-name-col">{{datum.name}}</td>
-                  <td class="e-application-col">{{datum.date.application}}</td>
-                  <td class="e-start-col">{{datum.date.week_start}}</td>
+                  <td>{{course.name}}</td>
+                  <td>{{course.date.application}}</td>
+                  <td>{{course.date.start}}</td>
                 </tr>
-                {% endfor %}
+              {% endfor %}
+                
               </tbody>
-            </table>
+            </table>  
           </div>
         </div>
 
         <div class="b-faq-item">
-          <p class="e-question">Who will lead each program?</p>
-          <p class="e-answer">Each coaching program will be led by a leading experts of the field with the active support of Alan Kantrow (Chief Learning and Communications Officer of The GovLab), Arnaud Sahuguet (Chief Technology Officer of The GovLab) and Beth Noveck (Founder and Director of TheGovLab).</p>
+          <h3>Who will lead each program?</h3>
+          <p>Here I suggest adding them as a picture, with the names below and then the focus of the projects he or she will be coaching… and then, if clicked, their expert profile shows.</p>
         </div>
 
         <div class="b-faq-item">
-          <p class="e-question">Do I Get Course Credit?</p>
-          <p class="e-answer">Those who successfully complete the requirements will receive an authenticated badge and certificate.</p>
+          <h3>Do I Get Course Credit?</h3>
+          <p>Those who successfully complete the requirements will receive an authenticated badge and certificate.</p>
         </div>
 
         <div class="b-faq-item">
-          <p class="e-question">How long is the program?</p>
-          <p class="e-answer">The length of each program is every week for 4 consecutive weeks or every other week for 8 weeks.</p>
+          <h3>How long is the program?</h3>
+          <p>The length of each program could be either 4 consecutive weeks or every other week for 8 weeks coaching programs. </p>
         </div>
 
         <div class="b-faq-item">
-          <p class="e-question">Do I Have to Pay Something?</p>
-          <p class="e-answer">No.</p>
+          <h3>Do I Have to Pay Something?</h3>
+          <p>No.</p>
         </div>
 
         <div class="b-faq-item">
-          <p class="e-question">Who are the Mentors? Can I Pick My Own?</p>
+          <h3>Who are the Mentors? Can I Pick My Own?</h3>
           <div class="e-answer">
-            <p>Mentors are either subject matter experts working on similar problems or challenges or people who have a track record as effective change agents. The best mentors, of course, are your classmates.</p>
-            <p>You can find your own, but we commit to helping to pair you with relevant domain experts.</p>
+            <p>Mentors are either subject matter experts working on similar problems or challenges or people who have a track record as effective change agents. The best mentors, of course, are your classmates.</p> 
+            <p>You can find your own but we commit to helping to pair you with relevant domain experts.</p>
           </div>
         </div>
 
         <div class="b-faq-item">
-          <p class="e-question">This Looks Like a Lot of Work?</p>
-          <p class="e-answer">It is. This is not a simulation but an opportunity to get a real civic tech project closer to implementation. A lot of work will need to get done outside the classroom, including user interviews and background research. Although we take account of the fact that people have other jobs and classes, this is a lot of work but in connection with your passions!</p>
+          <h3>This Looks Like a Lot of Work?</h3>
+          <p>It is. This is not a simulation but an opportunity to get a real civic tech project closer to implementation. A lot of work will need to get done outside the classroom, including user interviews and background research. Although we take account of the fact that people have other jobs and classes, this is a lot of work but in connection with your passions!</p>
         </div>
-
-        <div class="b-faq-item">
-          <p class="e-question">Will I receive a certificate upon completion of the program?</p>
-          <p class="e-answer">We will provide a Certificate of Accomplishment for individuals who complete all requirements of each program.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-    <section id="contact-message" class="row b-content-section">
-    <div class="column large-12">
-      <h4>Still hungry for more information?</h4>
-      <p>Send us an email at <a href="mailto:info-academy@thegovlab.org">info-academy@thegovlab.org</a></p>
-    </div>
-  </section>
-    </div>
+      </div>   
+    </div>   
+  </section>  
 
 {% endblock %}
 
