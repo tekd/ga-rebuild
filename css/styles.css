@@ -7281,8 +7281,8 @@ code.m-negative {
 
 .b-course-card {
   border: 1px rgba(0, 0, 0, 0.15) solid;
-  border-left: 8px #008ab3 solid;
   padding: 10px;
+  border-left: 8px #008ab3 solid;
   margin-bottom: 10px;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.15); }
   .b-course-card h4 {
