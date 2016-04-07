@@ -7295,6 +7295,14 @@ code.m-negative {
 .b-top-section h3 {
   padding-top: 40px; }
 
+.e-card {
+  margin-right: 20px; }
+
+.e-card .e-card-inner .e-card-image {
+  background-color: white;
+  background-position: center center;
+  background-size: contain; }
+
 #team .b-top-nav {
   background-color: #472b74; }
 
