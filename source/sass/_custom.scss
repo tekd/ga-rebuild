@@ -528,8 +528,8 @@ color: red !important;
 
 .b-course-card {
     border: 1px $gray-15 solid;
-    border-left: 8px $blue solid;
     padding: 10px;
+    border-left: 8px $blue solid;   
     margin-bottom: 10px;
     box-shadow: 0 0 3px $gray-15;
     h4 {
@@ -540,7 +540,18 @@ color: red !important;
     span {
         color: $gray-40;
     }
+    .m-yellow {
+        // background-color: red !important;
+    }
 }
+
+// .b-course-card .m-blue {
+//     border-left: 8px $blue solid;   
+// }
+
+// .b-course-card .m-yellow {
+//     border-left: 8px $yellow solid !important;   
+// }
 
 .b-top-section {
     h3 {

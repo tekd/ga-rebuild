@@ -11,138 +11,89 @@
     </div>
 </header>
 
-
-
-<section class="b-course-list row b-content-section">
-    <ul class="column large-12">
+<section id="brief-regular-course-descriptions">
+<div class="b-page-section">
+  <div class="row">
+    <div class="large-10 large-offset-1 columns end">
       {% for course in clinics %}
-
       {% if not course.is_crosslisted %}
-      <li class="b-course-list-item m-clinic">
-        <h4 class="e-course-date">{{course.date}}</h4>
-        <h3 class="e-course-name">{{course.name}}</h3>
-        
-        <div class="e-certifications">
-          {% if course.certificates.blended %}
-            <img src="./static/img/icons/icons-blended.png" title="Blended Course" class="e-course-icons m-blended">
-          {% endif %}
+        <div class="b-course-card m-yellow">
+          <div class="e-course-card">
+                  {% if course.date %}
+                  <h4>{{course.date}}</h4> 
+                  {% endif %}
+                <div class="row"> <!-- namediv -->
+                  <div class="large-7 columns">
+                    <h3 class="e-course-name">{{course.name}}</h3>
+                  </div>
+          <!-- BEGIN CERTIFICATIONS -->
+                  <div class="large-3 large-offset-1 columns">
+                    {% if course.certificates.blended %}
+                    <img src="./static/img/icons/icons-blended.png" title="Blended Course" class="e-course-icons m-blended">
+                    {% endif %}
 
-          {% if course.certificates.online %}
-            <img src="./static/img/icons/icons-online.png" title="Online Course" class="e-course-icons m-online">
-          {% endif %}
+                    {% if course.certificates.online %}
+                    <img src="./static/img/icons/icons-online.png" title="Online Course" class="e-course-icons m-online">
+                    {% endif %}
 
-          {% if course.certificates.in_person %}
-            <img src="./static/img/icons/icons-in-person.png" title="In Person Course" class="e-course-icons m-in-person">
-          {% endif %}
+                    {% if course.certificates.in_person %}
+                    <img src="./static/img/icons/icons-in-person.png" title="In Person Course" class="e-course-icons m-in-person">
+                    {% endif %}
 
-          {% if course.certificates.for_certificate %}
-          <a href="./about.html#badges"><img src="./static/img/icons/icons-certification.png" title="For Certification Course" class="e-course-icons m-certification"></a>
-          {% endif %}
+                    {% if course.certificates.for_certificate %}
+                    <a href="./about.html#badges"><img src="./static/img/icons/icons-certification.png" title="For Certification Course" class="e-course-icons m-certification"></a>
+                    {% endif %}
 
-          {% if course.certificates.for_credit %}
-          <img src="./static/img/icons/icons-credit.png" title="For Credit Course" class="e-course-icons m-credit">
-          {% endif %}
+                    {% if course.certificates.for_credit %}
+                    <img src="./static/img/icons/icons-credit.png" title="For Credit Course" class="e-course-icons m-credit">
+                    {% endif %}
 
-        </div>
-        <div class="e-course-description">
-          <p>{{course.description_short}}</p>
-        </div>
+                  </div>
+                </div>
+              </div>
+            </div> <!-- end namediv -->
+    
+    <!-- END CERTIFICATIONS -->
+          
+          <div class="e-course-description">
+            <p>{{course.description_short}}</p>
+          </div>
 
-        {% if course.faculty_members %}
+    <!-- BEGIN FACULTY : CONVERT MACRO INTO SOMETHING WE CAN USE HERE-->
+         {% if course.faculty_members %}
           <div class="e-course-faculty">
-            {% for name in course.faculty_members %}              
-              <p>{{name}}</p>
+            {% for name in course.faculty_members %}
+              <p>{{ name }}</p>
             {% endfor %}
           </div>
-        {% endif %}
 
+         {% endif %}
+    <!-- END FACULTY -->
+
+    <!-- BEGIN COURSE ACTIONS and GET RID OF DEPENDENCY ON THE ACTION.LINK TO GET THE APPROPRIATE PAGE STYLE BUTTON AND MAKE SURE PAGES BEING RENDERED HAVE THE PROPER URL-->
         {% if course.actions %}
-          <div class="e-course-controls">
-            {% for button in course.actions %}
-            <a class="e-button" href="{{button.link}}" target="_blank">{{button.label}}</a>
-            {% endfor %}
-          </div>
+          {% for action in course.actions %}
+            <a class="b-button" href="{{action.link}}">{{action.label}}</a>
+          {% endfor %}
         {% endif %}
 
         {% if course.partner %}
           <h5 class="e-partner">{{course.partner}}</h5>
         {% endif %}
-        
-      </li>
-      {% endif %}
-      {% endfor %}      
-    </ul>
-  </section>
+      </div>
 
 
-    <section class="b-course-list row b-content-section">
-    <div class="column large-12">
-      <h3>Courses offered by partner organizations</h3>
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+      </div>
     </div>
-    <ul class="column large-12">
-      {% for course in clinics %}
+  </div>
 
-      {% if course.is_crosslisted %}
-      <li class="b-course-list-item m-clinic m-crosslisted-{{course.is_crosslisted}}">
-        <h4 class="e-course-date">{{course.date}}</h4>
-        <h3 class="e-course-name">{{course.name}}</h3>
-        
-        <div class="e-certifications">
-          {% if course.certificates.blended %}
-            <img src="./static/img/icons/icons-blended.png" title="Blended Course" class="e-course-icons m-blended">
-          {% endif %}
+</div>
+</section>  
 
-          {% if course.certificates.online %}
-            <img src="./static/img/icons/icons-online.png" title="Online Course" class="e-course-icons m-online">
-          {% endif %}
 
-          {% if course.certificates.in_person %}
-            <img src="./static/img/icons/icons-in-person.png" title="In Person Course" class="e-course-icons m-in-person">
-          {% endif %}
-
-          {% if course.certificates.for_certificate %}
-          <a href="./about.html#badges"><img src="./static/img/icons/icons-certification.png" title="For Certification Course" class="e-course-icons m-certification"></a>
-          {% endif %}
-
-          {% if course.certificates.for_credit %}
-          <img src="./static/img/icons/icons-credit.png" title="For Credit Course" class="e-course-icons m-credit">
-          {% endif %}
-
-        </div>
-        <div class="e-course-description">
-          <p>{{course.description_short}}</p>
-        </div>
-
-        {% if course.faculty_members %}
-          <div class="e-course-faculty">
-            {% for name in course.faculty_members %}              
-              {% if people|selectattr("fullName", "equalto", name)|first|isEmpty %}
-                {{("!!!! ERROR !!!!!: person cannot be found: " + name) |debug}}
-              {% else %}
-                {{ showPerson(people|selectattr("fullName", "equalto", name)|first, "m-mini-card") }}
-              {% endif %}
-            {% endfor %}
-          </div>
-        {% endif %}
-
-        {% if course.actions %}
-          <div class="e-course-controls">
-            {% for button in course.actions %}
-            <a class="e-button" href="{{button.link}}" target="_blank">{{button.label}}</a>
-            {% endfor %}
-          </div>
-        {% endif %}
-
-        {% if course.partner %}
-          <h5 class="e-partner">{{course.partner}}</h5>
-        {% endif %}
-        
-      </li>
-      {% endif %}
-      {% endfor %}  
-
-    </ul>
-    </section>
 
 
 
