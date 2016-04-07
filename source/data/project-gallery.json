@@ -49,7 +49,7 @@
   {
     "id" : "1",
     "title": "FONDEN Transparente: Opening Disaster Funds",
-    "short_title": null,
+    "short_title": "FONDEN Transparente",
     "location": "Mexico",
     "tagline": "Transparency and accountability in the resources allocated to the attention of the damage caused by natural disasters.",
     "background": "Every year in Mexico, cyclones leave billions of dollars in damages. FONDEN, a federal fund that transfers resources and aid to local governments intended for reconstruction projects has been controversial due to lack of accountability, which leads to corruption and unfinished reconstruction projects. These funds account for more than: $3 billion annually.",
@@ -102,7 +102,7 @@
   {
     "id" : "2",
     "title": "Green Archives",
-    "short_title": null,
+    "short_title": "Green Archives",
     "location": "New York, NY",
     "tagline": "Helping People Obtain, Understand & Use Environmental Information",
     "background": "The U.S. lacks an efficient process for disseminating environmental information. People need information to make environmental decisions. The public is left depending on corporations and government entities to make environmental decisions for them. U.S. citizens rely on a combination of FOIA and some environmental law provisions to obtain environmental information which is problematic because information is hard to find and understand, FOIA exemptions block access and create delays, and agencies use outdated technology. The U.S. part of the Rio Convention, which requires parties to give people access to environmental information, but U.S. currently fails to do so effectively.",
@@ -263,7 +263,7 @@
   {
     "id" : "5",
     "title": "NYC Councilmatic",
-    "short_title": null,
+    "short_title": "NYC Councilmatic",
     "sectors": "not-for-profit",
     "location": "New York City",
     "tagline": "New York City Council Demystified",
@@ -319,7 +319,7 @@
   {
     "id" : "6",
     "title": "NYC: Prepared",
-    "short_title": null,
+    "short_title": "NYC: Prepared",
     "sectors": "not-for-profit",
     "location": "New York City, NY",
     "tagline": "technologists and local leaders working together to co-create disaster relief and community resilience software solutions",
@@ -710,7 +710,7 @@
   {
     "id" : "12",
     "title": "PolicyAtlas",
-    "short_title": null,
+    "short_title": "PolicyAtlas",
     "sectors": "not-for-profit",
     "location": "Global online audience. Based in New York, NY, U.S.",
     "tagline": "Mapping and crowdsourcing the universe of public policy solutions.",
@@ -769,7 +769,7 @@
   {
     "id" : "13",
     "title": "Pittsburgh Purchasing Suite",
-    "short_title": null,
+    "short_title": "Pittsburgh Purchasing Suite",
     "sectors": "public-sector",
     "location": "Pittsburgh, Pennsylvania, US",
     "tagline": "A collection of apps that help you procure things more quickly and easily",
