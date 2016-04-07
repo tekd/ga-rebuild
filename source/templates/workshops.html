@@ -5,103 +5,106 @@
     <div class="row">
         <div class="column small-12">
             <h2>Workshops</h2>
-            <h3></h3>
+            <h3>Limited enrollment (maximum class size 30; maximum number of teams, 6), customized 1-2 day, intensively “hands on,” in-person working sessions for city - and government agency-based teams preparing to wrestle with the specific issues and challenges at one or another stage of the governance innovation process.</h3>
         </div>
     </div>
 </header>
 
 
 <section id="about-workshops">
-    <div class="row b-page-section">
-        <section class="column large-6">
-            <p>Limited enrollment (maximum class size 30; maximum number of teams, 6), customized 1-2 day, intensively “hands on,” in-person working sessions for city - and government agency-based teams preparing to wrestle with the specific issues and challenges at one or another stage of the governance innovation process</p>
-            <p><strong>A few workshops, duly noted, are offered on specific dates and open to application by all</strong></p>
-        </section>
+    <div class="b-page-section">
+        <div class="row">
+            <div class="large-10 large-offset-1 columns end">
+                <p><strong>A few workshops, duly noted, are offered on specific dates and open to application by all</strong></p>
+                 <ul>
+                    <li><strong>WHO</strong> Teams of civic entrepreneurs, especially in government or other organizations. Maximum of 30 individuals and/or 6 teams</li>
+                    <li><strong>WHAT</strong> Highly interactive workshop, leveraging a combination of mini-lectures, team-based exercises, and post-session follow-up</li>
+                    <li><strong>WHEN</strong> 1-2 day sessions by arrangement</li>
+                    <li><strong>WHERE</strong> In-person</li>
+                </ul>
+            </div>
+        </div>
 </section>
-        <section class="b-course-info column large-6">
-            <ul>
-                <li><strong>WHO</strong> Teams of civic entrepreneurs, especially in government or other organizations. Maximum of 30 individuals and/or 6 teams</li>
-                <li><strong>WHAT</strong> Highly interactive workshop, leveraging a combination of mini-lectures, team-based exercises, and post-session follow-up</li>
-                <li><strong>WHEN</strong> 1-2 day sessions by arrangement</li>
-                <li><strong>WHERE</strong> In-person</li>
-            </ul>
-        </section>
-    </div>  
-
-    <section class="b-course-list row b-content-section">
-        <ul class="column large-12">
-                {% for course in workshops %}
-                    <h2>{{course.name}}</h2>
-                    {% if not course.is_crosslisted %}
-                        <li class="b-course-list-item m-workshop m-crosslisted-{{course.is_crosslisted}}">
-                        {% if course.date %}
-                            <h4 class="e-course-date">{{course.date}}</h4>
-                        {% endif %}
-                        {# </li> #}
-                    {% endif %}
-                        <h3 class="e-course-name">{{course.name}}</h3>
-
-                    <div class="e-certifications">
-                      {% if course.certificates.blended %}
-                        <img src="../img/icons/icons-blended.png" title="Blended Course" class="e-course-icons m-blended">
-                      {% endif %}
-
-                      {% if course.certificates.online %}
-                        <img src="../img/icons/icons-online.png" title="Online Course" class="e-course-icons m-online">
-                      {% endif %}
-
-                      {% if course.certificates.in_person %}
-                        <img src="../img/icons/icons-in-person.png" title="In Person Course" class="e-course-icons m-in-person">
-                      {% endif %}
-
-                      {% if course.certificates.for_certificate %}
-                      <a href="./about.html#badges"><img src="../img/icons/icons-certification.png" title="For Certification Course" class="e-course-icons m-certification"></a>
-                      {% endif %}
-
-                      {% if course.certificates.for_credit %}
-                      <img src="../img/icons/icons-credit.png" title="For Credit Course" class="e-course-icons m-credit">
-                      {% endif %}
-                    </div>
-<!-- {# END CERTIFICATIONS #} -->
-                <!-- {# BEGIN COURSE DESCRIPTIONS #} -->
-                    <div class="e-course-description">
-                      <p>{{course.description_short}}</p>
-                    </div>
-                <!-- {# END COURSE DESCRIPTIONS #} -->
-
-                <!-- {# BEGIN FACULTY MEMBERS - INSERT image if faculty member exists, if exists link to page #} -->
-                    {% if course.faculty_members %}
-                        <div class="e-course-faculty">
-                        {% for name in course.faculty_members %}              <p>Faculty Member: {{name}}</p>
-                        {# {% if people|selectattr("fullName", "equalto", name)|first|isEmpty %}
-                        {{("!!!! ERROR !!!!!: person cannot be found: " + name) |debug}}
-                        {% else %}
-                        {{ showPerson(people|selectattr("fullName", "equalto", name)|first, "m-mini-card") }}
-                        {% endif %} #}
-                        {% endfor %}
-                        </div>
-                    {% endif %}
-                <!-- {# END FACULTY MEMBERS #} -->
-                <!-- {# BEGIN COURSE ACTIONS #} -->
-                    {% if course.actions %}
-                        <p>COURSE ACTIONS</p>
-                        <div class="e-course-controls">
-                        {% for button in course.actions %}
-                        <a class="e-button" href="{{button.link}}" target="_blank">ACTION: {{button.label}}</a>
-                        {% endfor %}
-                        </div>
-                    {% endif %}
-                <!-- {# END COURSE ACTIONS #} -->
-
-                    {% if course.partner %}
-                        <h5 class="e-partner">{{course.partner}}</h5>
-                    </li>
-                    {% endif %}
-                {% endfor  %}
-        </ul>
-    </section>
 
 
+
+<section id="brief-workshop-descriptions">
+  <div class="row">
+    <div class="large-10 large-offset-1 columns end">
+      {% for course in workshops %}
+      <div class="b-course-card m-blue">
+        <div class="e-course-card">
+              <!-- {% if course.is_active and not course.outdated %} -->
+                {% if course.date %}
+                <h4>{{course.date}}</h4> 
+                {% endif %}
+              <div class="row"> <!-- namediv -->
+                <div class="large-7 columns">
+                  <h3 class="e-course-name">{{course.name}}</h3>
+                </div>
+        <!-- BEGIN CERTIFICATIONS -->
+                <div class="large-3 large-offset-1 columns">
+                {% if not course.is_crosslisted %}
+                <div class="b-course-list-item m-workshop m-crosslisted-{{course.is_crosslisted}}"></div>
+                {% endif %}
+                <div class="e-certifications">
+                {% if course.certificates.blended %}
+                <img src="../img/icons/icons-blended.png" title="Blended Course" class="e-course-icons m-blended">
+                {% endif %}
+                {% if course.certificates.online %}
+                <img src="../img/icons/icons-online.png" title="Online Course" class="e-course-icons m-online">
+                {% endif %}
+                {% if course.certificates.in_person %}
+                <img src="../img/icons/icons-in-person.png" title="In Person Course" class="e-course-icons m-in-person">
+                {% endif %}
+                {% if course.certificates.for_certificate %}
+                <a href="./about.html#badges"><img src="../img/icons/icons-certification.png" title="For Certification Course" class="e-course-icons m-certification"></a>
+                {% endif %}
+                {% if course.certificates.for_credit %}
+                <img src="../img/icons/icons-credit.png" title="For Credit Course" class="e-course-icons m-credit">
+                {% endif %}
+                </div>
+              </div>
+            </div>
+          </div> <!-- end namediv -->
+  
+  <!-- END CERTIFICATIONS -->
+        
+        <div class="e-course-description">
+          <p>{{course.description_short}}</p>
+        </div>
+
+  <!-- BEGIN FACULTY : CONVERT MACRO INTO SOMETHING WE CAN USE HERE-->
+       {% if course.faculty_members %}
+        <div class="e-course-faculty">
+          {% for name in course.faculty_members %}
+            <p>{{ name }}</p>
+          {% endfor %}
+        </div>
+
+       {% endif %}
+  <!-- END FACULTY -->
+
+  <!-- BEGIN COURSE ACTIONS and GET RID OF DEPENDENCY ON THE ACTION.LINK TO GET THE APPROPRIATE PAGE STYLE BUTTON AND MAKE SURE PAGES BEING RENDERED HAVE THE PROPER URL-->
+      {% if course.actions %}
+        {% for action in course.actions %}
+          <a class="b-button" href="{{action.link}}">{{action.label}}</a>
+        {% endfor %}
+      {% endif %}
+
+    </div>
+
+
+
+  <!-- BEGIN PAST COURSES: SAME AS ABOVE BUT FOR DIFFERENT DATE FILTER-->
+  <!-- END PAST COURSES -->
+
+        {% endif %}
+      {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>  
 
 
 {% endblock %}
