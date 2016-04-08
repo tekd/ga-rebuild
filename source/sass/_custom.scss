@@ -326,10 +326,10 @@ background-color: $green_2;
 
 #coaching-programs {
     .b-course-card {
-    border-left: 8px $blue solid;   
+    border-left: 8px $green solid;   
     }
     h4 {
-        color: $blue;
+        color: $green;
     }
 }
 
@@ -339,6 +339,15 @@ background-color: $green_2;
     }
     h4 {
         color: $yellow;
+    }
+}
+
+#workshops {
+    .b-course-card {
+    border-left: 8px $blue solid;   
+    }
+    h4 {
+        color: $blue;
     }
 }
 

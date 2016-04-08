@@ -7198,16 +7198,22 @@ code.m-negative {
   padding-top: 40px; }
 
 #coaching-programs .b-course-card {
-  border-left: 8px #008ab3 solid; }
+  border-left: 8px #008895 solid; }
 
 #coaching-programs h4 {
-  color: #008ab3; }
+  color: #008895; }
 
 #regular-courses .b-course-card {
   border-left: 8px #e3cc26 solid; }
 
 #regular-courses h4 {
   color: #e3cc26; }
+
+#workshops .b-course-card {
+  border-left: 8px #008ab3 solid; }
+
+#workshops h4 {
+  color: #008ab3; }
 
 #project-tiles .e-card {
   margin: 20px; }
