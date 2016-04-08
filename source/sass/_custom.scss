@@ -351,6 +351,14 @@ background-color: $green_2;
     }
 }
 
+#library {
+    .b-course-card {
+    border-left: 8px $orange solid;   
+    }
+    h4 {
+        color: $orange;
+    }
+}
 
 // PROJECTS PAGE
 #project-tiles {

@@ -7215,6 +7215,12 @@ code.m-negative {
 #workshops h4 {
   color: #008ab3; }
 
+#library .b-course-card {
+  border-left: 8px #ee5b43 solid; }
+
+#library h4 {
+  color: #ee5b43; }
+
 #project-tiles .e-card {
   margin: 20px; }
 

@@ -1,34 +1,45 @@
 {% extends '_base.html' %}
 {% block main %}
-<div id="library-page" class="b-content-page">
-	<div class="b-page-title">
+
+<section id="library">
+
+<header class="b-top-section m-orange m-centered">
     <div class="row">
-      <div class="column large-12">
-    		<h2>Library</h2>
-        <p>Selected Readings</p>
-      </div>
-  	</div>
-	</div>
+        <div class="large-10 large-offset-1 columns end">
+            <h2>Library</h2>
+            <h3>Selected Readings</h3>
+        </div>
+    </div>
+</header>
+
+
+
+
 <!-- BEGIN LIBRARY INFO - NEED TO FORMAT  and ADD FILTERS_ JUST DISPLAYING INFO RIGHT NOW -->
-<section class="row b-content-section">
+<div class="row b-page-section">
   <div class="row">
-    <div class="column large-12">
+    <div class="large-10 large-offset-1 columns end">
       {% for item in library %}
-        <p><strong>Title:</strong> <a href="{{item.url}}">{{item.title}}</a></p>
-        <p><strong>Description:</strong> {{item.description}}</p>
-        <p><strong>Tags:</strong> {{item.tags}}</p>
-        <p><strong>Content Type:</strong> {{item.content_type}}</p>
+        <div class="b-course-card">
+          <h4><strong>Title:</strong> <a href="{{item.url}}">{{item.title}}</a></h4>
+          <p><strong>Description:</strong> {{item.description}}</p>
+          <p><strong>Tags:</strong> {{item.tags}}</p>
+          <p><strong>Content Type:</strong> {{item.content_type}}</p>
+        </div>
       {% endfor %}
     </div>
   </div>
-</section>
+</div>
 <!-- END LIBRARY INFO -->
 
-	<section id="contact-message" class="row b-content-section">
-    <div class="column large-12">
+<div id="contact-message" class="b-page-section">
+  <div class="row">
+    <div class="large-10 large-offset-1 columns end">
       <h4>Still hungry for more information?</h4>
       <p>Send us an email at <a href="mailto:info-academy@thegovlab.org">info-academy@thegovlab.org</a></p>
     </div>
-  </section>
+  </div>
 </div>
+
+</section>
 {% endblock %}
