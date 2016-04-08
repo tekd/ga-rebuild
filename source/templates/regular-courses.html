@@ -1,108 +1,97 @@
 {% extends '_base.html' %}
 {% block main %}
 
+<section id="regular-courses">
 
-<header class="b-top-section m-regular-courses">
+  <header class="b-top-section m-regular-courses">
+      <div class="row">
+          <div class="large-10 large-offset-1 columns end">
+              <h2>Courses &amp; Project Clinics</h2>
+              <h3>Graduate - and professional-level courses, for credit and/or for certification, on the overall governance innovation process, as well as on specific technology-enabled approaches to governance innovation.</h3>
+          </div>
+      </div>
+  </header>
+
+
+  <div class="b-page-section">
     <div class="row">
-        <div class="column small-12">
-            <h2>Courses &amp; Project Clinics</h2>
-            <h3>Graduate - and professional-level courses, for credit and/or for certification, on the overall governance innovation process, as well as on specific technology-enabled approaches to governance innovation.</h3>
-        </div>
-    </div>
-</header>
-
-<section id="brief-regular-course-descriptions">
-<div class="b-page-section">
-  <div class="row">
-    <div class="large-10 large-offset-1 columns end">
-      {% for course in clinics %}
-      {% if not course.is_crosslisted %}
-        <div class="b-course-card m-yellow">
-          <div class="e-course-card">
-                  {% if course.date %}
-                  <h4>{{course.date}}</h4> 
-                  {% endif %}
-                <div class="row"> <!-- namediv -->
+      <div class="large-10 large-offset-1 columns end">
+        {% for course in clinics %}
+        {% if not course.is_crosslisted %}
+          <div class="b-course-card m-yellow">
+            <div class="e-course-card">
+              {% if course.date %}
+              <h4>{{course.date}}</h4> 
+              {% endif %}
+                <div class="row">
                   <div class="large-7 columns">
                     <h3 class="e-course-name">{{course.name}}</h3>
                   </div>
-          <!-- BEGIN CERTIFICATIONS -->
                   <div class="large-3 large-offset-1 columns">
                     {% if course.certificates.blended %}
-                    <img src="./static/img/icons/icons-blended.png" title="Blended Course" class="e-course-icons m-blended">
+                    <img src="./img/icons/icons-blended.png" title="Blended Course" class="e-course-icons m-blended">
                     {% endif %}
-
                     {% if course.certificates.online %}
                     <img src="./static/img/icons/icons-online.png" title="Online Course" class="e-course-icons m-online">
                     {% endif %}
 
                     {% if course.certificates.in_person %}
-                    <img src="./static/img/icons/icons-in-person.png" title="In Person Course" class="e-course-icons m-in-person">
+                    <img src="./img/icons/icons-in-person.png" title="In Person Course" class="e-course-icons m-in-person">
                     {% endif %}
 
                     {% if course.certificates.for_certificate %}
-                    <a href="./about.html#badges"><img src="./static/img/icons/icons-certification.png" title="For Certification Course" class="e-course-icons m-certification"></a>
+                    <a href="./about.html#badges"><img src="./img/icons/icons-certification.png" title="For Certification Course" class="e-course-icons m-certification"></a>
                     {% endif %}
 
                     {% if course.certificates.for_credit %}
-                    <img src="./static/img/icons/icons-credit.png" title="For Credit Course" class="e-course-icons m-credit">
+                    <img src="./img/icons/icons-credit.png" title="For Credit Course" class="e-course-icons m-credit">
                     {% endif %}
-
                   </div>
-                </div>
-              </div>
-            </div> <!-- end namediv -->
-    
-    <!-- END CERTIFICATIONS -->
-          
-          <div class="e-course-description">
-            <p>{{course.description_short}}</p>
+                </div> <!-- END INNER ROW -->
+
+                <!-- COURSE DESC -->
+                <div class="e-course-description">
+                  <p>{{course.description_short}}</p>
+                </div> <!-- END COURSE DESC -->
+
+                <!-- BEGIN FACULTY : CONVERT MACRO INTO SOMETHING WE CAN USE HERE-->
+                {% if course.faculty_members %}
+                  <div class="e-course-faculty">
+                    {% for name in course.faculty_members %}
+                        <p>{{ name }}</p>
+                    {% endfor %}
+                  </div>
+                {% endif %}
+                <!-- END FACULTY -->
+                <!-- BEGIN COURSE ACTIONS -->
+                {% if course.actions %}
+                {% for action in course.actions %}
+                <a class="b-button" href="{{action.link}}">{{action.label}}</a>
+                {% endfor %}
+                {% endif %} <!-- END COURSE ACTIONS -->
+
+                <!-- COURSE PARTNER -->
+                {% if course.partner %}
+                  <h5 class="e-partner">{{course.partner}}</h5>
+                {% endif %} <!-- END COURSE PARTNER -->
+
+            </div> <!-- end card -->
           </div>
-
-    <!-- BEGIN FACULTY : CONVERT MACRO INTO SOMETHING WE CAN USE HERE-->
-         {% if course.faculty_members %}
-          <div class="e-course-faculty">
-            {% for name in course.faculty_members %}
-              <p>{{ name }}</p>
-            {% endfor %}
-          </div>
-
-         {% endif %}
-    <!-- END FACULTY -->
-
-    <!-- BEGIN COURSE ACTIONS and GET RID OF DEPENDENCY ON THE ACTION.LINK TO GET THE APPROPRIATE PAGE STYLE BUTTON AND MAKE SURE PAGES BEING RENDERED HAVE THE PROPER URL-->
-        {% if course.actions %}
-          {% for action in course.actions %}
-            <a class="b-button" href="{{action.link}}">{{action.label}}</a>
-          {% endfor %}
-        {% endif %}
-
-        {% if course.partner %}
-          <h5 class="e-partner">{{course.partner}}</h5>
-        {% endif %}
-      </div>
-
-
-          {% endif %}
-        {% endif %}
-      {% endfor %}
-      </div>
+        {% endif %} <!-- end if not course cross listed -->
+        {% endfor %} <!-- end for course in clinics -->
+      </div> <!-- eNd large column -->
+    </div> <!-- end row -->
+  </div> <!-- end page section -->
+ 
+  <div class="b-page-section" id="contact-message">
+    <div class="row">
+        <div class="large-10 large-offset-1 columns end">
+          <h4>Still hungry for more information?</h4>
+          <p>Send us an email at <a href="mailto:info-academy@thegovlab.org">info-academy@thegovlab.org</a></p>
+        </div>
     </div>
   </div>
 
-</div>
-</section>  
-
-
-
-
-
-<section id="contact-message" class="row b-content-section">
-    <div class="column large-12">
-      <h4>Still hungry for more information?</h4>
-      <p>Send us an email at <a href="mailto:info-academy@thegovlab.org">info-academy@thegovlab.org</a></p>
-    </div>
-</section>
-
+<section>
 
 {% endblock %}

@@ -325,6 +325,18 @@ background-color: $green_2;
     }
 }
 
+
+
+#regular-courses {
+    .b-course-card {
+    border-left: 8px $yellow solid;   
+    }
+    h4 {
+        color: $yellow;
+    }
+}
+
+
 // PROJECTS PAGE
 #project-tiles {
     .e-card {
@@ -338,21 +350,22 @@ background-color: $green_2;
 }
 
 // PROJECT DETAIL PAGE
-.b-slider {
-    border: 1px solid $gray-15;
-    .m-white {
-        background-color: $white;
+.project-photo-slider {
+    .b-slider {
+        border: 1px solid $gray-15;
+        .m-white {
+            background-color: $white;
+        }
+        .slider-img {
+            max-height: 400px;
+            text-align: center;
+            margin: 0 auto;
+        }
     }
-    .slider-img {
-        max-height: 400px;
-        text-align: center;
-        margin: 0 auto;
+    .b-slider .slick-arrow:before, .b-slider .slick-arrow:after {
+        color: $gray-15;
+        font-size: 60px;
+        transition: all .4s ease;
     }
-}
-
-.b-slider .slick-arrow:before, .b-slider .slick-arrow:after {
-    color: $gray-15;
-    font-size: 60px;
-    transition: all .4s ease;
 }
 
