@@ -392,3 +392,17 @@ background-color: $green_2;
     }
 }
 
+
+// LOGO
+
+
+.e-logo::after {
+    content:" Academy";
+    font-size: 30px;
+    margin-top: 10px;
+    vertical-align: -6px;
+}
+
+.e-logo:hover {
+    text-decoration: none;
+}
