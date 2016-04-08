@@ -78,11 +78,16 @@
             <!-- BEGIN FACULTY : CONVERT MACRO INTO SOMETHING WE CAN USE HERE-->
           {% if course.faculty_members %}
             <div class="e-course-faculty">
+
+            FACULTY MEMBERS
           {% for name in course.faculty_members %}
             <p>{{ name }}</p>
           {% endfor %}
             </div>
           {% endif %}
+
+
+
             <!-- END FACULTY -->
 
             <!-- BEGIN COURSE ACTIONS and GET RID OF DEPENDENCY ON THE ACTION.LINK TO GET THE APPROPRIATE PAGE STYLE BUTTON AND MAKE SURE PAGES BEING RENDERED HAVE THE PROPER URL-->

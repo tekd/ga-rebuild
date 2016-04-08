@@ -108,14 +108,17 @@
               <h4 class="e-course-application"><span>Application due: </span> {{datum.date.application}}</h4>
 
 
-        <!-- BEGIN FACULTY : CONVERT MACRO INTO SOMETHING WE CAN USE HERE-->
-             {% if datum.faculty_members %}
-              <div class="e-course-faculty">
-                {% for name in datum.faculty_members %}
-                  <p>{{ name }}</p>
-                {% endfor %}
-              </div>
-             {% endif %}
+<div class="faculty">
+    {% for name in datum.faculty_members %}
+    <h3> {%set person = name | returnPerson %}</h3>
+    <div class="e-mini-profile" style="background-image:url(./img/faculty/{{person.name.first | slug}}-{{person.name.last | slug}}.jpg)">
+    </div>
+    <div><span>{{person.name.first}} {{person.name.last}}</span></div>
+    {% endfor %}
+</div>
+
+
+
         <!-- END FACULTY -->
 
         <!-- BEGIN COURSE ACTIONS and GET RID OF DEPENDENCY ON THE ACTION.LINK TO GET THE APPROPRIATE PAGE STYLE BUTTON AND MAKE SURE PAGES BEING RENDERED HAVE THE PROPER URL-->

@@ -314,6 +314,13 @@ background-color: $green_2;
     span {
         color: $gray-40;
     }
+    .e-mini-profile {
+        height: 80px;
+        border-radius: 50%;
+        max-width: 80px;
+        background-size: cover;
+        background-position: center;
+    }
 }
 
 
