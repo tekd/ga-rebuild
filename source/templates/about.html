@@ -113,7 +113,7 @@
                       <a class="e-pop-button m-email" href="mailto:{{person.link.email}}"><i class="fa fa-envelope"></i></a>
                     {% endif %}   
                   </div>
-                  <p>{{person.description}}</p>
+                  <p>{{person.description | safe }}</p>
                   <p class="e-buttons">
                     <a class="b-button js-close-modal m-dark m-icon-only" href="#">Close</a>
                     <a class="b-button js-close-modal m-naked m-icon-only" href="#"><i class="material-icons">close</i></a>
