@@ -7199,6 +7199,12 @@ code.m-negative {
 .b-top-section h3 {
   padding-top: 40px; }
 
+#regular-courses .b-course-card {
+  border-left: 8px #e3cc26 solid; }
+
+#regular-courses h4 {
+  color: #e3cc26; }
+
 #project-tiles .e-card {
   margin: 20px; }
 
@@ -7207,16 +7213,16 @@ code.m-negative {
   background-position: center center;
   background-size: contain; }
 
-.b-slider {
+.project-photo-slider .b-slider {
   border: 1px solid rgba(0, 0, 0, 0.15); }
-  .b-slider .m-white {
+  .project-photo-slider .b-slider .m-white {
     background-color: white; }
-  .b-slider .slider-img {
+  .project-photo-slider .b-slider .slider-img {
     max-height: 400px;
     text-align: center;
     margin: 0 auto; }
 
-.b-slider .slick-arrow:before, .b-slider .slick-arrow:after {
+.project-photo-slider .b-slider .slick-arrow:before, .project-photo-slider .b-slider .slick-arrow:after {
   color: rgba(0, 0, 0, 0.15);
   font-size: 60px;
   transition: all .4s ease; }
