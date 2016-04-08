@@ -7193,6 +7193,12 @@ code.m-negative {
     font-size: 18px; }
   .b-course-card span {
     color: rgba(0, 0, 0, 0.4); }
+  .b-course-card .e-mini-profile {
+    height: 80px;
+    border-radius: 50%;
+    max-width: 80px;
+    background-size: cover;
+    background-position: center; }
 
 .b-top-section h3 {
   padding-top: 40px; }
