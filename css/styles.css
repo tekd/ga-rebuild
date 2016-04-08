@@ -7243,6 +7243,15 @@ code.m-negative {
   font-size: 60px;
   transition: all .4s ease; }
 
+.e-logo::after {
+  content: " Academy";
+  font-size: 30px;
+  margin-top: 10px;
+  vertical-align: -6px; }
+
+.e-logo:hover {
+  text-decoration: none; }
+
 #team .b-top-nav {
   background-color: #472b74; }
 
