@@ -95,6 +95,11 @@
             {% endfor %}
           {% endif %}
 
+          {% if course.partner %}
+          <h5 class="e-partner">{{course.partner}}</h5>
+          {% endif %}
+
+
           </div>
 
         {% endif %}
@@ -162,6 +167,10 @@
             {% for action in course.actions %}
               <a class="b-button" href="{{action.link}}">{{action.label}}</a>
             {% endfor %}
+          {% endif %}
+
+          {% if course.partner %}
+          <h5 class="e-partner">{{course.partner}}</h5>
           {% endif %}
 
           </div>
