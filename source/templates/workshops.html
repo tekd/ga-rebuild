@@ -77,15 +77,18 @@
             </div>
 
               <!-- BEGIN FACULTY : CONVERT MACRO INTO SOMETHING WE CAN USE HERE-->
-            {% if course.faculty_members %}
-              <div class="e-course-faculty">
 
-              FACULTY MEMBERS
-            {% for name in course.faculty_members %}
-              <p>{{ name }}</p>
-            {% endfor %}
-              </div>
-            {% endif %}
+
+        {% if course.faculty_members %}
+        <div class="faculty">
+        {% for name in course.faculty_members %}
+        <h3> {%set person = name | returnPerson %}</h3>
+        <div class="e-mini-profile" style="background-image:url(./img/faculty/{{person.name.first | slug}}-{{person.name.last | slug}}.jpg)">
+        </div>
+        <div><span>{{person.name.first}} {{person.name.last}}</span></div>
+        {% endfor %}
+        </div>
+        {% endif %}
 
 
 
@@ -152,15 +155,17 @@
           </div>
 
             <!-- BEGIN FACULTY : CONVERT MACRO INTO SOMETHING WE CAN USE HERE-->
-          {% if course.faculty_members %}
-            <div class="e-course-faculty">
 
-            FACULTY MEMBERS
-          {% for name in course.faculty_members %}
-            <p>{{ name }}</p>
-          {% endfor %}
-            </div>
-          {% endif %}
+        {% if course.faculty_members %}
+        <div class="faculty">
+        {% for name in course.faculty_members %}
+        <h3> {%set person = name | returnPerson %}</h3>
+        <div class="e-mini-profile" style="background-image:url(./img/faculty/{{person.name.first | slug}}-{{person.name.last | slug}}.jpg)">
+        </div>
+        <div><span>{{person.name.first}} {{person.name.last}}</span></div>
+        {% endfor %}
+        </div>
+        {% endif %}
 
 
 
