@@ -83,7 +83,7 @@
         <h3>Courses offered by partner organizations</h3>
 
         {% for course in clinics %}
-        {% if not course.is_crosslisted %}
+        {% if course.is_crosslisted %}
           <div class="b-course-card m-yellow">
             <div class="e-course-card">
               {% if course.date %}
