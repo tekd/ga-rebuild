@@ -38,10 +38,10 @@
         <h2>Program Info</h2>
       </div>
       <div class="large-7 columns end">
-          <li><strong>WHO</strong> Public entrepreneurs with an identified project on a specific civic tech theme. Maximum of 12 individuals and/or teams per program. By application only</li>
-          <li><strong>WHAT</strong> A blend of group sessions, peer to peer coaching, expert mentoring and private "office hours" with Academy faculty</li>
-          <li><strong>WHEN</strong> Every week (for 4-5 weeks) or every other week (for 8-10 weeks)</li>
-          <li><strong>WHERE</strong> Online</li>
+          <li><strong>WHO</strong> - Public entrepreneurs with an identified project on a specific civic tech theme. Maximum of 12 individuals and/or teams per program. By application only</li>
+          <li><strong>WHAT</strong> - A blend of group sessions, peer to peer coaching, expert mentoring and private "office hours" with Academy faculty</li>
+          <li><strong>WHEN</strong> - Every week (for 4-5 weeks) or every other week (for 8-10 weeks)</li>
+          <li><strong>WHERE</strong> - Online</li>
         </ul>
           <a href="./faqs.html" class="b-button">FAQs<i class="material-icons">arrow_forward</i></a>
       </div>
@@ -51,11 +51,25 @@
 
   <div id="coaching-program-timeline">
     <div class="b-divider m-purple m-centered">
-      <h2>Coaching Program Timeline</h2>
+      <h2>Our Method</h2>
     </div>
     <div class="row">
       <div class="column large-12 m-centered m-orange">
         <img src="./img/coaching-diagram2.png" alt="Coaching program Lifecycle">
+      </div>
+    </div>
+    <div class="row">
+      <div class="large-10 large-offset-1 columns end">
+        <ul>
+          <li>A flexible, customized program responsive to the participants’ specific needs and challenges </li>
+          <li>Rigorous diagnosis of impediments to project implementation that allow us to customize
+          learning;</li>
+          <li>Emphasis on specific and evidence­-based problem definition to ensure that the project solves a well­defined problem;</li>
+          <li>A combination of subject­-matter and skills­-based training to address both deficits in knowledge about innovation and in know how about how to apply that knowledge to one’s own project;</li>
+          <li>Peer­-to-­peer support where similarly situated public entrepreneurs counsel and support each other through challenges together;</li>
+          <li>Mentoring and coaching from experts with a track record of leading successful social change;</li>
+          <li>High­-quality original and curated content ,tools, and resources</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -64,6 +78,7 @@
   <div class="b-page-section">
     <div class="row">
       <div class="large-10 large-offset-1 columns end">
+      <h2>Current Courses</h2>
     <!-- NEED TO SORT COACHING PROGRAMS BY DATE -->
     <!-- NEED TO DEFINE START 'DATE' AND 'OUTDATED' -->
         {% for datum in data %}
@@ -108,14 +123,14 @@
               <h4 class="e-course-application"><span>Application due: </span> {{datum.date.application}}</h4>
 
 
-<div class="faculty">
-    {% for name in datum.faculty_members %}
-    <h3> {%set person = name | returnPerson %}</h3>
-    <div class="e-mini-profile" style="background-image:url(./img/faculty/{{person.name.first | slug}}-{{person.name.last | slug}}.jpg)">
-    </div>
-    <div><span>{{person.name.first}} {{person.name.last}}</span></div>
-    {% endfor %}
-</div>
+              <div class="faculty">
+                  {% for name in datum.faculty_members %}
+                  <h3> {%set person = name | returnPerson %}</h3>
+                  <div class="e-mini-profile" style="background-image:url(./img/faculty/{{person.name.first | slug}}-{{person.name.last | slug}}.jpg)">
+                  </div>
+                  <div><span>{{person.name.first}} {{person.name.last}}</span></div>
+                  {% endfor %}
+              </div>
 
 
 
@@ -134,16 +149,18 @@
         <!-- END COURSE ACTIONS -->
             </div>
 
-
-    <!-- BEGIN PAST COURSES: SAME AS ABOVE BUT FOR DIFFERENT DATE FILTER-->
-    <!-- END PAST COURSES -->
-
           {% endif %}
         {% endfor %}
+
+      <h2>Past Courses</h2>
+    <!-- BEGIN PAST COURSES: SAME AS ABOVE BUT FOR DIFFERENT DATE FILTER-->
+    <!-- END PAST COURSES -->
+  <a href="./faqs.html" class="b-button">FAQs<i class="material-icons">arrow_forward</i></a>
         </div>
       </div>
     </div>
   </div>
+
 </section>  
 
 {% endblock %}
