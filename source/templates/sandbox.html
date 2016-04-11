@@ -9,49 +9,28 @@
     </div>
 </header>
 
+<div class="b-page-section">
+  <div class="row">
+    <div class="large-10 large-offset-1 columns end">
 
-  <div class="b-page-section">
-    <div class="row">
-      <div class="large-10 large-offset-1 columns">
+<h2>descending filter test</h2>
 
-      {% for datum in data %}
-       <p>returnPerson:  {{ datum.faculty_members  | returnPerson }}</p>
-        <p> Slug: {{ datum.faculty_members  | slug }}</p>
-        <p> Full Name: {{ datum.faculty_members | fullName }}</p>
 
-        {% for name in datum.faculty_members %}
-           <h3> {%set person = name | returnPerson %}</h3>
-           PERSON {{person.name.first}} {{person.name.last}}
-        {% endfor %}
-
-        <hr>
+      {% for datum in data  | sortJsonDescByDate %}
+      <p>{{datum.date.start}} {{datum.name}}</p>
       {% endfor %}
-        </div>
 
+<h2>ascending filter test</h2>
+
+      {% for datum in data  | sortJsonAscByDate %}
+      <p>{{datum.date.start}} {{datum.name}}</p>
+      {% endfor %}
 
 
     </div>
   </div>
-
+</div>
 </section>
 
 {% endblock %}
 
-
-
-<!-- OLD CODE -->
-<!-- <div class="e-course-faculty">
-{% for name in course.faculty_members %}
-  {% if people|selectattr("fullName", "equalto", name)|first|isEmpty %}
-    {{("!!!! ERROR !!!!!: person cannot be found: " + name) |debug}}
-  {% else %}
-    {{ showPerson(people|selectattr("fullName", "equalto", name)|first, "m-mini-card") }}
-  {% endif %}
-{% endfor %}
-</div> -->
-
-<!-- OLD PYTHON METHOD -->
-<!-- 
-for p in PEOPLE:
-    p['fullName'] = '%s %s' % (p['name']['first'], p['name']['last'])
- -->

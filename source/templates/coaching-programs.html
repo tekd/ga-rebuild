@@ -81,7 +81,7 @@
       <h2>Current Courses</h2>
     <!-- NEED TO SORT COACHING PROGRAMS BY DATE -->
     <!-- NEED TO DEFINE START 'DATE' AND 'OUTDATED' -->
-        {% for datum in data %}
+        {% for datum in data | sortJsonAscByDate %}
             {% if datum.is_active and not datum.date.start | isOutdated %}
         <div class="b-course-card m-blue">
           <div class="e-course-card">
@@ -156,7 +156,7 @@
         {% endfor %}
 
       <h3>Past Courses</h3>
-            {% for datum in data %}
+            {% for datum in data | sortJsonDescByDate %}
                 {% if datum.is_active and datum.date.start | isOutdated %}
             <div class="b-course-card m-blue">
               <div class="e-course-card">

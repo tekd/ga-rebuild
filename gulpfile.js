@@ -41,7 +41,7 @@ function returnPerson(p) {
     if (fullName === p) {
       person = peopleJSON.people[i];
     } else {
-      console.log("Person not found");
+      // console.log("Person not found");
     }
   }
   return person;
@@ -64,12 +64,40 @@ function isOutdated(d) {
   }
 }
 
+
+function sortJsonDescByDate(d) {
+  var data = [];
+  d.forEach(function(value, idx) {
+    data.push(d[idx])
+  })
+  var sortedData = data.sort(function(a,b) {
+    return new Date(b.date.start) - new Date(a.date.start);
+  });
+  return sortedData;
+}
+
+function sortJsonAscByDate(d) {
+  var data = [];
+  d.forEach(function(value, idx) {
+    data.push(d[idx])
+  })
+  var sortedData = data.sort(function(a,b) {
+    return new Date(a.date.start) - new Date(b.date.start);
+  });
+  return sortedData;
+}
+
+
+
 function nunjucksEnv(env) {
   env.addFilter('slug', slugify);
   env.addFilter('returnPerson', returnPerson);
   env.addFilter("fullName", returnFullName);
   env.addFilter("getDate", getDate);
   env.addFilter("isOutdated", isOutdated);
+  env.addFilter("sortJsonDescByDate", sortJsonDescByDate);
+  env.addFilter("sortJsonAscByDate", sortJsonAscByDate);
+  console.log(env);
 }
 
 var options = {
