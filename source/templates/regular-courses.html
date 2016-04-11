@@ -79,6 +79,73 @@
           </div>
         {% endif %} <!-- end if not course cross listed -->
         {% endfor %} <!-- end for course in clinics -->
+
+        <h3>Courses offered by partner organizations</h3>
+
+        {% for course in clinics %}
+        {% if not course.is_crosslisted %}
+          <div class="b-course-card m-yellow">
+            <div class="e-course-card">
+              {% if course.date %}
+              <h4>{{course.date}}</h4> 
+              {% endif %}
+                <div class="row">
+                  <div class="large-7 columns">
+                    <h3 class="e-course-name">{{course.name}}</h3>
+                  </div>
+                  <div class="large-3 large-offset-1 columns">
+                    {% if course.certificates.blended %}
+                    <img src="./img/icons/icons-blended.png" title="Blended Course" class="e-course-icons m-blended">
+                    {% endif %}
+                    {% if course.certificates.online %}
+                    <img src="./static/img/icons/icons-online.png" title="Online Course" class="e-course-icons m-online">
+                    {% endif %}
+
+                    {% if course.certificates.in_person %}
+                    <img src="./img/icons/icons-in-person.png" title="In Person Course" class="e-course-icons m-in-person">
+                    {% endif %}
+
+                    {% if course.certificates.for_certificate %}
+                    <a href="./about.html#badges"><img src="./img/icons/icons-certification.png" title="For Certification Course" class="e-course-icons m-certification"></a>
+                    {% endif %}
+
+                    {% if course.certificates.for_credit %}
+                    <img src="./img/icons/icons-credit.png" title="For Credit Course" class="e-course-icons m-credit">
+                    {% endif %}
+                  </div>
+                </div> <!-- END INNER ROW -->
+
+                <!-- COURSE DESC -->
+                <div class="e-course-description">
+                  <p>{{course.description_short}}</p>
+                </div> <!-- END COURSE DESC -->
+
+                <!-- BEGIN FACULTY : CONVERT MACRO INTO SOMETHING WE CAN USE HERE-->
+                {% if course.faculty_members %}
+                  <div class="e-course-faculty">
+                    {% for name in course.faculty_members %}
+                        <p>{{ name }}</p>
+                    {% endfor %}
+                  </div>
+                {% endif %}
+                <!-- END FACULTY -->
+                <!-- BEGIN COURSE ACTIONS -->
+                {% if course.actions %}
+                {% for action in course.actions %}
+                <a class="b-button" href="{{action.link}}">{{action.label}}</a>
+                {% endfor %}
+                {% endif %} <!-- END COURSE ACTIONS -->
+
+                <!-- COURSE PARTNER -->
+                {% if course.partner %}
+                  <h5 class="e-partner">{{course.partner}}</h5>
+                {% endif %} <!-- END COURSE PARTNER -->
+
+            </div> <!-- end card -->
+          </div>
+        {% endif %} <!-- end if not course cross listed -->
+        {% endfor %} <!-- end for course in clinics -->
+        
       </div> <!-- eNd large column -->
     </div> <!-- end row -->
   </div> <!-- end page section -->
