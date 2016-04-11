@@ -51,10 +51,25 @@ function returnFullName(fullName) {
 //   return "FULLNAME";
 }
 
+function getDate(d) {
+  return new Date(d);
+}
+
+function isOutdated(d) {
+  var today = new Date();
+  if (today > new Date(d)) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
 function nunjucksEnv(env) {
   env.addFilter('slug', slugify);
   env.addFilter('returnPerson', returnPerson);
   env.addFilter("fullName", returnFullName);
+  env.addFilter("getDate", getDate);
+  env.addFilter("isOutdated", isOutdated);
 }
 
 var options = {
