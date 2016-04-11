@@ -107,76 +107,78 @@
         {% endfor %}
 
       <h3>Workshops offered by partner organizations</h3>
-        {% for course in workshops %}
-          {% if course.is_crosslisted %}
+            {% for course in workshops %}
+              {% if course.is_crosslisted %}
+      <div class="b-course-card m-blue">
+      <div class="e-course-card">
+        <!-- {% if course.is_active and not course.outdated %} -->
+          {% if course.date %}
+            <h4>{{course.date}}</h4> 
+          {% endif %}
 
-        <div class="b-course-card m-blue">
-        <div class="e-course-card">
-            {% if course.date %}
-              <h4>{{course.date}}</h4> 
-            {% endif %}
-
-            <div class="row"> <!-- namediv -->
-              <div class="large-7 columns">
-                <h3 class="e-course-name">{{course.name}}</h3>
-              </div>
-              <!-- BEGIN CERTIFICATIONS -->
-              <div class="large-3 large-offset-1 columns">
-                {% if not course.is_crosslisted %}
-                  <div class="b-course-list-item m-workshop m-crosslisted-{{course.is_crosslisted}}"></div>
-                {% endif %}
-                    <div class="e-certifications">
-                      {% if course.certificates.blended %}
-                        <img src="./img/icons/icons-blended.png" title="Blended Course" class="e-course-icons m-blended">
-                      {% endif %}
-                    {% if course.certificates.online %}
-                      <img src="./img/icons/icons-online.png" title="Online Course" class="e-course-icons m-online">
-                    {% endif %}
-                    {% if course.certificates.in_person %}
-                      <img src="./img/icons/icons-in-person.png" title="In Person Course" class="e-course-icons m-in-person">
-                    {% endif %}
-                    {% if course.certificates.for_certificate %}
-                      <a href="./about.html#badges"><img src="./img/icons/icons-certification.png" title="For Certification Course" class="e-course-icons m-certification"></a>
-                    {% endif %}
-                    {% if course.certificates.for_credit %}
-                      <img src="./img/icons/icons-credit.png" title="For Credit Course" class="e-course-icons m-credit">
-                    {% endif %}
-                  </div> <!--  end cert div -->
-                </div> <!-- end crosslist div -->
-              </div> <!--  end offset div -->
-            </div> <!-- end crosslist div -->
-            <!-- END CERTIFICATIONS -->
-
-            <div class="e-course-description">
-              <p>{{course.description_short}}</p>
+          <div class="row"> <!-- namediv -->
+            <div class="large-7 columns">
+              <h3 class="e-course-name">{{course.name}}</h3>
             </div>
+            <!-- BEGIN CERTIFICATIONS -->
+            <div class="large-3 large-offset-1 columns">
+              {% if not course.is_crosslisted %}
+                <div class="b-course-list-item m-workshop m-crosslisted-{{course.is_crosslisted}}"></div>
+              {% endif %}
+                  <div class="e-certifications">
+                    {% if course.certificates.blended %}
+                      <img src="./img/icons/icons-blended.png" title="Blended Course" class="e-course-icons m-blended">
+                    {% endif %}
+                  {% if course.certificates.online %}
+                    <img src="./img/icons/icons-online.png" title="Online Course" class="e-course-icons m-online">
+                  {% endif %}
+                  {% if course.certificates.in_person %}
+                    <img src="./img/icons/icons-in-person.png" title="In Person Course" class="e-course-icons m-in-person">
+                  {% endif %}
+                  {% if course.certificates.for_certificate %}
+                    <a href="./about.html#badges"><img src="./img/icons/icons-certification.png" title="For Certification Course" class="e-course-icons m-certification"></a>
+                  {% endif %}
+                  {% if course.certificates.for_credit %}
+                    <img src="./img/icons/icons-credit.png" title="For Credit Course" class="e-course-icons m-credit">
+                  {% endif %}
+                </div> <!--  end cert div -->
+              </div> <!-- end crosslist div -->
+            </div> <!--  end offset div -->
+          </div> <!-- end crosslist div -->
+          <!-- END CERTIFICATIONS -->
 
-              <!-- BEGIN FACULTY : CONVERT MACRO INTO SOMETHING WE CAN USE HERE-->
-            {% if course.faculty_members %}
-              <div class="e-course-faculty">
+          <div class="e-course-description">
+            <p>{{course.description_short}}</p>
+          </div>
 
-              FACULTY MEMBERS
-            {% for name in course.faculty_members %}
-              <p>{{ name }}</p>
+            <!-- BEGIN FACULTY : CONVERT MACRO INTO SOMETHING WE CAN USE HERE-->
+          {% if course.faculty_members %}
+            <div class="e-course-faculty">
+
+            FACULTY MEMBERS
+          {% for name in course.faculty_members %}
+            <p>{{ name }}</p>
+          {% endfor %}
+            </div>
+          {% endif %}
+
+
+
+      <!-- END FACULTY -->
+          {% if course.actions %}
+            {% for action in course.actions %}
+              <a class="b-button" href="{{action.link}}">{{action.label}}</a>
             {% endfor %}
-              </div>
-            {% endif %}
-            
-        <!-- END FACULTY -->
-            {% if course.actions %}
-              {% for action in course.actions %}
-                <a class="b-button" href="{{action.link}}">{{action.label}}</a>
-              {% endfor %}
-            {% endif %}
-
-            {% if course.partner %}
-            <h5 class="e-partner">{{course.partner}}</h5>
-            {% endif %}
-
-            </div>
-
           {% endif %}
+
+          {% if course.partner %}
+          <h5 class="e-partner">{{course.partner}}</h5>
           {% endif %}
+
+          </div>
+
+        {% endif %}
+        {% endif %}
         {% endfor %}
       </div>
 
