@@ -13,23 +13,43 @@
   <div class="row">
     <div class="large-10 large-offset-1 columns end">
 
-<h2>descending filter test</h2>
+
+<h2>Project Gallery</h2>
+{% for project in project_gallery %}
+  <p>Project: {{project.title}}</p>
+  <p>Project ID: {{project.id}}</p>
+{% endfor %}
 
 
-      {% for datum in data  | sortJsonDescByDate %}
-      <p>{{datum.date.start}} {{datum.name}}</p>
-      {% endfor %}
 
-<h2>ascending filter test</h2>
+<h2>Coaching Programs</h2>
+{% for course in coaching %}
+  <p>Coaching Program: {{course.name}}</p>
+  <p>Coaching Program ID: {{course.id}}</p>
+{% endfor %}
 
-      {% for datum in data  | sortJsonAscByDate %}
-      <p>{{datum.date.start}} {{datum.name}}</p>
-      {% endfor %}
+
+
+<h2>Clinics</h2>
+{% for course in clinics %}
+  <p>Clinics: {{course.name}}</p>
+{% endfor %}
+
+
+
+<h2>Workshops</h2>
+{% for course in workshops %}
+  <p>Workshop: {{course.name}}</p>
+{% endfor %}
+
+
 
 
     </div>
   </div>
 </div>
+
+
 </section>
 
 {% endblock %}

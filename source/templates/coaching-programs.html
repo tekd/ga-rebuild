@@ -81,35 +81,35 @@
       <h2>Current Courses</h2>
     <!-- NEED TO SORT COACHING PROGRAMS BY DATE -->
     <!-- NEED TO DEFINE START 'DATE' AND 'OUTDATED' -->
-        {% for datum in data | sortJsonAscByDate %}
-            {% if datum.is_active and not datum.date.start | isOutdated %}
+        {% for course in coaching | sortJsonAscByDate %}
+            {% if course.is_active and not course.date.start | isOutdated %}
         <div class="b-course-card m-blue">
           <div class="e-course-card">
-                  {% if datum.date %}
-                  <h4><span>Starts the week of </span>{{datum.date.start}}</h4> 
+                  {% if course.date %}
+                  <h4><span>Starts the week of </span>{{course.date.start}}</h4> 
                   <!-- {% endif %} -->
                 <div class="row"> <!-- namediv -->
                   <div class="large-7 columns">
-                    <h3 class="e-course-name">{{datum.name}}</h3>
+                    <h3 class="e-course-name">{{course.name}}</h3>
                   </div>
           <!-- BEGIN CERTIFICATIONS -->
                   <div class="large-3 large-offset-1 columns">
-                      {% if datum.certificates.blended %}
+                      {% if course.certificates.blended %}
                         <img src="./img/icons/icons-blended.png" title="Blended Course" class="e-course-icons m-blended">
                       {% endif %}
 
-                      {% if datum.certificates.online %}
+                      {% if course.certificates.online %}
                         <img src="./img/icons/icons-online.png" title="Online Course" class="e-course-icons m-online">
                       {% endif %}
 
-                      {% if datum.certificates.in_person %}
+                      {% if course.certificates.in_person %}
                         <img src="./img/icons/icons-in-person.png" title="In Person Course" class="e-course-icons m-in-person">
                       {% endif %}
 
-                      {% if datum.certificates.for_certificate %}
+                      {% if course.certificates.for_certificate %}
                         <a href="./about.html#badges"><img src="./img/icons/icons-certification.png" title="For Certification Course" class="e-course-icons m-certification"></a>
                       {% endif %}
-                      {% if datum.certificates.for_credit %}
+                      {% if course.certificates.for_credit %}
                         <img src="./img/icons/icons-credit.png" title="For Credit Course" class="e-course-icons m-credit">
                       {% endif %}
                       </div>
@@ -117,14 +117,14 @@
               </div> <!-- end namediv -->
     <!-- END CERTIFICATIONS -->
               <div class="e-course-description">
-                <p>{{datum.description_short | safe}}</p>
+                <p>{{course.description_short | safe}}</p>
               </div>
 
-              <h4 class="e-course-application"><span>Application due: </span> {{datum.date.application}}</h4>
+              <h4 class="e-course-application"><span>Application due: </span> {{course.date.application}}</h4>
 
 
               <div class="faculty">
-                  {% for name in datum.faculty_members %}
+                  {% for name in course.faculty_members %}
                   <h3> {%set person = name | returnPerson %}</h3>
                   <div class="e-mini-profile" style="background-image:url(./img/faculty/{{person.name.first | slug}}-{{person.name.last | slug}}.jpg)">
                   </div>
@@ -135,18 +135,18 @@
         <!-- END FACULTY -->
 
         <!-- BEGIN COURSE ACTIONS and GET RID OF DEPENDENCY ON THE ACTION.LINK TO GET THE APPROPRIATE PAGE STYLE BUTTON AND MAKE SURE PAGES BEING RENDERED HAVE THE PROPER URL-->
-          {% if datum.actions %}
-            {% for button in datum.actions %}
+          {% if course.actions %}
+            {% for button in course.actions %}
               <div class="row">
                 <div class="large-10 columns end">
-                  <a href="{{datum.id + "-" + datum.name | slug + ".html"}}" class="b-button">More Info <i class="material-icons">arrow_forward</i></a>
+                  <a href="{{course.id + ".html"}}" class="b-button">More Info <i class="material-icons">arrow_forward</i></a>
               </div>
               </div>
             {% endfor %}
           {% endif %}
         <!-- END COURSE ACTIONS -->
 
-          {% if datum.partner %}
+          {% if course.partner %}
             <h5 class="e-partner">{{course.partner}}</h5>
           {% endif %}
           
@@ -156,35 +156,35 @@
         {% endfor %}
 
       <h3>Past Courses</h3>
-            {% for datum in data | sortJsonDescByDate %}
-                {% if datum.is_active and datum.date.start | isOutdated %}
+            {% for course in coaching  | sortJsonDescByDate %}
+                {% if course.is_active and course.date.start | isOutdated %}
             <div class="b-course-card m-blue">
               <div class="e-course-card">
-                      {% if datum.date %}
-                      <h4><span>Starts the week of </span>{{datum.date.start}}</h4> 
+                      {% if course.date %}
+                      <h4><span>Starts the week of </span>{{course.date.start}}</h4> 
                       <!-- {% endif %} -->
                     <div class="row"> <!-- namediv -->
                       <div class="large-7 columns">
-                        <h3 class="e-course-name">{{datum.name}}</h3>
+                        <h3 class="e-course-name">{{course.name}}</h3>
                       </div>
               <!-- BEGIN CERTIFICATIONS -->
                       <div class="large-3 large-offset-1 columns">
-                          {% if datum.certificates.blended %}
+                          {% if course.certificates.blended %}
                             <img src="./img/icons/icons-blended.png" title="Blended Course" class="e-course-icons m-blended">
                           {% endif %}
 
-                          {% if datum.certificates.online %}
+                          {% if course.certificates.online %}
                             <img src="./img/icons/icons-online.png" title="Online Course" class="e-course-icons m-online">
                           {% endif %}
 
-                          {% if datum.certificates.in_person %}
+                          {% if course.certificates.in_person %}
                             <img src="./img/icons/icons-in-person.png" title="In Person Course" class="e-course-icons m-in-person">
                           {% endif %}
 
-                          {% if datum.certificates.for_certificate %}
+                          {% if course.certificates.for_certificate %}
                             <a href="./about.html#badges"><img src="./img/icons/icons-certification.png" title="For Certification Course" class="e-course-icons m-certification"></a>
                           {% endif %}
-                          {% if datum.certificates.for_credit %}
+                          {% if course.certificates.for_credit %}
                             <img src="./img/icons/icons-credit.png" title="For Credit Course" class="e-course-icons m-credit">
                           {% endif %}
                           </div>
@@ -192,14 +192,14 @@
                   </div> <!-- end namediv -->
         <!-- END CERTIFICATIONS -->
                   <div class="e-course-description">
-                    <p>{{datum.description_short | safe}}</p>
+                    <p>{{course.description_short | safe}}</p>
                   </div>
 
-                  <h4 class="e-course-application"><span>Application due: </span> {{datum.date.application}}</h4>
+                  <h4 class="e-course-application"><span>Application due: </span> {{course.date.application}}</h4>
 
 
                   <div class="faculty">
-                      {% for name in datum.faculty_members %}
+                      {% for name in course.faculty_members %}
                       <h3> {%set person = name | returnPerson %}</h3>
                       <div class="e-mini-profile" style="background-image:url(./img/faculty/{{person.name.first | slug}}-{{person.name.last | slug}}.jpg)">
                       </div>
@@ -210,18 +210,18 @@
             <!-- END FACULTY -->
 
             <!-- BEGIN COURSE ACTIONS and GET RID OF DEPENDENCY ON THE ACTION.LINK TO GET THE APPROPRIATE PAGE STYLE BUTTON AND MAKE SURE PAGES BEING RENDERED HAVE THE PROPER URL-->
-              {% if datum.actions %}
-                {% for button in datum.actions %}
+              {% if course.actions %}
+                {% for button in course.actions %}
                   <div class="row">
                     <div class="large-10 columns end">
-                      <a href="{{datum.id + "-" + datum.name | slug + ".html"}}" class="b-button">More Info <i class="material-icons">arrow_forward</i></a>
+                      <a href="{{course.id + ".html"}}" class="b-button">More Info <i class="material-icons">arrow_forward</i></a>
                   </div>
                   </div>
                 {% endfor %}
               {% endif %}
             <!-- END COURSE ACTIONS -->
 
-              {% if datum.partner %}
+              {% if course.partner %}
                 <h5 class="e-partner">{{course.partner}}</h5>
               {% endif %}
               
