@@ -7,7 +7,7 @@
             <h2>Project Gallery</h2>
             <h3>Showcasing Our Alumni’s Innovative Civic and Governance Projects. Get Inspired. Connect. Collaborate.</h3>
     <p class="e-sponsor m-centered">
-      With support from <img id="knight-logo" src="../img/knight-logo-white.png" alt="Knight Foundation">
+      With support from <img id="knight-logo" src="./img/knight-logo-white.png" alt="Knight Foundation">
     </p>
         </div>
     </div>
@@ -51,7 +51,7 @@
             {% for project in project_gallery %}
                 <div class="e-card m-blue large-3 columns end">
                 <!-- PLACEHOLDER PROJECT PAGE LINKED UNTIL WE CAN GENERATE URLS -->
-                    <a href="./{{ project.id}}-{{project.title | slug }}.html">
+                    <a href="{{ project.id}}-{{project.title | slug }}.html">
                         <div class="e-card-inner">
                             <!-- uncomment to add a background image to the card -->
                             <div class="e-card-image" style="background-image: url('./img/projects/{{project.logo}}')"></div>
