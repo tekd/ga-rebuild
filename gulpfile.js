@@ -63,9 +63,76 @@ function slugify(t) {
   : false ;
 }
 
+function returnPerson(p) {
+  var person;
+  var peopleJSON = require('./source/data/people.json');
+  for (var i = 0; i < peopleJSON.data.length; i++) {
+    var fullName = peopleJSON.data[i].name.first + " " + peopleJSON.data[i].name.last;
+    if (fullName === p) {
+      person = peopleJSON.data[i];
+    } else {
+      console.log("Person not found");
+    }
+  }
+  return person;
+
+}
+
+function returnFullName(fullName) {
+//   return "FULLNAME";
+}
+
+function getDate(d) {
+  return new Date(d);
+}
+
+function isOutdated(d) {
+  var today = new Date();
+  if (today > new Date(d)) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+
+function sortJsonDescByDate(d) {
+  var data = [];
+  d.forEach(function(value, idx) {
+    if (value) {
+      data.push(d[idx])
+    } else {
+      console.log(d[idx] + " is not found")
+    } 
+  })
+  var sortedData = data.sort(function(a,b) {
+    return new Date(b.date.start) - new Date(a.date.start);
+  });
+  return sortedData;
+}
+
+function sortJsonAscByDate(d) {
+  var data = [];
+  d.forEach(function(value, idx) {
+    data.push(d[idx])
+  })
+  var sortedData = data.sort(function(a,b) {
+    return new Date(a.date.start) - new Date(b.date.start);
+  });
+  return sortedData;
+}
+
+
+
 // set up nunjucks environment
 function nunjucksEnv(env) {
   env.addFilter('slug', slugify);
+  env.addFilter('returnPerson', returnPerson);
+  env.addFilter("fullName", returnFullName);
+  env.addFilter("getDate", getDate);
+  env.addFilter("isOutdated", isOutdated);
+  env.addFilter("sortJsonDescByDate", sortJsonDescByDate);
+  env.addFilter("sortJsonAscByDate", sortJsonAscByDate);
 }
 
 // compile all the datasets into a composite set
