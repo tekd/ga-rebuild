@@ -51,7 +51,7 @@
             {% for project in project_gallery %}
                 <div class="e-card m-blue large-3 columns end">
                 <!-- PLACEHOLDER PROJECT PAGE LINKED UNTIL WE CAN GENERATE URLS -->
-                    <a href="{{ project.id}}-{{project.title | slug }}.html">
+                    <a href="./{{ project.id}}-{{project.title | slug }}.html">
                         <div class="e-card-inner">
                             <!-- uncomment to add a background image to the card -->
                             <div class="e-card-image" style="background-image: url('./img/projects/{{project.logo}}')"></div>
