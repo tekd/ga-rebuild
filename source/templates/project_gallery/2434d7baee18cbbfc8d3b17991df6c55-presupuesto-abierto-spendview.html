@@ -1,0 +1,173 @@
+
+{% extends "_base.html" %}
+
+{% block main %}
+
+<header class="b-top-section m-blue">
+    <div class="row">
+        <div class="large-10 large-offset-1 columns end">
+            <h2>{{title}}</h2>
+            <h3>{{tagline}}</h3>
+        </div>
+    </div>
+</header>
+
+<!-- single landing inherited from old site -->
+<section class="b-single-landing"> 
+    <div class="b-page-section m-blue">
+        <div class="row">
+            <div class="large-10 columns">
+                <div class="e-progress m-{{status}}">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="project-info">
+    {% if background %}
+    <div class="b-page-section">
+        <div class="row">
+            <div class="large-3 columns large-offset-1">
+                <h3>Background</h3>
+            </div>
+            <div class="large-7 columns end">
+                {{background | safe }}
+            </div>
+    {% endif %}
+        </div>
+    </div>
+
+    {% if description %}
+    <div class="b-page-section">
+        <div class="row">
+            <div class="large-3 columns large-offset-1">
+                <h3>Description</h3>
+            </div>
+            <div class="large-7 columns end">
+                {{description | safe }}
+            </div>
+    {% endif %}
+        </div>
+    </div>
+
+    {% if impact %}
+    <div class="b-page-section">
+        <div class="row">
+            <div class="large-3 columns large-offset-1">
+                <h3>Impact</h3>
+            </div>
+            <div class="large-7 columns end">
+                {{impact | safe }}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+<div class="b-page-section project-photo-slider">
+    {% if images %}
+    <div class="b-slider slick">
+        {% for image in images %}
+        <div id="slide-id" class="b-slide m-white">
+            <div class="row e-content">
+                <img class="slider-img" src="./img/projects/{{image}}">
+            </div>
+        </div>
+        {% endfor %}
+    {% endif %}
+    </div>
+</div>
+
+
+
+<section>
+
+<div class="b-divider m-blue">
+    <div class="row">
+        <div class="large-5 columns large-offset-1">
+            {% if location %}
+            <h4>Location</h4>
+            <p>{{location}}</p>
+            {% endif %}
+            {% if www %}
+            <p><strong>Project Website:</strong> <a href="{{www}}" target="_blank" class="e-project-link">{{www}}</a></p>
+            {% endif %}
+
+            <div class="e-social-media">
+            <h4>Connect</h4>
+                {% if twitter %}
+                <a href="http://twitter.com/{{twitter | replace('@', '')}}" target="_blank" class=""><i class="fa fa-twitter"></i></a>
+                {% endif %}
+                {% if facebook %}
+                <a href="{{facebook}}" target="_blank" class=""><i class="fa fa-facebook"></i></a>
+                {% endif %}
+                {% if email %}
+                <a href="mailto:{{email}}" target="_blank" class=""><i class="fa fa-envelope"></i></a>
+                {% endif %}
+            </div>
+            <div class="e-tags">
+                <h4>Tags:</h4>
+                {% for tag in tags %}
+                <a href="../project-gallery.html#{{tag | slug | lower}}" class="e-tag">{{tag}}</a>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="large-5 columns">
+                {% if team %}
+                <div class="e-team">
+                    <h4>Team</h4>
+                    {% for person in team %}
+                        {% if person.url %}
+                            <p><a href="{{person.url}}" target="_blank">{{person.first_name}} {{person.last_name}}</a></p>
+                        {% else %}
+                            <p>{{person.first_name}} {{person.last_name}}</p>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                {% endif %}
+
+                {% if partners %}
+                <div class="e-team">
+                    <h4>Partners</h4>
+                    {% for partner in partners %}
+                            <p>{{partner}}</p>
+                    {% endfor %}
+                {% endif %}
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
