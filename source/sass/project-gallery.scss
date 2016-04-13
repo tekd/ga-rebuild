@@ -1,0 +1,152 @@
+.b-project-gallery-page {
+    .e-pg-card {
+      height: 300px;
+    }
+    .e-landing-section {
+        padding: 120px 0 30px;
+        text-align: center;
+        background-color: $black;
+
+        h2, h3 {
+            text-align: center;
+            color: $white;
+            font-weight: 100;
+        }
+
+        .b-title {
+            display: inline-block;
+            position: relative;
+
+            sup.e-beta {
+                position: absolute;
+                right: -50px;
+                top: 10px;
+                color: $white_30;
+                font-size: 18px;
+                text-transform: uppercase;
+            }
+        }
+
+        .e-sponsor {
+            font-size: 14px;
+            color: $white_30;
+            margin-top: 60px;
+
+            img {
+                max-height: 30px;
+                opacity: 1;
+                margin-left: 20px;
+            }
+        }
+    }
+}
+
+.b-project-list { padding: 40px 0; }
+
+.b-card.m-project {
+    width: 100%;
+    height: 200px;
+    padding-bottom: 100%;
+    position: relative;
+    perspective: 800px;
+
+    .e-card-inner {
+        width: 100%;
+        height: 100%;
+        transform-style: preserve-3d;
+        transition: transform 0.6s;
+        box-shadow: 0 0 6px $gray-10;
+    }
+
+    &:hover .e-card-inner {
+        transform: rotateY( 180deg );
+        box-shadow: 0 0 12px $gray-10;
+
+    }
+
+    .e-card-front,
+    .e-card-back {
+        margin: 0;
+        // position: absolute;
+        display: block;
+        width: 100%;
+        height: 100%;
+        display: inline-block;
+        backface-visibility: hidden;
+        padding: 20px;
+    }
+
+    .e-card-front {
+        background: $white;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 50%;
+
+    }
+
+    .e-card-back {
+        background: $white;
+        transform: rotateY( 180deg );
+    }
+
+    .m-no-logo .e-card-front {
+        background-image: url('/img/projects/logo-fallback.png');
+    }
+
+    .e-front-title {
+        text-align: center;
+        font-size: 16px;
+        position: absolute;
+        bottom: 20px;
+        left: 0;
+        width: 100%;
+
+    }
+
+    .e-project-title {
+        color: $black;
+        font-size: 18px;
+        position: relative;
+        text-transform: uppercase;
+        font-weight: 600;
+        z-index: 2;
+    }
+
+    .e-tagline {
+        color: $gray-80;
+        font-size: 14px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        padding: 20px;
+        z-index: 2;
+    }
+}
+
+.b-filter-ui {
+    button {
+        background-color: $gray_20;
+        font-size: 14px;
+        padding: 8px 16px;
+        margin-bottom: 14px;
+    }
+    button.m-selected {
+        background-color: $orange;
+    }
+}
+
+
+    .b-project-gallery-page {
+        .e-landing-section {
+            .b-title {
+                sup.e-beta {
+                    right: -40px;
+                    top: 5px;
+                    font-size: 14px;
+                }
+            }
+        }
+    
+}
+
+
