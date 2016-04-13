@@ -14,7 +14,7 @@ $(document).ready(function() {
     console.log(xml);
     var feedArray = $(xml).find("item");
     // one for now until slider is fixed
-    var topFourItems = feedArray.splice(0,4);
+    var topFourItems = feedArray.splice(0,1);
     var digestHtml = [];
     
     topFourItems.forEach(function(item, idx){;
