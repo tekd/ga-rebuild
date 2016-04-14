@@ -80,19 +80,19 @@
 
 
         {% if course.faculty_members %}
-        <div class="faculty">
-            {% for name in course.faculty_members %}
-            <h3> {%set person = name | returnPerson %}</h3>
-            {% if person.is_govlab %}
-            <div class="e-mini-profile m-purple" style="background-image:url(./img/faculty/{{person.name.first | slug}}-{{person.name.last | slug}}.jpg)">
-            {% endif %}
-            {% if not person.is_govlab %}
-            <div class="e-mini-profile m-orange" style="background-image:url(./img/faculty/{{person.name.first | slug}}-{{person.name.last | slug}}.jpg)">
-            {% endif %}
-            </div>
-            <div><span>{{person.name.first}} {{person.name.last}}</span></div>
-            {% endfor %}
-        </div>
+                <div class="faculty">
+                    {% for name in course.faculty_members %}
+                    <h3> {%set person = name | returnPerson %}</h3>
+                    {% if person.is_govlab %}
+                    <div class="e-mini-profile m-purple js-tooltip-trigger js-open-modal" data-open="#modal-{{person.name.slug}}" style="background-image:url(./img/faculty/{{person.name.first | slug}}-{{person.name.last | slug}}.jpg)">
+                    {% endif %}
+                    {% if not person.is_govlab %}
+                    <div class="e-mini-profile m-orange js-tooltip-trigger js-open-modal" data-open="#modal-{{person.name.slug}}" style="background-image:url(./img/faculty/{{person.name.first | slug}}-{{person.name.last | slug}}.jpg)">
+                    {% endif %}
+                    </div>
+                    <div><span>{{person.name.first}} {{person.name.last}}</span></div>
+                    {% endfor %}
+                </div>
         {% endif %}
 
 
@@ -162,19 +162,19 @@
             <!-- BEGIN FACULTY : CONVERT MACRO INTO SOMETHING WE CAN USE HERE-->
 
         {% if course.faculty_members %}
-        <div class="faculty">
-            {% for name in course.faculty_members %}
-            <h3> {%set person = name | returnPerson %}</h3>
-            {% if person.is_govlab %}
-            <div class="e-mini-profile m-purple" style="background-image:url(./img/faculty/{{person.name.first | slug}}-{{person.name.last | slug}}.jpg)">
-            {% endif %}
-            {% if not person.is_govlab %}
-            <div class="e-mini-profile m-orange" style="background-image:url(./img/faculty/{{person.name.first | slug}}-{{person.name.last | slug}}.jpg)">
-            {% endif %}
-            </div>
-            <div><span>{{person.name.first}} {{person.name.last}}</span></div>
-            {% endfor %}
-        </div>
+                <div class="faculty">
+                    {% for name in course.faculty_members %}
+                    <h3> {%set person = name | returnPerson %}</h3>
+                    {% if person.is_govlab %}
+                    <div class="e-mini-profile m-purple js-tooltip-trigger js-open-modal" data-open="#modal-{{person.name.slug}}" style="background-image:url(./img/faculty/{{person.name.first | slug}}-{{person.name.last | slug}}.jpg)">
+                    {% endif %}
+                    {% if not person.is_govlab %}
+                    <div class="e-mini-profile m-orange js-tooltip-trigger js-open-modal" data-open="#modal-{{person.name.slug}}" style="background-image:url(./img/faculty/{{person.name.first | slug}}-{{person.name.last | slug}}.jpg)">
+                    {% endif %}
+                    </div>
+                    <div><span>{{person.name.first}} {{person.name.last}}</span></div>
+                    {% endfor %}
+                </div>
         {% endif %}
 
 
@@ -199,6 +199,47 @@
 
     </div>
   </div>
+
+<!-- MODALS CONTENT -->
+      {% for person in people %}
+          <div class="b-modal" id="modal-{{person.name.slug}}">
+              <div class="e-content">
+                  <h2>{{person.name.first}} {{person.name.last}}</h2>
+                  <h3>{{person.job}}</h3>
+                  <img class="inner-card-image" src="./img/faculty/{{person.name.slug}}.jpg">
+                  {% if person.is_govlab %}
+                    <div class="social-media-buttons m-purple" class="row">
+                  {% endif %}
+                  {% if not person.is_govlab %}
+                    <div class="social-media-buttons m-orange" class="row">
+                  {% endif %}
+                    {% if person.link.url %}
+                      <a class="e-pop-button m-link" href="{{person.link.url}}"><i class="fa fa-external-link-square"></i></a>
+                    {% endif %}   
+                    {% if person.link.twitter %}
+                      <a class="e-pop-button m-twitter" href="{{person.link.twitter}}}"><i class="fa fa-twitter"></i></a>
+                    {% endif %}   
+                    {% if person.link.linkedin %}
+                      <a class="e-pop-button m-linkedin" href="{{person.link.linkedin}}"><i class="fa fa-linkedin"></i></a>
+                    {% endif %}  
+                    {% if person.link.github%}
+                      <a class="e-pop-button m-github" href="{{person.link.github}}"><i class="fa fa-github"></i></a>
+                    {% endif %}    
+                    {% if person.link.email %}
+                      <a class="e-pop-button m-email" href="mailto:{{person.link.email}}"><i class="fa fa-envelope"></i></a>
+                    {% endif %}   
+                  </div>
+                  <p>{{person.description | safe }}</p>
+                  <p class="e-buttons">
+                    <a class="b-button js-close-modal m-dark m-icon-only" href="#">Close</a>
+                    <a class="b-button js-close-modal m-naked m-icon-only" href="#"><i class="material-icons">close</i></a>
+                  </p>
+            </div>
+        </div>
+      {% endfor %}
+
+
+<!-- END MODALS CONTENT -->
 
 </section>
 
