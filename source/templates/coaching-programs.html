@@ -126,7 +126,12 @@
               <div class="faculty">
                   {% for name in course.faculty_members %}
                   <h3> {%set person = name | returnPerson %}</h3>
-                  <div class="e-mini-profile" style="background-image:url(./img/faculty/{{person.name.first | slug}}-{{person.name.last | slug}}.jpg)">
+                  {% if person.is_govlab %}
+                  <div class="e-mini-profile m-purple" style="background-image:url(./img/faculty/{{person.name.first | slug}}-{{person.name.last | slug}}.jpg)">
+                  {% endif %}
+                  {% if not person.is_govlab %}
+                  <div class="e-mini-profile m-orange" style="background-image:url(./img/faculty/{{person.name.first | slug}}-{{person.name.last | slug}}.jpg)">
+                  {% endif %}
                   </div>
                   <div><span>{{person.name.first}} {{person.name.last}}</span></div>
                   {% endfor %}
@@ -198,14 +203,19 @@
                   <h4 class="e-course-application"><span>Application due: </span> {{course.date.application}}</h4>
 
 
-                  <div class="faculty">
-                      {% for name in course.faculty_members %}
-                      <h3> {%set person = name | returnPerson %}</h3>
-                      <div class="e-mini-profile" style="background-image:url(./img/faculty/{{person.name.first | slug}}-{{person.name.last | slug}}.jpg)">
-                      </div>
-                      <div><span>{{person.name.first}} {{person.name.last}}</span></div>
-                      {% endfor %}
-                  </div>
+                <div class="faculty">
+                    {% for name in course.faculty_members %}
+                    <h3> {%set person = name | returnPerson %}</h3>
+                    {% if person.is_govlab %}
+                    <div class="e-mini-profile m-purple" style="background-image:url(./img/faculty/{{person.name.first | slug}}-{{person.name.last | slug}}.jpg)">
+                    {% endif %}
+                    {% if not person.is_govlab %}
+                    <div class="e-mini-profile m-orange" style="background-image:url(./img/faculty/{{person.name.first | slug}}-{{person.name.last | slug}}.jpg)">
+                    {% endif %}
+                    </div>
+                    <div><span>{{person.name.first}} {{person.name.last}}</span></div>
+                    {% endfor %}
+                </div>
 
             <!-- END FACULTY -->
 
