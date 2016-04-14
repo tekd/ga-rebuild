@@ -73,7 +73,7 @@
             <!-- END CERTIFICATIONS -->
 
             <div class="e-course-description">
-              <p>{{course.description_short}}</p>
+              <p>{{course.description_short | safe}}</p>
             </div>
 
               <!-- BEGIN FACULTY : CONVERT MACRO INTO SOMETHING WE CAN USE HERE-->
@@ -151,7 +151,7 @@
           <!-- END CERTIFICATIONS -->
 
           <div class="e-course-description">
-            <p>{{course.description_short}}</p>
+            <p>{{ course.description_short | safe }}</p>
           </div>
 
             <!-- BEGIN FACULTY : CONVERT MACRO INTO SOMETHING WE CAN USE HERE-->

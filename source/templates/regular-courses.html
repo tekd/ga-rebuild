@@ -51,7 +51,7 @@
 
                 <!-- COURSE DESC -->
                 <div class="e-course-description">
-                  <p>{{course.description_short}}</p>
+                  <p>{{ course.description_short | safe }}</p>
                 </div> <!-- END COURSE DESC -->
 
                 <!-- BEGIN FACULTY : CONVERT MACRO INTO SOMETHING WE CAN USE HERE-->
@@ -117,7 +117,7 @@
 
                 <!-- COURSE DESC -->
                 <div class="e-course-description">
-                  <p>{{course.description_short}}</p>
+                  <p>{{ course.description_short | safe }}</p>
                 </div> <!-- END COURSE DESC -->
 
                 <!-- BEGIN FACULTY : CONVERT MACRO INTO SOMETHING WE CAN USE HERE-->
