@@ -595,7 +595,7 @@
 # ==========================================================================================================================================================================================================================================#
 
 - name: "Sensing Our Environment towards Improving Our Lives"
-  is_active: false
+  is_active: true #set to true to match feed
   partner: 
   duration: 8 weeks
   apply:
@@ -635,7 +635,7 @@
 # ==========================================================================================================================================================================================================================================#
 
 - name: "OAS Fellowship Program 2016"
-  is_active: false
+  is_active: true #changed to true so content will feed to coaching programs page
   partner: 
   duration: 24 weeks
   apply:
