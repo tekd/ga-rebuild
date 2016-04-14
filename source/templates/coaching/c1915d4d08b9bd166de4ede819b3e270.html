@@ -140,12 +140,12 @@
       {% if more_info %}
       <h3>More Information</h3>
       {% for item in more_info %}
-        <p>{{item}}</p>
+        <p>{{ item | safe }}</p>
       {% endfor %}
-      <a href="./coaching-programs.html#faqs" class="e-button">FAQs</a>
+      <a href="./coaching-programs.html#faqs" class="b-button">FAQs<i class="material-icons">arrow_forward</i></a>
       {% else %}
         <h3>For more information</h3>
-        <a href="./coaching-programs.html#faqs" class="e-button">FAQs</a>
+        <a href="./coaching-programs.html#faqs" class="b-button">FAQs<i class="material-icons">arrow_forward</i></a>
       {% endif %}
     </div>
   </div>
