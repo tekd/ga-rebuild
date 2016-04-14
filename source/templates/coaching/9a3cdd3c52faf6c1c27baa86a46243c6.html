@@ -2,7 +2,6 @@
 
 {% block main %}
 
-<!-- {% set placeholder_course = data[3]%} -->
 
 <div class="b-divider m-project-coaching">
 </div>
@@ -101,7 +100,7 @@
 			<h3>{{passion.title}}</h3>
 			<ul class="b-list">
 				{% for item in passion.bullets %}
-					<li>{{item}}</li>
+					<li>{{ item | safe }}</li>
 				{% endfor %}
 			</ul>
 		</div>
@@ -115,7 +114,7 @@
 <div class="b-page-section">
   <div class="row">
     <div class="large-10 large-offset-1 columns end">
-			<p>{{description_long}}</p>
+			<p>{{description_long | safe}}</p>
 		</div>
 	</div>
 </div>
