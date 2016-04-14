@@ -7258,6 +7258,9 @@ code.m-negative {
 .e-logo:hover {
   text-decoration: none; }
 
+.govlab-digest .slick-track {
+  height: 500px; }
+
 #team .b-top-nav {
   background-color: #472b74; }
 
