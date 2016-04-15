@@ -8,75 +8,13 @@
         </div>
     </div>
 </header>
-<div class="b-project-list">
-  <div class="b-wrap row">
-    <div class="b-filter-ui">
-      <!-- single select -->
-      <form action="#" class="b-form">
-        <div class="e-select medium-6 medium-offset-3">
-          <select>
-            <option value="*">Select a project category...</option>
-            <option value=".open-data">Open Data</option>
-            <option value=".open-contracting">Open Contracting</option>
-            <option value=".data-analytics">Data Analytics</option>
-            <option value=".crowdsourcing">Crowdsourcing</option>
-            <option value=".collective-intelligence">Collective Intelligence</option>
-            <option value=".tech-procurement">Tech Procurement</option>
-            <option value=".citizen-engagement">Citizen Engagement</option>
-            <option value=".big-data">Big Data</option>
-            <option value=".agile-research">Agile Research</option>
-            <option value=".citizen-science">Citizen Science</option>
-            <option value=".humanitarian-innovation">Humanitarian Innovation</option>
-            <option value=".nudges">Nudges</option>
-            <option value=".communications">Communications</option>
-            <option value=".legal-innovation">Legal Innovation</option>
-            <option value=".open-source">Open Source</option>
-            <option value=".data-science">Data Science</option>
-            <option value=".service-design">Service Design</option>
-          </select>
-        </div>
-      </form>
 
-      <!-- multiple select -->
-<!--       <button class="m-clear-filters" data-filter="*">All</button>
-      <button data-filter=".open-data">Open Data</button>
-      <button data-filter=".open-contracting">Open Contracting</button>
-      <button data-filter=".data-analytics">Data Analytics</button>
-      <button data-filter=".crowdsourcing">Crowdsourcing</button>
-      <button data-filter=".collective-intelligence">Collective Intelligence</button>
-      <button data-filter=".tech-procurement">Tech Procurement</button>
-      <button data-filter=".citizen-engagement">Citizen Engagement</button>
-      <button data-filter=".big-data">Big Data</button>
-      <button data-filter=".agile-research">Agile Research</button>
-      <button data-filter=".citizen-science">Citizen Science</button>
-      <button data-filter=".humanitarian-innovation">Humanitarian Innovation</button>
-      <button data-filter=".nudges">Nudges</button>
-      <button data-filter=".communications">Communications</button>
-      <button data-filter=".legal-innovation">Legal Innovation</button>
-      <button data-filter=".open-source">Open Source</button>
-      <button data-filter=".data-science">Data Science</button>
-      <button data-filter=".service-design">Service Design</button> -->
-    </div>
-    <div class="b-filter">
-    <div class="row">
-    {% for card in project_gallery|sort(attribute='title') %}
-    <div class="e-pg-card column large-4 medium-6 b-filter-item {% for tag in card.tags %}{{tag | replace(' ', '-') | lower}} {% endfor %}">
-      <a href="./{{card.id}}-{{card.title | slug }}.html" class="b-card m-project">
-        <article class="e-card-inner {% if not card.logo %}m-no-logo{% endif %}">
-          <section class="e-card-front" {% if card.logo %}style="background-image: url('./img/projects/{{card.logo}}')"{% endif %}>
-            <p class="e-front-title">{% if card.short_title %}{{card.short_title }}{% else %}{{card.title }}{% endif %}</p>
-          </section>
 
-          <section class="e-card-back">
-            <p class="e-project-title">{{card.title}}</p>
-            <p class="e-tagline">{{card.tagline}}</p>
-          </section>
+<div class="b-page-section">
 
-        </article>
-      </a>
-    </div>
-    {% endfor %}
-    </div>
+{% include 'partials/faculty.html' %}
+
+</div>
 
 {% endblock %}
 
