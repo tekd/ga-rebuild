@@ -54,6 +54,8 @@ gulp.task('bs', function() {
 // define custom functions ///////////////////////////////////
 
 // converts string t to a slug (eg 'Some Text Here' becomes 'some-text-here')
+
+//Replacing diacritics before slugging so characters aren't removed
 function slugify(t) {
   return Diacritic.clean(t) ? Diacritic.clean(t.toString().toLowerCase())
   .replace(/\s+/g, '-')
@@ -268,31 +270,33 @@ gulp.task('yaml', function () {
   .pipe(gulp.dest('source/data'));
 });
 
-gulp.task('json', ['yaml'], function () {
+gulp.task('json', ['yaml'], function() {
   return gulp.src('source/data/**/*.json')
-  .pipe(intercept(function(file){
-    // wrap json in a top level property 'data'
+  .pipe(intercept(function(file) {
     var o = JSON.parse(file.contents.toString()),
     b = {};
-    b.data = o;
-    // assign a unique id to each entry in data
-    for (var j in b.data) {
-      if (!b.data[j].hasOwnProperty('id')) {
-        if (b.data[j].hasOwnProperty('title')) {
-          // use title to create hash if exists,
-          b.data[j].id = md5(b.data[j].title);
-          // otherwise use first prop
-        } else {
-          b.data[j].id = md5(b.data[j][Object.keys(b.data[j])[0]]);
+    if (!o.hasOwnProperty('data')) {
+        // wrap json in a top level property 'data'
+        b.data = o;
+        // assign a unique id to each entry in data
+        for (var j in b.data) {
+          if (!b.data[j].hasOwnProperty('id')) {
+            if (b.data[j].hasOwnProperty('title')) {
+              // use title to create hash if exists,
+              b.data[j].id = md5(b.data[j].title);
+              // otherwise use first prop
+            } else {
+              b.data[j].id = md5(b.data[j][Object.keys(b.data[j])[0]]);
+            }
+          }
         }
+        if (cliOptions.verbose) {
+          util.log(util.colors.magenta('Converting yaml ' + file.path), 'to json as', util.colors.blue(JSON.stringify(b)));
+        }
+        file.contents = new Buffer(JSON.stringify(b));
       }
-    }
-    if (cliOptions.verbose) {
-      util.log(util.colors.magenta('Converting yaml ' + file.path), 'to json as', util.colors.blue(JSON.stringify(b)));
-    }
-    file.contents = new Buffer ( JSON.stringify(b) );
-    return file;
-  }))
+      return file;
+    }))
   .pipe(gulp.dest('source/data'));
 });
 
@@ -315,7 +319,10 @@ gulp.task('nunjucks', ['generateTemplates'], function() {
             util.log(util.colors.green('Found Generated Template ' + file.path), ': using', JSON.stringify(generatedData[datasetName][i]));
           }
           // return data matching id in dataset datasetName
-          return generatedData[datasetName][i];
+          var d = generatedData[datasetName][i];
+          // add all datasets as special prop $global
+          d.$global = generatedData;
+          return d;
         }
       }
     }
