@@ -1,3 +1,4 @@
+{% import 'macros/faculty-macro.html' as 'profile' %}
 {% extends '_base.html' %}
 {% block main %}
 
@@ -67,18 +68,7 @@
     <div class="row">
       <div class="large-11 large-offset-1 columns end">
       {% for person in people %}
-        {% if person.is_govlab %}
-          <div class="e-card m-purple js-tooltip-trigger js-open-modal" data-open="#modal-{{person.name.slug}}">
-        {% endif %}
-        {% if not person.is_govlab %}
-          <div class="e-card m-orange js-tooltip-trigger js-open-modal" data-open="#modal-{{person.name.slug}}">
-        {% endif %}
-          <div class="e-card-inner">
-          <div class="e-card-image" style="background-image: url('./img/faculty/{{person.name.slug}}.jpg')"></div>
-            <p class="e-card-name">{{person.name.first}} {{person.name.last}}</p>
-            <p class="e-card-description">{{person.job}}</p>
-          </div>
-        </div>
+        {{profile.createFacultyModal(person.is_govlab, person.name.slug, person.name.first, person.name.last, person.job)}}
       {% endfor %}
       </div>
     </div>
