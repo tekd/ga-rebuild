@@ -1,3 +1,4 @@
+{% import 'macros/faculty-macro.html' as 'profile' %}
 {% extends '_base.html' %}
 {% block main %}
 
@@ -67,63 +68,17 @@
     <div class="row">
       <div class="large-11 large-offset-1 columns end">
       {% for person in people %}
-        {% if person.is_govlab %}
-          <div class="e-card m-purple js-tooltip-trigger js-open-modal" data-open="#modal-{{person.name.slug}}">
-        {% endif %}
-        {% if not person.is_govlab %}
-          <div class="e-card m-orange js-tooltip-trigger js-open-modal" data-open="#modal-{{person.name.slug}}">
-        {% endif %}
-          <div class="e-card-inner">
-          <div class="e-card-image" style="background-image: url('./img/faculty/{{person.name.slug}}.jpg')"></div>
-            <p class="e-card-name">{{person.name.first}} {{person.name.last}}</p>
-            <p class="e-card-description">{{person.job}}</p>
-          </div>
-        </div>
+        {{profile.createFacultyModal(person.is_govlab, person.name.slug, person.name.first, person.name.last, person.job)}}
       {% endfor %}
       </div>
     </div>
   </div>
 </section>
 
-<section>
-<!-- MODALS CONTENT -->
-      {% for person in people %}
-          <div class="b-modal" id="modal-{{person.name.slug}}">
-              <div class="e-content">
-                  <h2>{{person.name.first}} {{person.name.last}}</h2>
-                  <h3>{{person.job}}</h3>
-                  <img class="inner-card-image" src="./img/faculty/{{person.name.slug}}.jpg">
-                  {% if person.is_govlab %}
-                    <div class="social-media-buttons m-purple" class="row">
-                  {% endif %}
-                  {% if not person.is_govlab %}
-                    <div class="social-media-buttons m-orange" class="row">
-                  {% endif %}
-                    {% if person.link.url %}
-                      <a class="e-pop-button m-link" href="{{person.link.url}}"><i class="fa fa-external-link-square"></i></a>
-                    {% endif %}   
-                    {% if person.link.twitter %}
-                      <a class="e-pop-button m-twitter" href="{{person.link.twitter}}}"><i class="fa fa-twitter"></i></a>
-                    {% endif %}   
-                    {% if person.link.linkedin %}
-                      <a class="e-pop-button m-linkedin" href="{{person.link.linkedin}}"><i class="fa fa-linkedin"></i></a>
-                    {% endif %}  
-                    {% if person.link.github%}
-                      <a class="e-pop-button m-github" href="{{person.link.github}}"><i class="fa fa-github"></i></a>
-                    {% endif %}    
-                    {% if person.link.email %}
-                      <a class="e-pop-button m-email" href="mailto:{{person.link.email}}"><i class="fa fa-envelope"></i></a>
-                    {% endif %}   
-                  </div>
-                  <p>{{person.description | safe }}</p>
-                  <p class="e-buttons">
-                    <a class="b-button js-close-modal m-dark m-icon-only" href="#">Close</a>
-                    <a class="b-button js-close-modal m-naked m-icon-only" href="#"><i class="material-icons">close</i></a>
-                  </p>
-            </div>
-        </div>
-      {% endfor %}
-  <!-- Modals END -->
-</section>
+
+    <!-- MODALS CONTENT -->
+    {% include 'partials/faculty.html' %}
+    <!-- END MODALS CONTENT-->
+
 
 {% endblock %}

@@ -1,3 +1,4 @@
+{% import 'macros/course-card-macro.html' as courseCard %}
 {% extends '_base.html' %}
 {% block main %}
 
@@ -34,70 +35,8 @@
       {% for course in workshops %}
       {% if not course.is_crosslisted %}
         <div class="b-course-card m-blue">
-        <div class="e-course-card">
-          <!-- {% if course.is_active and not course.outdated %} -->
-            {% if course.date %}
-            <h4>{{course.date}}</h4> 
-            {% endif %}
+          {{courseCard.createCourseCard(course)}}
 
-
-            <div class="row"> <!-- namediv -->
-              <div class="large-7 columns">
-                <h3 class="e-course-name">{{course.name}}</h3>
-              </div>
-              <!-- BEGIN CERTIFICATIONS -->
-              <div class="large-3 large-offset-1 columns">
-                {% if not course.is_crosslisted %}
-                  <div class="b-course-list-item m-workshop m-crosslisted-{{course.is_crosslisted}}"></div>
-                {% endif %}
-                    <div class="e-certifications">
-                      {% if course.certificates.blended %}
-                        <img src="./img/icons/icons-blended.png" title="Blended Course" class="e-course-icons m-blended">
-                      {% endif %}
-                    {% if course.certificates.online %}
-                      <img src="./img/icons/icons-online.png" title="Online Course" class="e-course-icons m-online">
-                    {% endif %}
-                    {% if course.certificates.in_person %}
-                      <img src="./img/icons/icons-in-person.png" title="In Person Course" class="e-course-icons m-in-person">
-                    {% endif %}
-                    {% if course.certificates.for_certificate %}
-                      <a href="./about.html#badges"><img src="./img/icons/icons-certification.png" title="For Certification Course" class="e-course-icons m-certification"></a>
-                    {% endif %}
-                    {% if course.certificates.for_credit %}
-                      <img src="./img/icons/icons-credit.png" title="For Credit Course" class="e-course-icons m-credit">
-                    {% endif %}
-                  </div> <!--  end cert div -->
-                </div> <!-- end crosslist div -->
-              </div> <!--  end offset div -->
-            </div> <!-- end crosslist div -->
-            <!-- END CERTIFICATIONS -->
-
-            <div class="e-course-description">
-              <p>{{course.description_short | safe}}</p>
-            </div>
-
-              <!-- BEGIN FACULTY : CONVERT MACRO INTO SOMETHING WE CAN USE HERE-->
-
-
-        {% if course.faculty_members %}
-                <div class="faculty">
-                    {% for name in course.faculty_members %}
-                    <h3> {%set person = name | returnPerson %}</h3>
-                    {% if person.is_govlab %}
-                    <div class="e-mini-profile m-purple js-tooltip-trigger js-open-modal" data-open="#modal-{{person.name.slug}}" style="background-image:url(./img/faculty/{{person.name.first | slug}}-{{person.name.last | slug}}.jpg)">
-                    {% endif %}
-                    {% if not person.is_govlab %}
-                    <div class="e-mini-profile m-orange js-tooltip-trigger js-open-modal" data-open="#modal-{{person.name.slug}}" style="background-image:url(./img/faculty/{{person.name.first | slug}}-{{person.name.last | slug}}.jpg)">
-                    {% endif %}
-                    </div>
-                    <div><span>{{person.name.first}} {{person.name.last}}</span></div>
-                    {% endfor %}
-                </div>
-        {% endif %}
-
-
-
-        <!-- END FACULTY -->
             {% if course.actions %}
               {% for action in course.actions %}
                 <a class="b-button" href="{{action.link}}">{{action.label}}</a>
@@ -108,91 +47,27 @@
             <h5 class="e-partner">{{course.partner}}</h5>
             {% endif %}
 
-
             </div>
-            {% endif %}
           {% endif %}
         {% endfor %}
 
       <h3>Workshops offered by partner organizations</h3>
-            {% for course in workshops %}
-              {% if course.is_crosslisted %}
-      <div class="b-course-card m-blue">
-      <div class="e-course-card">
-        <!-- {% if course.is_active and not course.outdated %} -->
-          {% if course.date %}
-            <h4>{{course.date}}</h4> 
-          {% endif %}
+        {% for course in workshops %}
+          {% if course.is_crosslisted %}
+          <div class="b-course-card m-blue">
+            {{courseCard.createCourseCard(course)}}
+     
+            {% if course.actions %}
+              {% for action in course.actions %}
+                <a class="b-button" href="{{action.link}}">{{action.label}}</a>
+              {% endfor %}
+            {% endif %}
 
-          <div class="row"> <!-- namediv -->
-            <div class="large-7 columns">
-              <h3 class="e-course-name">{{course.name}}</h3>
-            </div>
-            <!-- BEGIN CERTIFICATIONS -->
-            <div class="large-3 large-offset-1 columns">
-              {% if not course.is_crosslisted %}
-                <div class="b-course-list-item m-workshop m-crosslisted-{{course.is_crosslisted}}"></div>
-              {% endif %}
-                  <div class="e-certifications">
-                    {% if course.certificates.blended %}
-                      <img src="./img/icons/icons-blended.png" title="Blended Course" class="e-course-icons m-blended">
-                    {% endif %}
-                  {% if course.certificates.online %}
-                    <img src="./img/icons/icons-online.png" title="Online Course" class="e-course-icons m-online">
-                  {% endif %}
-                  {% if course.certificates.in_person %}
-                    <img src="./img/icons/icons-in-person.png" title="In Person Course" class="e-course-icons m-in-person">
-                  {% endif %}
-                  {% if course.certificates.for_certificate %}
-                    <a href="./about.html#badges"><img src="./img/icons/icons-certification.png" title="For Certification Course" class="e-course-icons m-certification"></a>
-                  {% endif %}
-                  {% if course.certificates.for_credit %}
-                    <img src="./img/icons/icons-credit.png" title="For Credit Course" class="e-course-icons m-credit">
-                  {% endif %}
-                </div> <!--  end cert div -->
-              </div> <!-- end crosslist div -->
-            </div> <!--  end offset div -->
-          </div> <!-- end crosslist div -->
-          <!-- END CERTIFICATIONS -->
-
-          <div class="e-course-description">
-            <p>{{ course.description_short | safe }}</p>
-          </div>
-
-            <!-- BEGIN FACULTY : CONVERT MACRO INTO SOMETHING WE CAN USE HERE-->
-
-        {% if course.faculty_members %}
-                <div class="faculty">
-                    {% for name in course.faculty_members %}
-                    <h3> {%set person = name | returnPerson %}</h3>
-                    {% if person.is_govlab %}
-                    <div class="e-mini-profile m-purple js-tooltip-trigger js-open-modal" data-open="#modal-{{person.name.slug}}" style="background-image:url(./img/faculty/{{person.name.first | slug}}-{{person.name.last | slug}}.jpg)">
-                    {% endif %}
-                    {% if not person.is_govlab %}
-                    <div class="e-mini-profile m-orange js-tooltip-trigger js-open-modal" data-open="#modal-{{person.name.slug}}" style="background-image:url(./img/faculty/{{person.name.first | slug}}-{{person.name.last | slug}}.jpg)">
-                    {% endif %}
-                    </div>
-                    <div><span>{{person.name.first}} {{person.name.last}}</span></div>
-                    {% endfor %}
-                </div>
-        {% endif %}
-
-
-
-      <!-- END FACULTY -->
-          {% if course.actions %}
-            {% for action in course.actions %}
-              <a class="b-button" href="{{action.link}}">{{action.label}}</a>
-            {% endfor %}
-          {% endif %}
-
-          {% if course.partner %}
-          <h5 class="e-partner">{{course.partner}}</h5>
-          {% endif %}
+            {% if course.partner %}
+            <h5 class="e-partner">{{course.partner}}</h5>
+            {% endif %}
 
           </div>
-
-        {% endif %}
         {% endif %}
         {% endfor %}
       </div>
@@ -200,46 +75,8 @@
     </div>
   </div>
 
-<!-- MODALS CONTENT -->
-      {% for person in people %}
-          <div class="b-modal" id="modal-{{person.name.slug}}">
-              <div class="e-content">
-                  <h2>{{person.name.first}} {{person.name.last}}</h2>
-                  <h3>{{person.job}}</h3>
-                  <img class="inner-card-image" src="./img/faculty/{{person.name.slug}}.jpg">
-                  {% if person.is_govlab %}
-                    <div class="social-media-buttons m-purple" class="row">
-                  {% endif %}
-                  {% if not person.is_govlab %}
-                    <div class="social-media-buttons m-orange" class="row">
-                  {% endif %}
-                    {% if person.link.url %}
-                      <a class="e-pop-button m-link" href="{{person.link.url}}"><i class="fa fa-external-link-square"></i></a>
-                    {% endif %}   
-                    {% if person.link.twitter %}
-                      <a class="e-pop-button m-twitter" href="{{person.link.twitter}}}"><i class="fa fa-twitter"></i></a>
-                    {% endif %}   
-                    {% if person.link.linkedin %}
-                      <a class="e-pop-button m-linkedin" href="{{person.link.linkedin}}"><i class="fa fa-linkedin"></i></a>
-                    {% endif %}  
-                    {% if person.link.github%}
-                      <a class="e-pop-button m-github" href="{{person.link.github}}"><i class="fa fa-github"></i></a>
-                    {% endif %}    
-                    {% if person.link.email %}
-                      <a class="e-pop-button m-email" href="mailto:{{person.link.email}}"><i class="fa fa-envelope"></i></a>
-                    {% endif %}   
-                  </div>
-                  <p>{{person.description | safe }}</p>
-                  <p class="e-buttons">
-                    <a class="b-button js-close-modal m-dark m-icon-only" href="#">Close</a>
-                    <a class="b-button js-close-modal m-naked m-icon-only" href="#"><i class="material-icons">close</i></a>
-                  </p>
-            </div>
-        </div>
-      {% endfor %}
+    {% include 'partials/faculty.html' %}
 
-
-<!-- END MODALS CONTENT -->
 
 </section>
 

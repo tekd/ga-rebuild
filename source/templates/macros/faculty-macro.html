@@ -1,0 +1,10 @@
+{% macro createFacultyModal(isGovLab, nameSlug, firstName, lastName, job) %}
+  {% if isGovLab %} <div class="e-card m-purple js-tooltip-trigger js-open-modal" data-open="#modal-{{nameSlug}}"> {% endif %}
+  {% if not isGovLab %} <div class="e-card m-orange js-tooltip-trigger js-open-modal" data-open="#modal-{{nameSlug}}">  {% endif %}
+    <div class="e-card-inner">
+    <div class="e-card-image" style="background-image: url('./img/faculty/{{nameSlug}}.jpg')"></div>
+      <p class="e-card-name">{{firstName}} {{lastName}}</p>
+      <p class="e-card-description">{{job}}</p>
+    </div>
+  </div>
+{% endmacro %}
