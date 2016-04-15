@@ -1,0 +1,62 @@
+{% macro createCourseCard(course) %}
+
+  <div class="e-course-card">
+    {% if course.date %}
+    <h4><span>Starts the week of </span>{{course.date.start}}</h4> 
+    {% endif %} 
+
+    <div class="row"> 
+      <div class="large-7 columns">
+        <h3 class="e-course-name">{{course.name}}</h3>
+      </div>
+      <!-- BEGIN CERTIFICATIONS -->
+      <div class="large-3 large-offset-1 columns">
+        {% if course.certificates.blended %}
+          <img src="./img/icons/icons-blended.png" title="Blended Course" class="e-course-icons m-blended">
+        {% endif %}
+
+        {% if course.certificates.online %}
+          <img src="./img/icons/icons-online.png" title="Online Course" class="e-course-icons m-online">
+        {% endif %}
+
+        {% if course.certificates.in_person %}
+          <img src="./img/icons/icons-in-person.png" title="In Person Course" class="e-course-icons m-in-person">
+        {% endif %}
+
+        {% if course.certificates.for_certificate %}
+          <a href="./about.html#badges"><img src="./img/icons/icons-certification.png" title="For Certification Course" class="e-course-icons m-certification"></a>
+        {% endif %}
+        {% if course.certificates.for_credit %}
+          <img src="./img/icons/icons-credit.png" title="For Credit Course" class="e-course-icons m-credit">
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="e-course-description">
+      <p>{{course.description_short | safe}}</p>
+    </div>
+
+    {%if course.date.application%}
+      <h4 class="e-course-application"><span>Application due: </span> {{course.date.application}}</h4>
+    {% endif %}
+
+    <div class="faculty">
+      {% for name in course.faculty_members %}
+        <h3> {%set person = name | returnPerson %}</h3>
+      {% if person.is_govlab %}
+        <div class="e-mini-profile m-purple js-tooltip-trigger js-open-modal" data-open="#modal-{{person.name.slug}}" style="background-image:url(./img/faculty/{{person.name.first | slug}}-{{person.name.last | slug}}.jpg)">
+      {% endif %}
+      {% if not person.is_govlab %}
+        <div class="e-mini-profile m-orange js-tooltip-trigger js-open-modal" data-open="#modal-{{person.name.slug}}" style="background-image:url(./img/faculty/{{person.name.first | slug}}-{{person.name.last | slug}}.jpg)">
+      {% endif %}
+      </div>
+        <div><span>{{person.name.first}} {{person.name.last}}</span></div>
+      {% endfor %}
+    </div>
+</div>
+
+
+
+{% endmacro %}
+
+

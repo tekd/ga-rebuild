@@ -1,3 +1,4 @@
+{% import 'macros/course-card-macro.html' as courseCard %}
 {% extends '_base.html' %}
 {% block main %}
 
@@ -79,175 +80,52 @@
     <div class="row">
       <div class="large-10 large-offset-1 columns end">
       <h2>Current Courses</h2>
-    <!-- NEED TO SORT COACHING PROGRAMS BY DATE -->
-    <!-- NEED TO DEFINE START 'DATE' AND 'OUTDATED' -->
+
         {% for course in coaching | sortJsonAscByDate %}
             {% if course.is_active and not course.date.start | isOutdated %}
         <div class="b-course-card m-blue">
-          <div class="e-course-card">
-                  {% if course.date %}
-                  <h4><span>Starts the week of </span>{{course.date.start}}</h4> 
-                  <!-- {% endif %} -->
-                <div class="row"> <!-- namediv -->
-                  <div class="large-7 columns">
-                    <h3 class="e-course-name">{{course.name}}</h3>
-                  </div>
-          <!-- BEGIN CERTIFICATIONS -->
-                  <div class="large-3 large-offset-1 columns">
-                      {% if course.certificates.blended %}
-                        <img src="./img/icons/icons-blended.png" title="Blended Course" class="e-course-icons m-blended">
-                      {% endif %}
-
-                      {% if course.certificates.online %}
-                        <img src="./img/icons/icons-online.png" title="Online Course" class="e-course-icons m-online">
-                      {% endif %}
-
-                      {% if course.certificates.in_person %}
-                        <img src="./img/icons/icons-in-person.png" title="In Person Course" class="e-course-icons m-in-person">
-                      {% endif %}
-
-                      {% if course.certificates.for_certificate %}
-                        <a href="./about.html#badges"><img src="./img/icons/icons-certification.png" title="For Certification Course" class="e-course-icons m-certification"></a>
-                      {% endif %}
-                      {% if course.certificates.for_credit %}
-                        <img src="./img/icons/icons-credit.png" title="For Credit Course" class="e-course-icons m-credit">
-                      {% endif %}
-                      </div>
+            {{courseCard.createCourseCard(course)}}
+            {% if course.actions %}
+              {% for button in course.actions %}
+                <div class="row">
+                  <div class="large-10 columns end">
+                    <a href="{{course.id + ".html"}}" class="b-button">More Info<i class="material-icons">arrow_forward</i></a>
                 </div>
-              </div> <!-- end namediv -->
-    <!-- END CERTIFICATIONS -->
-              <div class="e-course-description">
-                <p>{{course.description_short | safe}}</p>
-              </div>
-
-              <h4 class="e-course-application"><span>Application due: </span> {{course.date.application}}</h4>
-
-
-              <div class="faculty">
-                  {% for name in course.faculty_members %}
-                  <h3> {%set person = name | returnPerson %}</h3>
-                  {% if person.is_govlab %}
-                  <div class="e-mini-profile m-purple js-tooltip-trigger js-open-modal" data-open="#modal-{{person.name.slug}}" style="background-image:url(./img/faculty/{{person.name.first | slug}}-{{person.name.last | slug}}.jpg)">
-                  {% endif %}
-                  {% if not person.is_govlab %}
-                  <div class="e-mini-profile m-orange js-tooltip-trigger js-open-modal" data-open="#modal-{{person.name.slug}}" style="background-image:url(./img/faculty/{{person.name.first | slug}}-{{person.name.last | slug}}.jpg)">
-                  {% endif %}
-                  </div>
-                  <div><span>{{person.name.first}} {{person.name.last}}</span></div>
-                  {% endfor %}
-              </div>
-
-        <!-- END FACULTY -->
-
-        <!-- BEGIN COURSE ACTIONS and GET RID OF DEPENDENCY ON THE ACTION.LINK TO GET THE APPROPRIATE PAGE STYLE BUTTON AND MAKE SURE PAGES BEING RENDERED HAVE THE PROPER URL-->
-          {% if course.actions %}
-            {% for button in course.actions %}
-              <div class="row">
-                <div class="large-10 columns end">
-                  <a href="{{course.id + ".html"}}" class="b-button">More Info <i class="material-icons">arrow_forward</i></a>
-              </div>
-              </div>
-            {% endfor %}
-          {% endif %}
-        <!-- END COURSE ACTIONS -->
-
-          {% if course.partner %}
-            <h5 class="e-partner">{{course.partner}}</h5>
-          {% endif %}
-          
-            </div>
-
+                </div>
+              {% endfor %}
+            {% endif %}
+        </div>
           {% endif %}
         {% endfor %}
 
       <h3>Past Courses</h3>
-            {% for course in coaching  | sortJsonDescByDate %}
-                {% if course.is_active and course.date.start | isOutdated %}
-            <div class="b-course-card m-blue">
-              <div class="e-course-card">
-                      {% if course.date %}
-                      <h4><span>Starts the week of </span>{{course.date.start}}</h4> 
-                      <!-- {% endif %} -->
-                    <div class="row"> <!-- namediv -->
-                      <div class="large-7 columns">
-                        <h3 class="e-course-name">{{course.name}}</h3>
-                      </div>
-              <!-- BEGIN CERTIFICATIONS -->
-                      <div class="large-3 large-offset-1 columns">
-                          {% if course.certificates.blended %}
-                            <img src="./img/icons/icons-blended.png" title="Blended Course" class="e-course-icons m-blended">
-                          {% endif %}
-
-                          {% if course.certificates.online %}
-                            <img src="./img/icons/icons-online.png" title="Online Course" class="e-course-icons m-online">
-                          {% endif %}
-
-                          {% if course.certificates.in_person %}
-                            <img src="./img/icons/icons-in-person.png" title="In Person Course" class="e-course-icons m-in-person">
-                          {% endif %}
-
-                          {% if course.certificates.for_certificate %}
-                            <a href="./about.html#badges"><img src="./img/icons/icons-certification.png" title="For Certification Course" class="e-course-icons m-certification"></a>
-                          {% endif %}
-                          {% if course.certificates.for_credit %}
-                            <img src="./img/icons/icons-credit.png" title="For Credit Course" class="e-course-icons m-credit">
-                          {% endif %}
-                          </div>
-                    </div>
-                  </div> <!-- end namediv -->
-        <!-- END CERTIFICATIONS -->
-                  <div class="e-course-description">
-                    <p>{{course.description_short | safe}}</p>
-                  </div>
-
-                  <h4 class="e-course-application"><span>Application due: </span> {{course.date.application}}</h4>
-
-
-              <div class="faculty">
-                    {% for name in course.faculty_members %}
-                    <h3> {%set person = name | returnPerson %}</h3>
-                    {% if person.is_govlab %}
-                    <div class="e-mini-profile m-purple js-tooltip-trigger js-open-modal" data-open="#modal-{{person.name.slug}}" style="background-image:url(./img/faculty/{{person.name.first | slug}}-{{person.name.last | slug}}.jpg)">
-                    {% endif %}
-                    {% if not person.is_govlab %}
-                    <div class="e-mini-profile m-orange js-tooltip-trigger js-open-modal" data-open="#modal-{{person.name.slug}}" style="background-image:url(./img/faculty/{{person.name.first | slug}}-{{person.name.last | slug}}.jpg)">
-                    {% endif %}
-                    </div>
-                    <div><span>{{person.name.first}} {{person.name.last}}</span></div>
-                    {% endfor %}
+        {% for course in coaching  | sortJsonDescByDate %}
+            {% if course.is_active and course.date.start | isOutdated %}
+          <div class="b-course-card m-blue">
+            {{courseCard.createCourseCard(course)}}
+            {% if course.actions %}
+              {% for button in course.actions %}
+                <div class="row">
+                  <div class="large-10 columns end">
+                    <a href="{{course.id + ".html"}}" class="b-button">More Info<i class="material-icons">arrow_forward</i></a>
                 </div>
-
-
-            <!-- END FACULTY -->
-
-            <!-- BEGIN COURSE ACTIONS and GET RID OF DEPENDENCY ON THE ACTION.LINK TO GET THE APPROPRIATE PAGE STYLE BUTTON AND MAKE SURE PAGES BEING RENDERED HAVE THE PROPER URL-->
-              {% if course.actions %}
-                {% for button in course.actions %}
-                  <div class="row">
-                    <div class="large-10 columns end">
-                      <a href="{{course.id + ".html"}}" class="b-button">More Info <i class="material-icons">arrow_forward</i></a>
-                  </div>
-                  </div>
-                {% endfor %}
-              {% endif %}
-            <!-- END COURSE ACTIONS -->
-
-              {% if course.partner %}
-                <h5 class="e-partner">{{course.partner}}</h5>
-              {% endif %}
-              
                 </div>
+              {% endfor %}
+            {% endif %}
+    <!-- END COURSE ACTIONS -->
+            {% if course.partner %}
+              <h5 class="e-partner">{{course.partner}}</h5>
+            {% endif %}
+            </div>
+            {% endif %}
 
-              {% endif %}
-            {% endfor %}
+        {% endfor %}
 
-    <!-- END PAST COURSES -->
-  <a href="./faqs.html" class="b-button">FAQs<i class="material-icons">arrow_forward</i></a>
+        <a href="./faqs.html" class="b-button">FAQs<i class="material-icons">arrow_forward</i></a>
         </div>
       </div>
     </div>
   </div>
-
 
 
     <!-- MODALS CONTENT -->

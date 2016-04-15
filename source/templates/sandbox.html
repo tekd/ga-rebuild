@@ -1,3 +1,5 @@
+{% import 'macros/course-card-macro.html' as courseCard %}
+
 {% extends '_base.html' %}
 {% block main %}
 
@@ -11,10 +13,9 @@
 
 
 <div class="b-page-section">
-
-{% include 'partials/faculty.html' %}
-
+{% for course in coaching %}
+  {{courseCard.createCourseCard(course)}}
+{% endfor %}
 </div>
 
 {% endblock %}
-
