@@ -72,7 +72,7 @@ function returnPerson(p) {
     if (fullName === p) {
       person = peopleJSON.data[i];
     } else {
-      console.log("Person not found");
+      // console.log("Person not found");
     }
   }
   return person;
