@@ -42,7 +42,12 @@
 
     <div class="faculty">
       {% for name in course.faculty_members %}
-        <h3> {%set person = name | returnPerson %}</h3>
+
+        {%set person = name | returnPerson %}
+
+     {%if not person %} <span> {{ name }} </span> {%endif%}
+
+     {% if person %}
       {% if person.is_govlab %}
         <div class="e-mini-profile m-purple js-tooltip-trigger js-open-modal" data-open="#modal-{{person.name.slug}}" style="background-image:url(./img/faculty/{{person.name.first | slug}}-{{person.name.last | slug}}.jpg)">
       {% endif %}
@@ -51,6 +56,7 @@
       {% endif %}
       </div>
         <div><span>{{person.name.first}} {{person.name.last}}</span></div>
+        {% endif %}
       {% endfor %}
     </div>
 </div>
