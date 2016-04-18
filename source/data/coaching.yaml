@@ -477,7 +477,7 @@
 # ==========================================================================================================================================================================================================================================#
   
 - name: "Open Contracting Projects"
-  is_active: false
+  is_active: true # check with team - changed to ttrue
   partner: 
   duration: 8 weeks
   apply:
@@ -509,7 +509,6 @@
     in_person: false
     for_credit: false
     for_certificate: true
-  # is_active: true #check with team
   when: "TBD"
   when_plus: 
   format: 
@@ -517,7 +516,7 @@
 # ==========================================================================================================================================================================================================================================#
 
 - name: "OAS Fellowship Program"
-  is_active: false
+  is_active: true #check with team - changed to true
   partner: 
   duration: 8 weeks
   date:
@@ -545,7 +544,6 @@
     in_person: false
     for_credit: false
     for_certificate: true
-  # is_active: true #check with team
   when: "TBD"
   when_plus: 
   format: "1 faculty-led session every month for 2 hours (one hour is with a guest expert and one hour is an all-group session); and a personalized schedule of peer-to-peer and one-on-one coaching sessions."
@@ -553,7 +551,7 @@
 # ==========================================================================================================================================================================================================================================#
 
 - name: "Data Collaboratives"
-  is_active: false
+  is_active: true #check with team
   partner: 
   duration: 8 weeks
   apply:
@@ -587,7 +585,6 @@
     in_person: false
     for_credit: false
     for_certificate: true
-  # is_active: true #check with team
   when: "TBD"
   when_plus: 
   format: "1 faculty-led session every other week for 2 hours (one hour is with a guest expert and one hour is an all-group session); and a personalized schedule of peer-to-peer and one-on-one coaching sessions."
