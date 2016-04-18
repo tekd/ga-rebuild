@@ -43,8 +43,7 @@
     <div class="faculty">
       {% for name in course.faculty_members %}
 
-
-        <h3> {%set person = name | returnPerson %}</h3>
+        {%set person = name | returnPerson %}
 
      {%if not person %} <span> {{ name }} </span> {%endif%}
 
